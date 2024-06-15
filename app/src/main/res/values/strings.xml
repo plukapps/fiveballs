@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+	<string name="app_name">FiveBalls</string>
+
+	<string name="fb_name">FiveBalls</string>
+	<string name="fb_version_name">2.0.3</string>
+	<string name="fb_company_rights">&#174; Mautibla 2012</string>
+    <string name="fb_website_url">http://fiveballs.androiduy.com</string>
+
+	<string name="fb_play">Play</string>
+	<string name="fb_play_rate_app">Rate this app</string>
+
+	<string name="fb_common_button_accept">Ok</string>
+    <string name="fb_common_button_cancel">Cancel</string>
+    <string name="fb_common_loading_message">Please wait…</string>
+
+    <string name="fb_main_game">Game</string>
+    <string name="fb_main_scores">Scores</string>
+	<string name="fb_main_share">Share</string>
+	<string name="fb_main_invalid_move">Cannot move the ball to that position</string>
+	<string name="fb_main_share_msg">I\'m playing Fiveballs in my android, try it, you\'ll like.</string>
+
+	<string name="fb_new_game">New Game</string>
+	<string name="fb_new_game_msg">Do you want to start a new game?</string>
+
+	<string name="fb_upload_score">New Score</string>
+    <string name="fb_upload_score_gameover">Game Over</string>
+    <string name="fb_upload_score_game">Your score is</string>
+    <string name="fb_upload_score_enter_name">Enter your name</string>
+    <string name="fb_upload_score_upload">Upload</string>
+    <string name="fb_upload_score_empty_name">The name entered is empty</string>
+    <string name="fb_upload_score_error">We were unable to submit your score. Please check your internet connection and try again.</string>
+
+	<string name="fb_ranking_scores">Scores</string>
+	<string name="fb_ranking_btn_locals">Locals</string>
+	<string name="fb_ranking_btn_globals">Globals</string>
+	<string name="fb_ranking_btn_weekly">Weekly</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">Close</string>
+	<string name="fb_ranking_get_scores_error">We were unable to retrieve global scores. Please check your internet connection and try again.</string>
+	<string name="fb_ranking_first_page_msg">You are already on the first page</string>
+	<string name="fb_ranking_empty">No scores</string>
+
+	<string name="fb_pref_sound_preferences">Sound Preferences</string>
+	<string name="fb_pref_sound_activate_def">Activate Sound</string>
+    <string name="fb_pref_sound_activate_desc">Sound on/off</string>
+    <string name="fb_pref_ball_preferences">Ball preferences</string>
+	<string name="fb_pref_ball_select_balls_def">Select Balls</string>
+    <string name="fb_pref_ball_select_balls_desc">Change balls type of game</string>
+    <string name="fb_pref_ball_balls_type">Balls Type</string>
+    <string name="fb_pref_ball_balls_type_balls">Balls</string>
+    <string name="fb_pref_ball_balls_type_shapes">Shapes</string>
+    <string name="fb_pref_ball_balls_type_stars">Stars</string>
+
+	<string name="fb_menu_new_game">Game</string>
+	<string name="fb_menu_options">Options</string>
+    <string name="fb_menu_help">Help</string>
+	<string name="fb_menu_about">About</string>
+
+	<string name="fb_help">Help</string>
+	<string name="fb_help_paragraph1">The purpose of the game is to remove as many balls as possible from the board.</string>
+    <string name="fb_help_paragraph2">The more balls you remove from the board the more points you get.</string>
+    <string name="fb_help_paragraph3">To remove the balls from the board you must arrange them to form a line of five or more consecutive balls of the same color.</string>
+    <string name="fb_help_paragraph4">The line can be horizontal, vertical or diagonal. The longer the line the more points you\'ll score. To move the balls around, first select a ball and then select and empty space. There must be a travel path from the original position of the ball to the chosen position.</string>
+
+	<string name="fb_about">About</string>
+	<string name="fb_about_version">Version</string>
+	<string name="fb_about_message">This app was developed by Mautibla. \nVisit our site in www.mautibla.com. \nTo see this app on the web, click the web button bellow. \nYou can also share this app on facebook and twitter using the share button bellow.</string>
+	<string name="fb_about_button_moreapps">Web</string>
+	<string name="fb_about_share_button">Share</string>
+
+</resources>

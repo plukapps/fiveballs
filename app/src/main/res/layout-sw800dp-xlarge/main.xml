@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ======= Principal layout ======== -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:id="@+id/mainView"
+    style="@style/MainLayout"
+    android:layout_width="match_parent"
+    android:soundEffectsEnabled="false" >
+
+    <!-- android:background="#aaaa00" -->
+
+
+    <!-- ===== Menu View ===== -->
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/LinearLayout01"
+        style="@style/MainMenu"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="65dp" >
+
+        <Button
+            android:id="@+id/button_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fb_main_game" />
+
+        <!-- ===== Ranking Button ===== -->
+
+        <Button
+            android:id="@+id/button_ranking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fb_main_scores" />
+
+        <!-- ===== Help Button ===== -->
+
+        <Button
+            android:id="@+id/ButtonPreferences"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fb_main_share" />
+    </LinearLayout>
+
+    <!-- ===== SubPanelView ===== -->
+
+    <TableLayout
+        android:visibility="visible"
+        android:id="@+id/TableLayout01"
+        style="@style/SubMenu"
+        android:layout_width="592dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp" >
+
+        <TableRow
+            android:id="@+id/TableRow01"
+            style="@style/SubMenuItems" >
+
+            <!-- ===== Score ===== -->
+
+            <TextSwitcher
+                android:id="@+id/scoreValue"
+                style="@style/Score"
+                android:text="0" />
+
+            <!-- ===== Next Balls ===== -->
+
+            <ImageView
+                android:id="@+id/NextBall1"
+                style="@style/NextBalls" />
+
+            <ImageView
+                android:id="@+id/NextBall2"
+                style="@style/NextBalls" />
+
+            <ImageView
+                android:id="@+id/NextBall3"
+                style="@style/NextBalls" />
+        </TableRow>
+    </TableLayout>
+
+    <!-- ===== Grid ===== -->
+
+    <include
+        android:id="@+id/gameBoard_ref"
+        android:layout_width="660px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        layout="@layout/borad_fragment" />
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal" >
+
+        <com.google.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            ads:adSize="IAB_LEADERBOARD"
+            ads:adUnitId="a14c85712e480f1" />
+    </RelativeLayout>
+
+</LinearLayout>

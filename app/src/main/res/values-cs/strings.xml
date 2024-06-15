@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="fb_play">Hrát</string>
+	<string name="fb_play_rate_app">Míra</string>
+        	
+	<string name="fb_common_button_accept">Ok</string>
+    <string name="fb_common_button_cancel">Storno</string>
+    <string name="fb_common_loading_message">Počkejte prosím …</string>
+    
+	<string name="fb_main_game">Hra</string>
+    <string name="fb_main_scores">Skóre</string>
+	<string name="fb_main_share">Podíl</string>
+	<string name="fb_main_invalid_move">Nelze přesunout míč na tuto pozici</string>
+	<string name="fb_main_share_msg">Jsem hrál Fiveballs v mé androida, to vyzkoušet, bude se ti líbit.</string>
+	
+	<string name="fb_new_game">Nová hra</string>
+	<string name="fb_new_game_msg">Chcete začít novou hru?</string>
+	
+	<string name="fb_upload_score">New Score</string>
+    <string name="fb_upload_score_gameover">Konec hry</string>
+    <string name="fb_upload_score_game">Vaše skóre je</string>
+    <string name="fb_upload_score_enter_name">Zadejte své jméno</string>
+    <string name="fb_upload_score_upload">Odeslat</string>    
+    <string name="fb_upload_score_empty_name">Zadaný název je prázdný</string>
+    <string name="fb_upload_score_error">Jsme nebyli schopni předložit své skóre. Prosím, zkontrolujte své internetové připojení a zkuste to znovu.</string>
+    
+	<string name="fb_ranking_scores">Skóre</string>
+	<string name="fb_ranking_btn_locals">Místní</string>
+	<string name="fb_ranking_btn_globals">Globální</string>
+	<string name="fb_ranking_btn_weekly">Týdenní</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">Zavřít</string>
+	<string name="fb_ranking_get_scores_error">Nepodařilo se nám získat globální skóre. Prosím, zkontrolujte své internetové připojení a zkuste to znovu.</string>
+	<string name="fb_ranking_first_page_msg">Již jste na první stránce</string>
+	<string name="fb_ranking_empty">Žádné výsledky</string>
+
+	<string name="fb_pref_sound_preferences">Předvolby zvukového</string>
+	<string name="fb_pref_sound_activate_def">Aktivovat zvuku</string>
+    <string name="fb_pref_sound_activate_desc">Zvuk zapnuto/vypnuto</string>
+    <string name="fb_pref_ball_preferences">Míč předvolby</string>
+	<string name="fb_pref_ball_select_balls_def">Vybrat koule</string>
+    <string name="fb_pref_ball_select_balls_desc">Změnit typ míče ze hry</string>
+    <string name="fb_pref_ball_balls_type">Typ míče</string>
+    <string name="fb_pref_ball_balls_type_balls">Míče</string>
+    <string name="fb_pref_ball_balls_type_shapes">Tvary</string>
+    <string name="fb_pref_ball_balls_type_stars">Hvězdy</string>
+    
+	<string name="fb_menu_new_game">Hra</string>
+	<string name="fb_menu_options">Možnosti</string>
+    <string name="fb_menu_help">Pomoc</string>
+	<string name="fb_menu_about">O</string>
+	
+	<string name="fb_help">Pomoc</string>
+	<string name="fb_help_paragraph1">Účelem hry je odstranit co nejvíce koule co nejdříve od správní rady.</string>
+    <string name="fb_help_paragraph2">Více míčků odeberete ze správní rady více bodů, co dostaneš.</string>
+    <string name="fb_help_paragraph3">Odstranit koule z Rady musí uspořádat je do řady pěti nebo více po sobě jdoucích koule stejné barvy.</string>
+    <string name="fb_help_paragraph4">Linka může být vodorovnou, svislou nebo úhlopříčnou. Delší čáru více bodů bude skórovat. Chcete-li přesunout koule kolem, nejprve vyberte koule a pak vyberte a prázdný prostor. Musí být cestovní cestou od původní polohy míče na zvolené místo.</string>
+   	
+	<string name="fb_about">O</string>
+	<string name="fb_about_version">Verze</string>
+	<string name="fb_about_message">Tato aplikace byla vyvinuta Mautibla. \nNavštivte náš web v www.mautibla.com. \nTato aplikace na webu, zobrazíte klepnutím na tlačítko bellow web. \nLze také sdílet tuto aplikaci na facebook a cvrlikání pomocí bellow tlačítko sdílení.</string>
+	<string name="fb_about_button_moreapps">Web</string>
+	<string name="fb_about_share_button">Podíl</string>
+    
+</resources>

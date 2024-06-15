@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/help_game_dialog_panel"
+        style="@style/AquaThemeDialogContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:padding="2dp" >
+
+        <!-- ===== Title ===== -->
+
+        <RelativeLayout
+            android:id="@+id/help_game_dialog_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:minHeight="50dp"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/help_game_dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="@string/fb_help"
+                android:textSize="28sp"
+                android:singleLine="true"
+                android:layout_toLeftOf="@+id/help_game_dialog_fb_logo"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/help_game_dialog_fb_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
+                android:maxWidth="100dp"
+                android:src="@drawable/dialog_fb" />
+        </RelativeLayout>
+
+        <!-- ===== Content ===== -->
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:id="@+id/help_game_dialog_content"
+                    style="@style/DialogRankContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/d_dialog_border"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp" >
+
+                    <!-- ==== Si no hay contenido  ==== -->
+
+                    <TextView
+                        android:id="@+id/help_game_dialog_msg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="left"
+                        android:text="@string/fb_help_paragraph1"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/help_game_dialog_panel_button_ctrls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/b_dialog_border"
+            android:minHeight="35dp"
+            android:padding="2dp" >
+
+            <Button
+                android:id="@+id/help_game_btn_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@drawable/a_btn_ranking_selector"
+                android:text="@string/fb_common_button_accept" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

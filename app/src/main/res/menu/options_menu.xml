@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  
+  <item android:id="@+id/new_game" 			android:title="@string/fb_menu_new_game" 		android:icon="@drawable/icongray"/>
+  <item android:id="@+id/game_options" 		android:title="@string/fb_menu_options" 		android:icon="@drawable/ic_menu_preferences" />
+  <item android:id="@+id/help" 				android:title="@string/fb_menu_help" 			android:icon="@drawable/ic_menu_help" />
+  <item android:id="@+id/about" 			android:title="@string/fb_menu_about" 			android:icon="@drawable/ic_menu_info_details" />
+</menu>

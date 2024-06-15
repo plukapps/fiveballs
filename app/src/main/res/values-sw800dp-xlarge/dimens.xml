@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+	<!-- Play Screen -->
+	<dimen name="aqua_play_fb_logo_marginTop">80dp</dimen>
+	<dimen name="aqua_play_playbtn_marginTop">80dp</dimen>
+    <dimen name="aqua_play_playlbl_marginTop">595dp</dimen>
+    <dimen name="aqua_play_playlbl_textSize">55sp</dimen>
+    <dimen name="aqua_play_bottom_btn_margin">60dp</dimen>
+    <dimen name="aqua_play_fb_icon_marginTop">395dp</dimen>
+    
+	<dimen name="aqua_btn_fb_min_width">170px</dimen>
+	<dimen name="aqua_mainmenu_paddingtop">5px</dimen>
+	<dimen name="aqua_menubutton_marginl">5px</dimen>
+	<dimen name="aqua_menubutton_marginr">5px</dimen>
+	<dimen name="aqua_submenu_paddingt">20px</dimen>
+	<dimen name="aqua_submenu_paddingb">10px</dimen>
+	<dimen name="aqua_submenuitems_minheight">30dip</dimen>
+	<dimen name="aqua_sunmenuitems_padding_left">10px</dimen>	
+	<dimen name="aqua_sunmenuitems_padding_right">10px</dimen>
+	<dimen name="aqua_next_paddingleft">3dip</dimen>
+	<dimen name="aqua_nextball_size">38dip</dimen>
+	<dimen name="aqua_score_textsize">60sp</dimen>
+	
+	<!-- Board -->
+	<dimen name="aqua_gb_height">660px</dimen>
+	<dimen name="aqua_gb_padding">2px</dimen>
+	<dimen name="aqua_gb_margin">0px</dimen>
+	<dimen name="aqua_gb_ball_maxHeight">80dp</dimen>
+	<dimen name="aqua_gb_ball_maxWidth">80dp</dimen>
+
+	<dimen name="aqua_btn_txt_size">17sp</dimen>
+	
+	<dimen name="aqua_dialog_textSize">25sp</dimen>
+	<dimen name="aqua_dialog_content_paddingBottom">15dip</dimen>
+	<dimen name="aqua_dialog_content_paddingTop">15dip</dimen>
+	<dimen name="aqua_dialog_page_paddingTop">10dip</dimen>
+	<dimen name="aqua_dialog_page_paddingLeft">10dip</dimen>
+	<dimen name="aqua_dialog_page_paddingRight">10dip</dimen>
+	<dimen name="aqua_dialog_ctrlBtns_paddingTop">10dip</dimen>
+	
+	<dimen name="aqua_dialog_rankPosition_textSize">19sp</dimen>
+	<dimen name="aqua_dialog_rankNick_textSize">19sp</dimen>
+	<dimen name="aqua_dialog_rankScore_textSize">22sp</dimen>
+	<dimen name="aqua_dialog_rankDate_textSize">19sp</dimen>
+	
+	<dimen name="aqua_dialog_rankItem_marginLeft">10dip</dimen>
+	
+	<dimen name="aqua_dialog_rankPosition_marginLeft">@dimen/aqua_dialog_rankItem_marginLeft</dimen>
+	<dimen name="aqua_dialog_rankFlag_marginLeft">@dimen/aqua_dialog_rankItem_marginLeft</dimen>
+	<dimen name="aqua_dialog_rankNick_marginLeft">4dip</dimen>
+	<dimen name="aqua_dialog_rankScore_marginLeft">@dimen/aqua_dialog_rankItem_marginLeft</dimen>
+	<dimen name="aqua_dialog_rankDate_marginLeft">@dimen/aqua_dialog_rankItem_marginLeft</dimen>
+	
+</resources>

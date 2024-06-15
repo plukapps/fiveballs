@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+	<!-- ======= Principal layout ======== -->
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+	android:id="@+id/mainView" 
+	android:soundEffectsEnabled="false"
+	android:layout_width="match_parent"
+	style="@style/MainLayout"
+	>
+<!-- 	android:background="#aaaa00" -->
+
+	<!-- ===== Menu View ===== -->
+	<LinearLayout android:id="@+id/LinearLayout01" style="@style/MainMenu" android:layout_width="fill_parent">
+	
+        <!-- ===== Game Button ===== -->
+
+        <Button
+            android:id="@+id/button_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fb_main_game" />
+
+        <!-- ===== Ranking Button ===== -->
+
+        <Button
+            android:id="@+id/button_ranking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fb_main_scores" />
+
+        <!-- ===== Help Button ===== -->
+
+        <Button
+            android:id="@+id/ButtonPreferences"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fb_main_share" />
+			
+	</LinearLayout>
+
+	
+	<!-- ===== SubPanelView ===== -->
+	<TableLayout android:id="@+id/TableLayout01" style="@style/SubMenu">
+		<TableRow android:id="@+id/TableRow01" style="@style/SubMenuItems">
+			
+			<!-- ===== Score ===== -->
+			<TextSwitcher android:id="@+id/scoreValue" android:text="0" style="@style/Score"/>
+			
+			<!-- ===== Next Balls ===== -->
+			<ImageView android:id="@+id/NextBall1" style="@style/NextBalls"/>
+			<ImageView android:id="@+id/NextBall2" style="@style/NextBalls"/>
+			<ImageView android:id="@+id/NextBall3" style="@style/NextBalls"/>
+			
+		</TableRow>
+	</TableLayout>
+
+	<!-- ===== Grid ===== -->
+	<RelativeLayout 
+		android:id="@+id/gameBoard" 
+		android:layout_width="match_parent" 
+		style="@style/GameBoard" android:layout_gravity="center" android:gravity="center">
+			
+		<ImageView android:id="@+id/ball00" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_alignParentLeft="true" style="@style/GamePanelBall" android:layout_marginLeft="1px" android:layout_marginTop="1px"/>
+		<ImageView android:id="@+id/ball01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball00" android:layout_alignTop="@+id/ball00" android:layout_alignBottom="@+id/ball00" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball01" android:layout_alignTop="@+id/ball01" android:layout_alignBottom="@+id/ball01" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball02" android:layout_alignTop="@+id/ball02" android:layout_alignBottom="@+id/ball02" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball03" android:layout_alignTop="@+id/ball03" android:layout_alignBottom="@+id/ball03" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball04" android:layout_alignTop="@+id/ball04" android:layout_alignBottom="@+id/ball04" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball06" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball05" android:layout_alignTop="@+id/ball05" android:layout_alignBottom="@+id/ball05" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball07" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball06" android:layout_alignTop="@+id/ball06" android:layout_alignBottom="@+id/ball06" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball08" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_alignParentRight="true" style="@style/GamePanelBall" android:layout_marginTop="1px"></ImageView>
+		
+		<ImageView android:id="@+id/ball10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_below="@+id/ball00" android:layout_alignLeft="@+id/ball00" android:layout_alignRight="@+id/ball00" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball10" android:layout_alignTop="@+id/ball10" android:layout_alignBottom="@+id/ball10" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball12" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball11" android:layout_alignTop="@+id/ball11" android:layout_alignBottom="@+id/ball11" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball13" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball12" android:layout_alignTop="@+id/ball12" android:layout_alignBottom="@+id/ball12" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball13" android:layout_alignTop="@+id/ball13" android:layout_alignBottom="@+id/ball13" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball14" android:layout_alignTop="@+id/ball14" android:layout_alignBottom="@+id/ball14" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball16" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball15" android:layout_alignTop="@+id/ball15" android:layout_alignBottom="@+id/ball15" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball17" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball16" android:layout_alignTop="@+id/ball16" android:layout_alignBottom="@+id/ball16" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball17" android:layout_alignTop="@+id/ball17" android:layout_alignBottom="@+id/ball17" style="@style/GamePanelBall"></ImageView>
+
+		<ImageView android:id="@+id/ball20" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_below="@+id/ball10" android:layout_alignLeft="@+id/ball10" android:layout_alignRight="@+id/ball10" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball21" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball20" android:layout_alignTop="@+id/ball20" android:layout_alignBottom="@+id/ball20" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball22" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball21" android:layout_alignTop="@+id/ball21" android:layout_alignBottom="@+id/ball21" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball23" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball22" android:layout_alignTop="@+id/ball22" android:layout_alignBottom="@+id/ball22" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball24" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball23" android:layout_alignTop="@+id/ball23" android:layout_alignBottom="@+id/ball23" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball25" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball24" android:layout_alignTop="@+id/ball24" android:layout_alignBottom="@+id/ball24" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball26" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball25" android:layout_alignTop="@+id/ball25" android:layout_alignBottom="@+id/ball25" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball27" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball26" android:layout_alignTop="@+id/ball26" android:layout_alignBottom="@+id/ball26" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball28" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball27" android:layout_alignTop="@+id/ball27" android:layout_alignBottom="@+id/ball27" style="@style/GamePanelBall"></ImageView>
+
+		<ImageView android:id="@+id/ball30" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_below="@+id/ball20" android:layout_alignLeft="@+id/ball20" android:layout_alignRight="@+id/ball20" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball31" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball30" android:layout_alignTop="@+id/ball30" android:layout_alignBottom="@+id/ball30" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball32" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball31" android:layout_alignTop="@+id/ball31" android:layout_alignBottom="@+id/ball31" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball33" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball32" android:layout_alignTop="@+id/ball32" android:layout_alignBottom="@+id/ball32" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball34" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball33" android:layout_alignTop="@+id/ball33" android:layout_alignBottom="@+id/ball33" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball35" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball34" android:layout_alignTop="@+id/ball34" android:layout_alignBottom="@+id/ball34" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball36" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball35" android:layout_alignTop="@+id/ball35" android:layout_alignBottom="@+id/ball35" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball37" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball36" android:layout_alignTop="@+id/ball36" android:layout_alignBottom="@+id/ball36" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball38" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball37" android:layout_alignTop="@+id/ball37" android:layout_alignBottom="@+id/ball37" style="@style/GamePanelBall"></ImageView>
+		
+		<ImageView android:id="@+id/ball40" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_below="@+id/ball30" android:layout_alignLeft="@+id/ball30" android:layout_alignRight="@+id/ball30" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball41" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball40" android:layout_alignTop="@+id/ball40" android:layout_alignBottom="@+id/ball40" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball42" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball41" android:layout_alignTop="@+id/ball41" android:layout_alignBottom="@+id/ball41" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball43" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball42" android:layout_alignTop="@+id/ball42" android:layout_alignBottom="@+id/ball42" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball44" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball43" android:layout_alignTop="@+id/ball43" android:layout_alignBottom="@+id/ball43" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball45" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball44" android:layout_alignTop="@+id/ball44" android:layout_alignBottom="@+id/ball44" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball46" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball45" android:layout_alignTop="@+id/ball45" android:layout_alignBottom="@+id/ball45" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball47" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball46" android:layout_alignTop="@+id/ball46" android:layout_alignBottom="@+id/ball46" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball48" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball47" android:layout_alignTop="@+id/ball47" android:layout_alignBottom="@+id/ball47" style="@style/GamePanelBall"></ImageView>
+		
+		<ImageView android:id="@+id/ball50" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_below="@+id/ball40" android:layout_alignLeft="@+id/ball40" android:layout_alignRight="@+id/ball40" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball51" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball50" android:layout_alignTop="@+id/ball50" android:layout_alignBottom="@+id/ball50" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball52" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball51" android:layout_alignTop="@+id/ball51" android:layout_alignBottom="@+id/ball51" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball53" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball52" android:layout_alignTop="@+id/ball52" android:layout_alignBottom="@+id/ball52" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball54" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball53" android:layout_alignTop="@+id/ball53" android:layout_alignBottom="@+id/ball53" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball55" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball54" android:layout_alignTop="@+id/ball54" android:layout_alignBottom="@+id/ball54" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball56" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball55" android:layout_alignTop="@+id/ball55" android:layout_alignBottom="@+id/ball55" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball57" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball56" android:layout_alignTop="@+id/ball56" android:layout_alignBottom="@+id/ball56" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball58" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball57" android:layout_alignTop="@+id/ball57" android:layout_alignBottom="@+id/ball57" style="@style/GamePanelBall"></ImageView>
+
+		<ImageView android:id="@+id/ball60" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_below="@+id/ball50" android:layout_alignLeft="@+id/ball50" android:layout_alignRight="@+id/ball50" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball61" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball60" android:layout_alignTop="@+id/ball60" android:layout_alignBottom="@+id/ball60" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball62" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball61" android:layout_alignTop="@+id/ball61" android:layout_alignBottom="@+id/ball61" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball63" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball62" android:layout_alignTop="@+id/ball62" android:layout_alignBottom="@+id/ball62" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball64" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball63" android:layout_alignTop="@+id/ball63" android:layout_alignBottom="@+id/ball63" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball65" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball64" android:layout_alignTop="@+id/ball64" android:layout_alignBottom="@+id/ball64" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball66" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball65" android:layout_alignTop="@+id/ball65" android:layout_alignBottom="@+id/ball65" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball67" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball66" android:layout_alignTop="@+id/ball66" android:layout_alignBottom="@+id/ball66" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball68" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball67" android:layout_alignTop="@+id/ball67" android:layout_alignBottom="@+id/ball67" style="@style/GamePanelBall"></ImageView>
+		
+		<ImageView android:id="@+id/ball70" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_below="@+id/ball60" android:layout_alignLeft="@+id/ball60" android:layout_alignRight="@+id/ball60" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball71" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball70" android:layout_alignTop="@+id/ball70" android:layout_alignBottom="@+id/ball70" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball72" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball71" android:layout_alignTop="@+id/ball71" android:layout_alignBottom="@+id/ball71" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball73" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball72" android:layout_alignTop="@+id/ball72" android:layout_alignBottom="@+id/ball72" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball74" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball73" android:layout_alignTop="@+id/ball73" android:layout_alignBottom="@+id/ball73" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball75" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball74" android:layout_alignTop="@+id/ball74" android:layout_alignBottom="@+id/ball74" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball76" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball75" android:layout_alignTop="@+id/ball75" android:layout_alignBottom="@+id/ball75" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball77" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball76" android:layout_alignTop="@+id/ball76" android:layout_alignBottom="@+id/ball76" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball78" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball77" android:layout_alignTop="@+id/ball77" android:layout_alignBottom="@+id/ball77" style="@style/GamePanelBall"></ImageView>
+		
+		<ImageView android:id="@+id/ball80" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_below="@+id/ball70" android:layout_alignLeft="@+id/ball70" android:layout_alignRight="@+id/ball70" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball81" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball80" android:layout_alignTop="@+id/ball80" android:layout_alignBottom="@+id/ball80" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball82" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball81" android:layout_alignTop="@+id/ball81" android:layout_alignBottom="@+id/ball81" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball83" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball82" android:layout_alignTop="@+id/ball82" android:layout_alignBottom="@+id/ball82" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball84" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball83" android:layout_alignTop="@+id/ball83" android:layout_alignBottom="@+id/ball83" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball85" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball84" android:layout_alignTop="@+id/ball84" android:layout_alignBottom="@+id/ball84" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball86" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball85" android:layout_alignTop="@+id/ball85" android:layout_alignBottom="@+id/ball85" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball87" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball86" android:layout_alignTop="@+id/ball86" android:layout_alignBottom="@+id/ball86" style="@style/GamePanelBall"></ImageView>
+		<ImageView android:id="@+id/ball88" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/noball" android:layout_toRightOf="@+id/ball87" android:layout_alignTop="@+id/ball87" android:layout_alignBottom="@+id/ball87" style="@style/GamePanelBall"></ImageView>
+
+	</RelativeLayout>
+	
+	<LinearLayout android:id="@+id/LinearLayout02" 
+		android:layout_width="wrap_content" 
+		android:layout_height="fill_parent">
+
+<!--		<com.google.ads.AdView -->
+<!--			android:id="@+id/adView"-->
+<!--			android:layout_gravity="bottom"-->
+<!--			android:layout_width="wrap_content"-->
+<!--			android:layout_height="wrap_content"-->
+<!--			ads:adUnitId="a14c85712e480f1"-->
+<!--			ads:adSize="IAB_BANNER" />-->
+<!-- -->
+	</LinearLayout>
+			
+</LinearLayout>

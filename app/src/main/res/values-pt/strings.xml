@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="fb_play">Jogar</string>
+	<string name="fb_play_rate_app">Taxa</string>
+	
+    <string name="fb_common_button_accept">Aceitar</string>
+    <string name="fb_common_button_cancel">Cancelar</string>
+    <string name="fb_common_loading_message">Por favor, aguarde …</string>
+    
+	<string name="fb_main_game">Jogo</string>
+    <string name="fb_main_scores">Pontuações</string>
+	<string name="fb_main_share">Compartilhe</string>
+	<string name="fb_main_invalid_move">Não é possível mover a bola para a posição</string>
+	<string name="fb_main_share_msg">Eu estou jogando Fiveballs no meu android, experimentá-lo, você vai gostar.</string>
+	
+	<string name="fb_new_game">Novo jogo</string>
+	<string name="fb_new_game_msg">Você deseja iniciar um novo jogo?</string>
+	
+	<string name="fb_upload_score">Nova Pontuação</string>
+    <string name="fb_upload_score_gameover">Fim de jogo</string>
+    <string name="fb_upload_score_game">Sua pontuação é</string>
+    <string name="fb_upload_score_enter_name">Digite seu nome</string>
+    <string name="fb_upload_score_upload">Fazer upload</string>    
+    <string name="fb_upload_score_empty_name">fazer upload</string>
+    <string name="fb_upload_score_error">O nome inserido é que não foi possível submeter sua contagem. Verifique sua conexão à internet e tente novamente.</string>
+    
+	<string name="fb_ranking_scores">Pontuações</string>
+	<string name="fb_ranking_btn_locals">Locais</string>
+	<string name="fb_ranking_btn_globals">Globais</string>
+	<string name="fb_ranking_btn_weekly">Semanais</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">Fechar</string>
+	<string name="fb_ranking_get_scores_error">Não foi possível recuperar resultados globais. Verifique sua conexão à internet e tente novamente.</string>
+	<string name="fb_ranking_first_page_msg">Você já está na primeira página</string>
+	<string name="fb_ranking_empty">Sem pontuação</string>
+	
+	<string name="fb_pref_sound_preferences">Preferências de Som</string>
+	<string name="fb_pref_sound_activate_def">Ativar som</string>
+    <string name="fb_pref_sound_activate_desc">Ativar / desativar som no jogo</string>
+    <string name="fb_pref_ball_preferences">Preferências das bolas</string>
+	<string name="fb_pref_ball_select_balls_def">Selecione bolas	</string>
+    <string name="fb_pref_ball_select_balls_desc">Alterar tipo de bolas de jogo</string>
+    <string name="fb_pref_ball_balls_type">Tipo de bolas</string>
+    <string name="fb_pref_ball_balls_type_balls">Bolas</string>
+    <string name="fb_pref_ball_balls_type_shapes">Formas</string>
+    <string name="fb_pref_ball_balls_type_stars">Estrelas</string>
+		   	   	   	   
+	<string name="fb_menu_new_game">Jogo</string>
+	<string name="fb_menu_options">Opções</string>
+    <string name="fb_menu_help">Ajuda</string>
+	<string name="fb_menu_about">Sobre</string>
+	
+	<string name="fb_help">Ajuda</string>
+	<string name="fb_help_paragraph1">O objetivo do jogo é remover tantas bolas quanto possível da placa.</string>
+    <string name="fb_help_paragraph2">As bolas mais removida do tabuleiro, mais pontos você terá.</string>
+    <string name="fb_help_paragraph3">Para remover as bolas do tabuleiro você deve organizá-las para formar uma linha de cinco ou mais bolas consecutivas da mesma cor.</string>
+    <string name="fb_help_paragraph4">A linha pode ser horizontal, vertical ou diagonal. Quanto mais longa a linha mais pontos você marcará. Para mover as bolas ao redor, primeiro selecione uma bola e, em seguida, selecione e vazio do espaço. Deve haver um caminho de viagem da posição original da bola para a posição escolhida.</string>
+   	
+	<string name="fb_about">Sobre</string>
+	<string name="fb_about_version">Versão</string>
+	<string name="fb_about_message">Esta aplicação foi desenvolvida por Mautibla. \nVisite Web site em www.mautibla.com. \nPara Visualizar esta aplicação on-line, clique abaixo no botão web. \nTambién pode compartilhar este app no facebook e twitter usando o botão compartilhar.</string>
+	<string name="fb_about_button_moreapps">Web</string>
+	<string name="fb_about_share_button">Compartilhar</string>
+
+</resources>

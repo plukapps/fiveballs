@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="fb_play">Spelen</string>
+    <string name="fb_play_rate_app">Tarief</string>
+    
+    <string name="fb_common_button_accept">Accepteren</string>
+    <string name="fb_common_button_cancel">Annuleren</string>
+    <string name="fb_common_loading_message">Een ogenblik geduld…</string>
+    
+    <string name="fb_main_game">Spel</string>
+    <string name="fb_main_scores">Scores</string>
+	<string name="fb_main_share">Delen</string>
+	<string name="fb_main_invalid_move">De bal verplaatsen niet naar deze positie</string>
+	<string name="fb_main_share_msg">Ik speel Fiveballs in mijn android, probeer het, you like.</string>
+	
+	<string name="fb_new_game">Nieuw spel</string>
+	<string name="fb_new_game_msg">Wilt u een nieuw spel start?</string>
+	
+	<string name="fb_upload_score">Nieuwe Score</string>
+    <string name="fb_upload_score_gameover">Afgewerkt spel </string>
+    <string name="fb_upload_score_game">Uw score is</string>
+    <string name="fb_upload_score_enter_name">Voer uw naam</string>
+    <string name="fb_upload_score_upload">Uploaden</string>    
+    <string name="fb_upload_score_empty_name">De ingevoerde naam is leeg</string>
+    <string name="fb_upload_score_error">We zijn niet geweest kundig voor uw beoordeling verzenden. Controleer uw internetverbinding en probeer het opnieuw.</string>
+    
+	<string name="fb_ranking_scores">Scores</string>
+	<string name="fb_ranking_btn_locals">Lokale</string>
+	<string name="fb_ranking_btn_globals">Globals</string>
+	<string name="fb_ranking_btn_weekly">Wekelijks</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">Sluiten</string>
+	<string name="fb_ranking_get_scores_error">We konden niet ophalen van wereldwijde scores. Controleer uw internetverbinding en probeer het opnieuw.</string>
+	<string name="fb_ranking_first_page_msg">U bent al op de eerste pagina</string>
+	<string name="fb_ranking_empty">Geen scores</string>
+
+	<string name="fb_pref_sound_preferences">Geluid voorkeuren</string>
+	<string name="fb_pref_sound_activate_def">Activeren van geluid</string>
+    <string name="fb_pref_sound_activate_desc">Geluid aan/uit</string>
+    <string name="fb_pref_ball_preferences">Ballen voorkeuren</string>
+	<string name="fb_pref_ball_select_balls_def">Selecteer ballen</string>
+    <string name="fb_pref_ball_select_balls_desc">Ballen type spel wijzigen</string>
+    <string name="fb_pref_ball_balls_type">Ballen Type</string>
+    <string name="fb_pref_ball_balls_type_balls">Ballen</string>
+    <string name="fb_pref_ball_balls_type_shapes">Shapes</string>
+    <string name="fb_pref_ball_balls_type_stars">Sterren</string>
+    
+	<string name="fb_menu_new_game">Spel</string>
+	<string name="fb_menu_options">Opties</string>
+    <string name="fb_menu_help">Help</string>
+	<string name="fb_menu_about">Over</string>
+	
+	<string name="fb_help">Help</string>
+	<string name="fb_help_paragraph1">Het doel van het spel is om zoveel ballen mogelijk van de Raad van bestuur.</string>
+    <string name="fb_help_paragraph2">De meer ballen die u hoe meer punten die je krijgt van het bord verwijderen.</string>
+    <string name="fb_help_paragraph3">Om de ballen van de Raad van bestuur moet schik ze een lijn van vijf of meer opeenvolgende ballen van dezelfde kleur vormen.</string>
+    <string name="fb_help_paragraph4">De regel kan worden horizontale, verticale of diagonale. Hoe langer de lijn hoe meer punten je zult scoren. Om ballen te verplaatsen de rond, selecteer eerst een bal en vervolgens selecteren en lege ruimte. Er moet een pad van de reizen van de oorspronkelijke positie van de bal naar de gekozen positie.</string>
+   	
+	<string name="fb_about">Over</string>
+	<string name="fb_about_version">Versie</string>
+	<string name="fb_about_message">Dit app werd ontwikkeld door Mautibla. \nBezoek onze site in www.mautibla.com. \nOm te zien dit app op het web, klikt u op het web knop blaten. \nU kunt ook delen deze app op facebook en twitter met behulp van de share knop balg.</string>
+	<string name="fb_about_button_moreapps">Web</string>
+	<string name="fb_about_share_button">Delen</string>
+	
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="fb_play">Giocare</string>
+    <string name="fb_play_rate_app">Tasso</string>
+    
+    <string name="fb_common_button_accept">Accept</string>
+    <string name="fb_common_button_cancel">Annullare</string>
+    <string name="fb_common_loading_message">Attendere, prego …</string>
+    
+	<string name="fb_main_game">Gioco</string>
+    <string name="fb_main_scores">Punteggi</string>
+	<string name="fb_main_share">Condividi</string>
+	<string name="fb_main_invalid_move">Non è possibile spostare la palla a detta posizione</string>
+	<string name="fb_main_share_msg">Sto giocando Fiveballs in mio androide, provatelo, ti piace.</string>
+	
+	<string name="fb_new_game">Nuovo gioco</string>
+	<string name="fb_new_game_msg">Vuoi iniziare una nuova partita?</string>
+	
+	<string name="fb_upload_score">Nuovo punteggio</string>
+    <string name="fb_upload_score_gameover">Fine partita</string>
+    <string name="fb_upload_score_game">Il tuo punteggio è</string>
+    <string name="fb_upload_score_enter_name">Inserisci il tuo nome</string>
+    <string name="fb_upload_score_upload">Caricare</string>    
+    <string name="fb_upload_score_empty_name">Il nome immesso è vuoto</string>
+    <string name="fb_upload_score_error">Il nome immesso è che siamo stati in grado di inviare il tuo punteggio. Si prega di verificare la connessione internet e riprovare.</string>
+    
+    <string name="fb_ranking_scores">Punteggi</string>
+	<string name="fb_ranking_btn_locals">Locale</string>
+	<string name="fb_ranking_btn_globals">Globale</string>
+	<string name="fb_ranking_btn_weekly">Settimanale</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">Chiudere</string>
+	<string name="fb_ranking_get_scores_error">Siamo stati in grado di recuperare il punteggio globale. Si prega di verificare la connessione internet e riprovare.</string>
+	<string name="fb_ranking_first_page_msg">Sono già nella prima pagina</string>
+	<string name="fb_ranking_empty">Nessun gol</string>   
+	
+	<string name="fb_pref_sound_preferences">Preferenze audio</string>
+	<string name="fb_pref_sound_activate_def">Attivare il suono</string>
+    <string name="fb_pref_sound_activate_desc">Abilitare / disabilitare il suono del gioco</string>
+    <string name="fb_pref_ball_preferences">Preferenze delle palle</string>
+	<string name="fb_pref_ball_select_balls_def">Selezionare le palle</string>
+    <string name="fb_pref_ball_select_balls_desc">Cambiare tipo di palle di gioco</string>
+    <string name="fb_pref_ball_balls_type">Tipo di palle</string>
+    <string name="fb_pref_ball_balls_type_balls">Palle</string>
+    <string name="fb_pref_ball_balls_type_shapes">Forme</string>
+    <string name="fb_pref_ball_balls_type_stars">Stelle</string>
+    
+	<string name="fb_menu_new_game">Gioco</string>
+	<string name="fb_menu_options">Opzioni</string>
+    <string name="fb_menu_help">Guida</string>
+	<string name="fb_menu_about">Circa</string>
+	
+	<string name="fb_help">Guida</string>
+	<string name="fb_help_paragraph1">Lo scopo del gioco è quello di rimuovere le palle come molti come possibile dal Consiglio di amministrazione.</string>
+    <string name="fb_help_paragraph2">Le palle più rimosso dal Consiglio di amministrazione, più punti si ottengono.</string>
+    <string name="fb_help_paragraph3">Per rimuovere le palline dal Consiglio di amministrazione si deve organizzare loro per formare una linea di cinque o più consecutivi palle dello stesso colore.</string>
+    <string name="fb_help_paragraph4">La linea può essere orizzontale, verticale o diagonale. Il più a lungo la linea più punti si sarà segnare. Per spostare le palle intorno, prima di selezionare una palla e quindi seleziona e vuoto dello spazio. Ci deve essere un percorso di viaggio dalla posizione originale della palla nella posizione prescelta.</string>
+    
+	<string name="fb_about">Circa</string>
+	<string name="fb_about_version">Versione</string>
+	<string name="fb_about_message">Questa applicazione è stata sviluppata da Mautibla. \nSi prega di visitare il nostro sito Web a www.mautibla.com. \nPer visualizzare questa applicazione on-line, clicca qui sotto sul pulsante web. \nSi può anche condividere questo app su facebook e twitter utilizzando il pulsante Condividi.</string>
+	<string name="fb_about_button_moreapps">Web</string>
+	<string name="fb_about_share_button">Condividi</string>	
+        
+</resources>

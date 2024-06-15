@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="fb_play">播放</string>
+    <string name="fb_play_rate_app">率</string>
+	
+	<string name="fb_common_button_accept">還行</string>
+    <string name="fb_common_button_cancel">取消</string>
+    <string name="fb_common_loading_message">請稍候。。。</string>
+    
+    <string name="fb_main_game">遊戲</string>
+    <string name="fb_main_scores">分數</string>
+	<string name="fb_main_share">共用</string>
+	<string name="fb_main_invalid_move">不能移動到該位置的球</string>
+	<string name="fb_main_share_msg">我玩 Fiveballs 我的電話裡，試一試，你會喜歡。</string>
+	
+	<string name="fb_new_game">新遊戲</string>
+	<string name="fb_new_game_msg">你想開始新遊戲嗎？</string>
+	
+	<string name="fb_upload_score">新評分</string>
+    <string name="fb_upload_score_gameover">完成的遊戲</string>
+    <string name="fb_upload_score_game">你的分數是</string>
+    <string name="fb_upload_score_enter_name">輸入您的姓名</string>
+    <string name="fb_upload_score_upload">上傳</string>    
+    <string name="fb_upload_score_empty_name">輸入的名稱為空</string>
+    <string name="fb_upload_score_error">我們無法提交的成績。請檢查您的 internet 連接，並再試一次。</string>
+    
+	<string name="fb_ranking_scores">分數</string>
+	<string name="fb_ranking_btn_locals">本地</string>
+	<string name="fb_ranking_btn_globals">全球</string>
+	<string name="fb_ranking_btn_weekly">每週</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">關閉</string>
+	<string name="fb_ranking_get_scores_error">我們不能檢索全球分數。請檢查您的 internet 連接，並再試一次。</string>
+	<string name="fb_ranking_first_page_msg">你已經在第一頁</string>
+	<string name="fb_ranking_empty">沒有成績</string>
+
+	<string name="fb_pref_sound_preferences">聲音首選項</string>
+	<string name="fb_pref_sound_activate_def">啟動的聲音</string>
+    <string name="fb_pref_sound_activate_desc">打開/關閉聲音</string>
+    <string name="fb_pref_ball_preferences">球首選項</string>
+	<string name="fb_pref_ball_select_balls_def">選擇球</string>
+    <string name="fb_pref_ball_select_balls_desc">更改球類型的遊戲</string>
+    <string name="fb_pref_ball_balls_type">球類型</string>
+    <string name="fb_pref_ball_balls_type_balls">球</string>
+    <string name="fb_pref_ball_balls_type_shapes">形狀</string>
+    <string name="fb_pref_ball_balls_type_stars">星星</string>
+    
+	<string name="fb_menu_new_game">遊戲</string>
+	<string name="fb_menu_options">選項</string>
+    <string name="fb_menu_help">説明</string>
+	<string name="fb_menu_about">關於</string>
+	
+	<string name="fb_help">説明</string>
+	<string name="fb_help_paragraph1">遊戲的目的是盡可能從板卸下多球。</string>
+    <string name="fb_help_paragraph2">你從板卸下你得到的更多點的更多球。</string>
+    <string name="fb_help_paragraph3">To remove the balls from the board you must arrange them to form a line of five or more consecutive balls of the same color.</string>
+    <string name="fb_help_paragraph4">行可以水準、 垂直或對角線。時間越長的行的更多點，你就會得分。若要移動周圍球，首先選擇球，然後選擇和空的空間。必須有旅行的到所選位置從球的原始位置路徑。</string>
+   	
+	<string name="fb_about">關於</string>
+	<string name="fb_about_version">版本</string>
+	<string name="fb_about_message">這款軟體是由 Mautibla 開發的。請訪問我們的網站在 www.mautibla.com 中。要在 web 上看到這個應用程式，請按一下 web 按鈕波紋管。也可以分享這個在 facebook 上的應用和 twitter 使用共用按鈕波紋管。</string>
+	<string name="fb_about_button_moreapps">Web</string>
+	<string name="fb_about_share_button">共用</string>
+
+</resources>

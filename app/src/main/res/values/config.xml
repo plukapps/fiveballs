@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- The duration (in milliseconds) of a board animation. -->
+    <integer name="config_boardAnimTime">500</integer>
+    
+</resources>

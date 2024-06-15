@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="fb_play">플레이</string>
+    <string name="fb_play_rate_app">속도</string>
+
+	<string name="fb_common_button_accept">괜찮았던 것</string>
+    <string name="fb_common_button_cancel">취소</string>
+    <string name="fb_common_loading_message">잠시만 기다려 주십시오…</string>
+    
+    <string name="fb_main_game">게임</string>
+    <string name="fb_main_scores">점수</string>
+	<string name="fb_main_share">공유</string>
+	<string name="fb_main_invalid_move">그 자리에서 공을 이동할 수 없습니다.</string>
+	<string name="fb_main_share_msg">내 휴대폰에 fiveballs를 연주 해요, 그것을 시도, 같은 거 야.</string>
+	
+	<string name="fb_new_game">새로운 게임</string>
+	<string name="fb_new_game_msg">새로운 게임을 시작 하 시겠습니까</string>
+	
+	<string name="fb_upload_score">새로운 점수</string>
+    <string name="fb_upload_score_gameover">완성 된 게임</string>
+    <string name="fb_upload_score_game">귀하의 점수는</string>
+    <string name="fb_upload_score_enter_name">이름 입력</string>
+    <string name="fb_upload_score_upload">업로드</string>    
+    <string name="fb_upload_score_empty_name">입력 한 이름이 비어 있습니다.</string>
+    <string name="fb_upload_score_error">점수를 제출 하지 못했습니다. 귀하의 인터넷 연결을 확인 하 고 다시 시도 하십시오.</string>
+    
+	<string name="fb_ranking_scores">점수</string>
+	<string name="fb_ranking_btn_locals">로컬</string>
+	<string name="fb_ranking_btn_globals">글로벌</string>
+	<string name="fb_ranking_btn_weekly">주간</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">닫기</string>
+	<string name="fb_ranking_get_scores_error">글로벌 점수를 검색 하지 못했습니다. 귀하의 인터넷 연결을 확인 하 고 다시 시도 하십시오.</string>
+	<string name="fb_ranking_first_page_msg">첫 번째 페이지에 이미 있습니다</string>
+	<string name="fb_ranking_empty">점수 없음</string>
+
+	<string name="fb_pref_sound_preferences">사운드 환경 설정</string>
+	<string name="fb_pref_sound_activate_def">사운드 환경 설정</string>
+    <string name="fb_pref_sound_activate_desc">온/오프 소리</string>
+    <string name="fb_pref_ball_preferences">공이 환경 설정</string>
+	<string name="fb_pref_ball_select_balls_def">공 선택</string>
+    <string name="fb_pref_ball_select_balls_desc">게임의 공 유형을 변경</string>
+    <string name="fb_pref_ball_balls_type">공 유형</string>
+    <string name="fb_pref_ball_balls_type_balls">공</string>
+    <string name="fb_pref_ball_balls_type_shapes">모양</string>
+    <string name="fb_pref_ball_balls_type_stars">별</string>
+    
+	<string name="fb_menu_new_game">게임</string>
+	<string name="fb_menu_options">옵션</string>
+    <string name="fb_menu_help">도움말</string>
+	<string name="fb_menu_about">대략</string>
+	
+	<string name="fb_help">도움말</string>
+	<string name="fb_help_paragraph1">게임의 목적은 보드에서 가능한 많은 공을 제거 합니다.</string>
+    <string name="fb_help_paragraph2">당신이 보드에서 제거 하 고 더 많은 포인트를 얻을 더 공.</string>
+    <string name="fb_help_paragraph3">보드에서 공을 제거 하려면 동일한 색상의 5 개 이상의 연속 된 공의 라인을 형성 하도록 배열 해야 합니다.</string>
+    <string name="fb_help_paragraph4">수평, 수직 또는 대각선 라인 될 수 있습니다. 더 이상 줄 더 많은 포인트 you\ 점수 거 야. 공 주위를 이동 하려면 먼저 공을 그리고 다음 선택 하 고 빈 공간을 선택 합니다. 여행 경로 볼의 원래 위치에서 선택한 위치를 있어야 합니다.</string>
+   	
+	<string name="fb_about">대략</string>
+	<string name="fb_about_version">버전</string>
+	<string name="fb_about_message">이 응용 프로그램은 Mautibla에 의해 개발되었다. www.mautibla.com에서 우리 사이트를 방문하십시오.웹에서이 응용 프로그램을 보려면, 웹 버튼 울부짖는 소리를 클릭합니다. 당신은 또한 공유 버튼 울부짖는 소리를 사용하는 페이스 북과 트위터에이 응용 프로그램을 공유할 수 있습니다.</string>
+	<string name="fb_about_button_moreapps">Web</string>
+	<string name="fb_about_share_button">공유</string>
+    
+</resources>

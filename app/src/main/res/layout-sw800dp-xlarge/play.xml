@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splashLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/back_mautibla"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/start_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/start_fiveballs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/aqua_play_fb_logo_marginTop"
+            android:src="@drawable/fiveballs_logo" />
+
+        <Button
+            android:id="@+id/start_button_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/start_fiveballs"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/play2_selector"
+            android:onClick="onClick"
+            android:layout_marginTop="@dimen/aqua_play_playbtn_marginTop"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/start_play_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/aqua_play_playlbl_marginTop"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/circulat"
+            android:text="@string/fb_play"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/aqua_play_playlbl_textSize"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/start_settings_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/aqua_play_bottom_btn_margin"
+            android:layout_marginLeft="@dimen/aqua_play_bottom_btn_margin"
+            android:onClick="onClick"
+            android:src="@drawable/btn_settings_selector" />
+
+        <ImageView
+            android:id="@+id/start_scores_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/aqua_play_bottom_btn_margin"
+            android:layout_marginRight="@dimen/aqua_play_bottom_btn_margin"
+            android:onClick="onClick"
+            android:src="@drawable/btn_topscores_selector" />
+
+        <ImageView
+            android:id="@+id/start_fb_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/aqua_play_fb_icon_marginTop"
+            android:src="@drawable/fb_ico_start" />
+
+        <Button
+            android:id="@+id/start_rate_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/start_button_play"
+            android:layout_centerHorizontal="true"
+            android:background="@null"
+            android:fontFamily="@font/top_secret"
+            android:onClick="onClick"
+            android:text="@string/fb_play_rate_app"
+            android:textColor="@drawable/btn_rate_app_selector"
+            android:textSize="70sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/start_score_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/start_scores_btn"
+            android:layout_alignLeft="@id/start_scores_btn"
+            android:layout_alignRight="@id/start_scores_btn"
+            android:layout_alignTop="@id/start_scores_btn"
+            android:gravity="center_horizontal|center_vertical"
+            android:padding="10dp"
+            android:text="@string/fb_main_scores"
+            android:textColor="#ffffff"
+            android:textSize="37sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</LinearLayout>

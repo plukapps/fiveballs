@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:installLocation="auto">
+
+    <!-- AdMob SDK permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+<!--    <application-->
+<!--        android:allowBackup="true"-->
+<!--        android:dataExtractionRules="@xml/data_extraction_rules"-->
+<!--        android:fullBackupContent="@xml/backup_rules"-->
+<!--        android:icon="@mipmap/ic_launcher"-->
+<!--        android:label="@string/app_name"-->
+<!--        android:roundIcon="@mipmap/ic_launcher_round"-->
+<!--        android:supportsRtl="true"-->
+<!--        android:theme="@style/Theme.FiveBalls"-->
+<!--        tools:targetApi="31">-->
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="true"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:theme="@style/Theme.FiveBalls">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.M   qAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--    </application>-->
+
+    <application
+        android:icon="@drawable/iconcolors"
+        android:label="@string/fb_name" >
+        <activity
+            android:exported="true"
+            android:name=".view.FiveMore"
+            android:label="@string/fb_name"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:theme="@style/AquaTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:exported="false"
+            android:name=".view.GameActivity"
+            android:label="@string/fb_name"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AquaTheme" />
+        <activity
+            android:exported="false"
+            android:name=".view.OptionsActivity"
+            android:label="@string/fb_name"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AquaTheme" />
+
+        <!-- The application's publisher ID assigned by AdMob -->
+        <!-- <meta-data android:value="a14c85712e480f1" android:name="ADMOB_PUBLISHER_ID" /> -->
+
+
+        <!-- AdMobActivity definition -->
+<!--        <activity-->
+<!--            android:name="com.google.ads.AdActivity"-->
+<!--            android:configChanges="keyboard|keyboardHidden|orientation"-->
+<!--            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />-->
+
+        <!-- Track Market installs -->
+        <!-- <receiver android:name="com.admob.android.ads.analytics.InstallReceiver" android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.android.vending.INSTALL_REFERRER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+    </application>
+
+</manifest>

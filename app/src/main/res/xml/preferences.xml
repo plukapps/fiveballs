@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<!-- ==== Sound ==== -->
+	<PreferenceCategory android:title="@string/fb_pref_sound_preferences">
+		<CheckBoxPreference android:title="@string/fb_pref_sound_activate_def"
+			android:key="sound" 
+			android:summary="@string/fb_pref_sound_activate_desc"
+			android:disableDependentsState="true" 
+			android:defaultValue="true">
+		</CheckBoxPreference>
+	</PreferenceCategory>
+	
+	
+	<!-- ==== Images Balls ==== -->
+	<PreferenceCategory android:title="@string/fb_pref_ball_preferences">	
+		<ListPreference
+                android:key="imageTypes"
+                android:title="@string/fb_pref_ball_select_balls_def"
+                android:summary="@string/fb_pref_ball_select_balls_desc"
+                android:entries="@array/entries_images_preference"
+                android:entryValues="@array/entryvalues_images_preference"
+                android:dialogTitle="@string/fb_pref_ball_balls_type">
+		</ListPreference>
+	</PreferenceCategory>
+		
+</PreferenceScreen>
+	

@@ -1,0 +1,221 @@
+
+<resources>
+
+	<!-- =============== Aqua Styles ===============-->
+	
+	<style name="AquaButton" parent="@android:style/Widget.Button">
+		<item name="android:background">@color/button</item>
+		<item name="android:paddingLeft">15dip</item>
+		<item name="android:paddingRight">15dip</item>
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textSize">@dimen/aqua_btn_txt_size</item>
+		<item name="android:minWidth">@dimen/aqua_btn_fb_min_width</item>
+	</style>
+
+ 	<style name="AquaTextView" parent="@android:style/Widget.TextView">
+		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:layout_height">wrap_content</item> 
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_column">1</item>
+	</style>
+	
+	<style name="AquaThemeDialogContent">
+		<item name="android:background">@drawable/dialog_border</item>
+    </style>
+    
+    <style name="AquaAlertDialog">
+    	<item name="android:fullDark">@drawable/popup_full_dark</item>
+		<item name="android:topDark">@drawable/popup_top_dark</item>
+		<item name="android:centerDark">@drawable/popup_center_dark</item>
+  		<item name="android:bottomDark">@drawable/popup_bottom_dark</item>
+    </style>
+
+ 	<!-- =============== General Styles ===============-->
+ 	
+ 	<style name="MainLayout">
+  		<item name="android:layout_height">fill_parent</item>
+  		<item name="android:layout_width">fill_parent</item>
+  		<item name="android:orientation">vertical</item>
+  		<item name="android:gravity">top</item>
+  	</style>
+  		
+  		<!-- =============== Menu =============== -->
+  	<style name="MainMenu">
+  		<item name="android:layout_height">wrap_content</item>
+  		<item name="android:layout_width">fill_parent</item>
+  		<item name="android:paddingTop">@dimen/aqua_mainmenu_paddingtop</item>
+  		<item name="android:visibility">visible</item>
+  		<item name="android:gravity">center</item>
+  		
+  	</style>
+  
+	<!-- =============== SubPanelView =============== -->
+	
+	<style name="SubMenu">
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:paddingTop">@dimen/aqua_submenu_paddingt</item> 
+		<item name="android:paddingBottom">@dimen/aqua_submenu_paddingb</item>
+	</style>
+	
+	<style name="SubMenuItems">
+		<item name="android:layout_height">fill_parent</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:stretchColumns">1</item>
+		<item name="android:minHeight">@dimen/aqua_submenuitems_minheight</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:paddingLeft">@dimen/aqua_sunmenuitems_padding_left</item>	
+		<item name="android:paddingRight">@dimen/aqua_sunmenuitems_padding_right</item>
+	</style>
+	
+	<style name="NextBalls">
+		<item name="android:scaleType">fitXY</item> 
+		<item name="android:layout_height">@dimen/aqua_nextball_size</item> 
+		<item name="android:layout_width">@dimen/aqua_nextball_size</item>
+		<item name="android:gravity">right</item>
+	</style>
+	
+	<style name="Score">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item> 
+		<item name="android:textStyle">bold</item> 
+		<item name="android:textSize">@dimen/aqua_score_textsize</item>
+		<item name="android:gravity">left</item>
+		<item name="android:layout_weight">1</item>
+	</style>	
+	
+	<!-- ============== New Game Panel =============== -->
+	<style name="GameBoard">
+		<item name="android:layout_height">@dimen/aqua_gb_height</item>
+		<item name="android:background">@drawable/board</item> 
+<!--		<item name="android:padding">@dimen/aqua_gb_padding</item>-->
+		<item name="android:layout_margin">@dimen/aqua_gb_margin</item>
+	</style>
+	<style name="GamePanelBall">
+		<item name="android:maxHeight">@dimen/aqua_gb_ball_maxHeight</item> 
+		<item name="android:maxWidth">@dimen/aqua_gb_ball_maxWidth</item> 
+		<item name="android:scaleType">fitXY</item> 
+		<item name="android:adjustViewBounds">true</item>
+	</style>
+	
+	<!-- ============= Rank Custom Dialog ============= -->
+	
+	<style name="RankTitle">
+		<item name="android:layout_weight">1</item>
+		<item name="android:layout_gravity">center_vertical</item> 
+		<item name="android:textStyle">bold</item> 
+		<item name="android:paddingLeft">10dip</item> 
+		<item name="android:textSize">@dimen/aqua_dialog_textSize</item> 
+		<item name="android:typeface">sans</item> 
+		<item name="android:textColor">#ffffff</item>
+	</style>
+	
+	<style name="AquaButtonRank" parent="@android:style/Widget.Button">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:background">@color/button</item>
+		<item name="android:paddingLeft">5px</item>
+		<item name="android:paddingRight">5px</item>
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+	
+	<style name="RankDialogPosition">
+		<item name="android:layout_weight">1</item>
+		<item name="android:layout_gravity">left</item>
+		<item name="android:paddingLeft">5dip</item>
+		<item name="android:textColor">@color/rankRanking</item>
+		<item name="android:textSize">@dimen/aqua_dialog_rankPosition_textSize</item>
+	</style>
+	
+	<style name="RankDialogFlagContainer">
+		<item name="android:background">#407799</item>
+		<item name="android:padding">1px</item>
+		<item name="android:layout_gravity">center_vertical</item>
+		<item name="android:layout_weight">0</item>
+		<item name="android:layout_marginLeft">@dimen/aqua_dialog_rankFlag_marginLeft</item>
+	</style>
+	
+	<style name="RankDialogFlag">
+		<item name="android:layout_gravity">center_vertical</item>
+	</style>
+	
+	<style name="RankDialogNick">
+		<item name="android:layout_weight">1</item>
+		<item name="android:layout_gravity">left|center_vertical</item>
+		<item name="android:maxLength">11</item>
+		<item name="android:textColor">@color/rankNick</item>
+		<item name="android:textSize">@dimen/aqua_dialog_rankNick_textSize</item>
+		<item name="android:layout_marginLeft">@dimen/aqua_dialog_rankNick_marginLeft</item>
+	</style>
+	
+	<style name="RankDialogScore">
+		<item name="android:textColor">@color/rankScore</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:layout_gravity">right</item>
+		<item name="android:gravity">right</item>
+		<item name="android:layout_marginRight">5dip</item>
+		<item name="android:textSize">@dimen/aqua_dialog_rankScore_textSize</item>
+		<item name="android:layout_marginLeft">@dimen/aqua_dialog_rankScore_marginLeft</item>
+	</style>
+	
+	<style name="RankDialogDate">
+		<item name="android:textColor">@color/rankDate</item>
+		<item name="android:layout_marginRight">5dip</item>
+		<item name="android:gravity">right</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:maxLength">8</item>
+		<item name="android:layout_marginLeft">@dimen/aqua_dialog_rankDate_marginLeft</item>
+		<item name="android:textSize">@dimen/aqua_dialog_rankDate_textSize</item>
+		<item name="android:layout_gravity">center_vertical</item>
+	</style>
+	
+	<style name="RankRow">
+		<item name="android:focusable">true</item>
+		<item name="android:focusableInTouchMode">false</item>			
+		<item name="android:clickable">true</item>			
+<!--		<item name="android:background">@drawable/list_selector_background</item>-->
+		<item name="android:background">@drawable/a_ranking_row_selector</item>
+	</style>
+
+	<style name="RankEvenRow" parent="RankRow">
+		<item name="android:layout_weight">1</item>
+<!--		<item name="android:background">@color/rankRowEven</item>-->
+	</style>
+	
+	<style name="RankOddRow" parent="RankRow">
+		<item name="android:layout_weight">1</item>
+<!--		<item name="android:background">@color/rankRowOdd</item>-->
+	</style>
+
+	<style name="RankEmpty">
+		<item name="android:layout_gravity">center</item>
+		<item name="android:textColor">#ffffff</item>
+		<item name="android:textSize">20sp</item>
+		<item name="android:visibility">gone</item>
+	</style>
+	
+	<style name="DialogRankContent">
+<!--		<item name="android:paddingBottom">@dimen/aqua_dialog_content_paddingBottom</item>-->
+<!--		<item name="android:paddingTop">@dimen/aqua_dialog_content_paddingTop</item>-->
+	</style>
+	
+	<style name="DialogRankCountryFilter">
+		<item name="android:paddingRight">5dip</item>
+	</style>
+	
+	<style name="DialogPageContainer">
+		<item name="android:paddingTop">@dimen/aqua_dialog_page_paddingTop</item>
+		<item name="android:paddingLeft">@dimen/aqua_dialog_page_paddingLeft</item>
+		<item name="android:paddingRight">@dimen/aqua_dialog_page_paddingRight</item>
+	</style>
+	
+	<style name="DialoCtrlBtnContainer">
+		<item name="android:paddingTop">@dimen/aqua_dialog_ctrlBtns_paddingTop</item>
+		<item name="android:gravity">center_horizontal</item>
+	</style>
+
+</resources>
+	

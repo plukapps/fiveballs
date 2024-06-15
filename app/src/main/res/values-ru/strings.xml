@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="fb_play">Игра</string>
+    <string name="fb_play_rate_app">Курс</string>
+    
+    <string name="fb_common_button_accept">Ok</string>
+    <string name="fb_common_button_cancel">Отменить</string>
+    <string name="fb_common_loading_message">Please wait…</string>
+    
+    <string name="fb_main_game">Игра</string>
+    <string name="fb_main_scores">Результаты</string>
+	<string name="fb_main_share">доля</string>
+	<string name="fb_main_invalid_move">Шарик не переместить в ту позицию</string>
+	<string name="fb_main_share_msg">Я играю Fiveballs в моей андроид, попробуйте, вам понравится.</string>
+	
+    <string name="fb_new_game">новая игра</string>
+	<string name="fb_new_game_msg">Начать новую игру?</string>
+	
+	<string name="fb_upload_score">Новые Оценка</string>
+    <string name="fb_upload_score_gameover">Готовая игра</string>
+    <string name="fb_upload_score_game">Ваша оценка является</string>
+    <string name="fb_upload_score_enter_name">Введите свое имя</string>
+    <string name="fb_upload_score_upload">Публикация</string>    
+    <string name="fb_upload_score_empty_name">Введенное имя пустой</string>
+    <string name="fb_upload_score_error">Мы не смогли представить ваш счет. Пожалуйста, проверьте соединение с интернетом и повторите попытку.</string>
+    
+    <string name="fb_ranking_scores">Баллы</string>
+	<string name="fb_ranking_btn_locals">местный</string>
+	<string name="fb_ranking_btn_globals">глобальный</string>
+	<string name="fb_ranking_btn_weekly">неделя</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">закрывать</string>
+	<string name="fb_ranking_get_scores_error">Мы не смогли получить глобальный баллов. Пожалуйста, проверьте соединение с интернетом и повторите попытку.</string>
+	<string name="fb_ranking_first_page_msg">Вы уже на первой странице</string>
+	<string name="fb_ranking_empty">Баллы не.</string> 
+	
+	<string name="fb_pref_sound_preferences">Звук предпочтения</string>
+	<string name="fb_pref_sound_activate_def">Включите звук</string>
+    <string name="fb_pref_sound_activate_desc">Включения / выключения звука</string>
+    <string name="fb_pref_ball_preferences">Ball предпочтения</string>
+	<string name="fb_pref_ball_select_balls_def">Выбрать шар</string>
+    <string name="fb_pref_ball_select_balls_desc">Изменение шары типа правления</string>
+    <string name="fb_pref_ball_balls_type">Шары Тип</string>
+    <string name="fb_pref_ball_balls_type_balls">Шары</string>
+    <string name="fb_pref_ball_balls_type_shapes">Звезды</string>
+    <string name="fb_pref_ball_balls_type_stars">Формы</string>
+    
+	<string name="fb_menu_new_game">игра</string>
+	<string name="fb_menu_options">опции</string>
+    <string name="fb_menu_help">Помогите</string>
+	<string name="fb_menu_about">о</string>
+	
+	<string name="fb_help">Помогите</string>
+	<string name="fb_help_paragraph1">Цель игры состоит в том, чтобы удалить как можно больше мячей как можно  от доски.</string>
+    <string name="fb_help_paragraph2">Для этого надо расположить их в линии одного цвета из пяти и более шариков.</string>
+    <string name="fb_help_paragraph3">Линия может быть горизонтальной, вертикальной или диагональной. Чем длиннее линия, тем больше очков вы получите.</string>
+    <string name="fb_help_paragraph4">Чтобы переместить шарик, сначала нажмите на него а потом на пустую клетку. При этом путь от изначальной к конечной клетке должен быть свободен.</string>
+   	
+	<string name="fb_about">о</string>
+	<string name="fb_about_version">версия</string>
+	<string name="fb_about_message">Это приложение было разработано Mautibla. Посетите наш сайт в www.mautibla.com. Чтобы увидеть это приложение в сети, нажмите на кнопку ниже веб. Вы также можете поделиться этим приложением на facebook и щебет использования ниже доля кнопку.</string>
+	<string name="fb_about_button_moreapps">сеть</string>
+	<string name="fb_about_share_button">доля</string>
+
+</resources>

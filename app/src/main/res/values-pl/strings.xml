@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="fb_play">Odtwórz</string>
+	<string name="fb_play_rate_app">Stawki</string>
+
+    <string name="fb_common_button_accept">Przyjąć</string>
+    <string name="fb_common_button_cancel">Anulować</string>
+    <string name="fb_common_loading_message">Czekaj…</string>
+    
+    <string name="fb_main_game">Gra</string>
+    <string name="fb_main_scores">Wyniki</string>
+	<string name="fb_main_share">Udostępnij</string>
+	<string name="fb_main_invalid_move">Nie można przenieść kulki tego stanowiska</string>
+	<string name="fb_main_share_msg">Gram Fiveballs w moim android, spróbuj, polubisz.</string>
+	
+	<string name="fb_new_game">Nowa gra</string>
+	<string name="fb_new_game_msg">Czy chcesz rozpocząć nową grę?</string>
+	
+	<string name="fb_upload_score">Nowe Score</string>
+    <string name="fb_upload_score_gameover">Ukończeniu gra</string>
+    <string name="fb_upload_score_game">Twój wynik to</string>
+    <string name="fb_upload_score_enter_name">Wprowadź nazwę</string>
+    <string name="fb_upload_score_upload">Przekaż</string>    
+    <string name="fb_upload_score_empty_name">Wpisanym nazwiskiem jest pusty</string>
+    <string name="fb_upload_score_error">Byliśmy nie może przesłać Twój wynik. Sprawdź połączenie internetowe i ponów próbę.</string>
+    
+	<string name="fb_ranking_scores">Wyniki</string>
+	<string name="fb_ranking_btn_locals">Lokalne</string>
+	<string name="fb_ranking_btn_globals">Globalne</string>
+	<string name="fb_ranking_btn_weekly">Tydzień</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">Zamknij</string>
+	<string name="fb_ranking_get_scores_error">Byliśmy nie może pobrać globalnego wyniki. Sprawdź połączenie internetowe i ponów próbę.</string>
+	<string name="fb_ranking_first_page_msg">Jesteś już na pierwszej stronie</string>
+	<string name="fb_ranking_empty">Wyniki nie są</string>
+
+	<string name="fb_pref_sound_preferences">Preferencje dźwięku</string>
+	<string name="fb_pref_sound_activate_def">Uaktywnić dźwięku</string>
+    <string name="fb_pref_sound_activate_desc">Dźwięk wł. / wył.</string>
+    <string name="fb_pref_ball_preferences">Preferencje Ball</string>
+	<string name="fb_pref_ball_select_balls_def">Wybierz Balls</string>
+    <string name="fb_pref_ball_select_balls_desc">Wybierz polecenie Zmień typ kulki gry</string>
+    <string name="fb_pref_ball_balls_type">Typ kulki</string>
+    <string name="fb_pref_ball_balls_type_balls">Kulki</string>
+    <string name="fb_pref_ball_balls_type_shapes">Kształty</string>
+    <string name="fb_pref_ball_balls_type_stars">Gwiazdy</string>
+    
+	<string name="fb_menu_new_game">Gra</string>
+	<string name="fb_menu_options">Opcje</string>
+    <string name="fb_menu_help">Pomoc</string>
+	<string name="fb_menu_about">Temat</string>
+	
+	<string name="fb_help">Pomoc</string>
+	<string name="fb_help_paragraph1">Celem gry jest usunięcie tyle kulki w możliwie Zarząd.</string>
+    <string name="fb_help_paragraph2">Więcej kulek zostaną usunięte z planszy więcej punktów, które można uzyskać.</string>
+    <string name="fb_help_paragraph3">Aby usunąć kulki Zarząd musi zorganizować je tworzą linię pięciu lub więcej kolejnych kulek o tym samym kolorze.</string>
+    <string name="fb_help_paragraph4">Linia może być poziome, pionowe lub ukośne. Dłuższa linia więcej punktów będzie ocena. Aby przenieść kulki wokół, należy najpierw zaznaczyć kulki, a następnie wybierz i puste miejsca. Musi być ścieżką podróży z oryginalnego położenia kulki do wybranego miejsca.</string>
+   	
+	<string name="fb_about">Temat</string>
+	<string name="fb_about_version">Wersja</string>
+	<string name="fb_about_message">Ta aplikacja została opracowana przez Mautibla. Odwiedź naszą stronę w www.mautibla.com. Aby wyświetlić aplikacji sieci web, kliknij poniżej przycisk sieci web. Można również udostępnić aplikacji na facebook i twitter, używając poniżej przycisku udziału.</string>
+	<string name="fb_about_button_moreapps">Web</string>
+	<string name="fb_about_share_button">Udostępnij</string>
+	    
+</resources>

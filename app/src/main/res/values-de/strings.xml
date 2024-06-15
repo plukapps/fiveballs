@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    
+    <string name="fb_play">Spielen</string>
+	<string name="fb_play_rate_app">Preise</string>
+    
+	<string name="fb_common_button_accept">Okay</string>
+    <string name="fb_common_button_cancel">Stornieren</string>
+    <string name="fb_common_loading_message">Bitte warten…</string>
+    
+	<string name="fb_main_game">Spiel</string>
+    <string name="fb_main_scores">Ergebnis</string>
+	<string name="fb_main_share">Aktie</string>
+	<string name="fb_main_invalid_move">Der Ball kann nicht auf diese Position verschoben. </string>
+	<string name="fb_main_share_msg">Ich Fiveballs in mein Android Spiele, versuchen Sie es, Sie werden mögen.</string>
+	
+	<string name="fb_new_game">Neues Spiel</string>
+	<string name="fb_new_game_msg">Möchten Sie ein neues Spiel starten?</string>
+	
+	<string name="fb_upload_score">Neue Score</string>
+    <string name="fb_upload_score_gameover">Ende des Spiels</string>
+    <string name="fb_upload_score_game">Ihr Ergebnis ist</string>
+    <string name="fb_upload_score_enter_name">Geben Sie Ihren Namen</string>
+    <string name="fb_upload_score_upload">Hochladen</string>    
+    <string name="fb_upload_score_empty_name">Der eingegebene Name ist leer</string>
+    <string name="fb_upload_score_error">Wir waren nicht in der Lage, Ihre Kerbe einzureichen. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.</string>
+    
+	<string name="fb_ranking_scores">Ergebnis</string>
+	<string name="fb_ranking_btn_locals">Lokale</string>
+	<string name="fb_ranking_btn_globals">Global</string>
+	<string name="fb_ranking_btn_weekly">Pro</string>
+	<string name="fb_ranking_btn_prev">&lt;</string>
+    <string name="fb_ranking_btn_next">&gt;</string>
+	<string name="fb_ranking_btn_close">Schließen</string>
+	<string name="fb_ranking_get_scores_error">Wir konnten nicht zum Abrufen von globalen Resultate. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.</string>
+	<string name="fb_ranking_first_page_msg">Sie sind bereits auf der ersten Seite</string>
+	<string name="fb_ranking_empty">Keine Resultate</string>
+
+	<string name="fb_pref_sound_preferences">Sound-Einstellungen</string>
+	<string name="fb_pref_sound_activate_def">Sound aktivieren</string>
+    <string name="fb_pref_sound_activate_desc">Klang auf/ab</string>
+    <string name="fb_pref_ball_preferences">Ball-Einstellungen</string>
+	<string name="fb_pref_ball_select_balls_def">Wählen Sie Bälle</string>
+    <string name="fb_pref_ball_select_balls_desc">Ändern Sie Bälle Spiel</string>
+    <string name="fb_pref_ball_balls_type">Bälle-Typ</string>
+    <string name="fb_pref_ball_balls_type_balls">Bälle</string>
+    <string name="fb_pref_ball_balls_type_shapes">Formen</string>
+    <string name="fb_pref_ball_balls_type_stars">Sternen</string>
+    
+	<string name="fb_menu_new_game">Spiel</string>
+	<string name="fb_menu_options">Spiel</string>
+    <string name="fb_menu_help">Hilfe</string>
+	<string name="fb_menu_about">About</string>
+	
+	<string name="fb_help">Über</string>
+	<string name="fb_help_paragraph1">Das Ziel des Spiels ist, so viele Kugeln wie möglich vom Brett zu entfernen.</string>
+    <string name="fb_help_paragraph2">Die weitere Bälle entfernen Sie vom Brett desto mehr Punkte erhalten Sie.</string>
+    <string name="fb_help_paragraph3">Um die Kugeln vom Brett zu entfernen müssen Sie diese um eine Linie von fünf oder mehr aufeinander folgende Kugeln der gleichen Farbe anordnen.</string>
+    <string name="fb_help_paragraph4">Die Zeile kann horizontal, vertikal oder diagonal sein. Je längere die Linie, die weitere Punkte You\ Ergebnis werde. Um die Bälle herum zu verschieben, wählen Sie zuerst eine Kugel und dann auswählen und leeren Raum. Muss es ein Reisen Weg von der ursprünglichen Position des Balles an der gewählten position.</string>
+   	
+	<string name="fb_about">Über</string>
+	<string name="fb_about_version">Version</string>
+	<string name="fb_about_message">Diese app wurde von Mautibla entwickelt. \nBesuchen Sie unsere Website in www.mautibla.com. \nUm diese app im Web anzuzeigen, klicken Sie auf die Web-Taste unten. \nSie können auch teilen diese app auf Facebook und twitter über die Freigabe-Schaltfläche unten.</string>
+	<string name="fb_about_button_moreapps">Web</string>
+	<string name="fb_about_share_button">Freigeben</string>
+
+</resources>
