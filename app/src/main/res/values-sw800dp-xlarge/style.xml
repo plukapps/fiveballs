@@ -82,8 +82,8 @@
 		<item name="android:textStyle">bold</item> 
 		<item name="android:textSize">@dimen/aqua_score_textsize</item>
 		<item name="android:gravity">left</item>
-		<item name="android:layout_weight">1</item>
-	</style>	
+		<item name="android:textColor">#b2acd2</item>
+	</style>
 	
 	<!-- ============== New Game Panel =============== -->
 	<style name="GameBoard">

@@ -11,6 +11,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -72,12 +73,13 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 	public static final String PREFERENCE_SOUND = "sound";
 	public static final String PREFEREBCE_IMAGES = "imageTypes";
 
-	private Button mGameButtonView;
-	private Button mRankingButtonView;
-	private Button mShareButtonView;
+	private ImageView vControlRestart;
+	private ImageView vControlRanking;
+	private ImageView vControlBack;
+	private ImageView vControlShare;
 	private RelativeLayout mGameBoardView;
-	private TextSwitcher mScoreSwitcher; 
-	
+	private TextView mScoreSwitcher;
+
 	RankingDialog.RankingMode rankingMode = RankingDialog.RankingMode.LOCAL;
 
     @Override
@@ -103,13 +105,13 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
         setPersistencia(new PuntajeDB(this.getApplicationContext()));
         
         mGameBoardView = (RelativeLayout) findViewById(R.id.gameBoard);
-        mGameButtonView = (Button) findViewById(R.id.button_game);
-        mRankingButtonView = (Button) findViewById(R.id.button_ranking);
-        mShareButtonView = (Button) findViewById(R.id.ButtonPreferences);
-    	mScoreSwitcher = (TextSwitcher) findViewById(R.id.scoreValue);
-        
+		vControlRestart = (ImageView) findViewById(R.id.vControlRestart);
+        vControlRanking = (ImageView) findViewById(R.id.vControlRanking);
+        vControlShare = (ImageView) findViewById(R.id.vControlShare);
+    	mScoreSwitcher = (TextView) findViewById(R.id.scoreValue);
+
         // New Game button 
-    	mGameButtonView.setOnClickListener(new OnClickListener() {
+    	vControlRestart.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				showDialog(DIALOG_RESTART);
 				playAudio(SoundType.CLICK);
@@ -117,7 +119,7 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 		});
 
     	// Ranking button
-    	mRankingButtonView.setOnClickListener(new OnClickListener() {
+    	vControlRanking.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				showDialog(DIALOG_SHOW_SCORES);
 				playAudio(SoundType.CLICK);
@@ -125,17 +127,11 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 		});
     	
     	// Share button
-    	mShareButtonView.setOnClickListener(shareActionListener());
+    	vControlShare.setOnClickListener(shareActionListener());
     	
     	// Score 
-    	mScoreSwitcher.setFactory(this);
-    	Animation in = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
-        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
-        mScoreSwitcher.setInAnimation(in);
-        mScoreSwitcher.setOutAnimation(out);
-        String scoreStr = String.format("%04d", Integer.valueOf(0));
-		mScoreSwitcher.setText(String.valueOf(scoreStr));
-		
+		updateScore(0);
+
 //        mAdView = (AdView)this.findViewById(R.id.adView);
 //        if (mAdView != null) {
 //	        AdRequest adRequest = new AdRequest();
@@ -189,9 +185,9 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 			Animation shareButtonAnimation = AnimationUtils.loadAnimation(this, R.anim.to_left);
 
 			mGameBoardView.startAnimation(gameBoardAnimation);
-			mGameButtonView.startAnimation(gameButtonAnimation);
-			mRankingButtonView.startAnimation(rankingButtonAnimation);
-			mShareButtonView.startAnimation(shareButtonAnimation);
+//			mGameButtonView.startAnimation(gameButtonAnimation);
+//			mRankingButtonView.startAnimation(rankingButtonAnimation);
+//			mShareButtonView.startAnimation(shareButtonAnimation);
 
 			showAnimationsLayouts = false;
 		}
@@ -348,7 +344,10 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 		nextball1.setImageResource(BallColor.getImageResource(nextBalls.get(0), imageType));
 		nextball2.setImageResource(BallColor.getImageResource(nextBalls.get(1), imageType));
 		nextball3.setImageResource(BallColor.getImageResource(nextBalls.get(2), imageType));
-		
+
+		ImageView noball = (ImageView) findViewById(R.id.ballTmp);
+		noball.setVisibility(View.GONE);
+
 		nextball1.startAnimation(animation);
 		nextball2.startAnimation(animation);
 		nextball3.startAnimation(animation);
@@ -366,9 +365,8 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 			}
 	
 			// Se reinicia el score
-			String scoreStr = /*" " + */String.format("%04d", Integer.valueOf(0));
-			mScoreSwitcher.setText(String.valueOf(scoreStr));
-	
+			updateScore(Integer.valueOf(0));
+
 			for (int i = 0; i < Consts.game.gridsize; i++) {
 				for (int j = 0; j < Consts.game.gridsize; j++) {
 	
@@ -553,15 +551,15 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 
 	public View makeView() {
 		 TextView t = new TextView(this/*, attributes*/);
-		 t.setTextSize(55);
+		 t.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 24.f);
 		 Typeface font = ResourcesCompat.getFont(this, R.font.digital_7);
 		 t.setTypeface(font);
 		 return t;
 	}
 	
 	public void updateScore(int score) {
-        String scoreStr = String.format("%04d", Integer.valueOf(score));
-		mScoreSwitcher.setText(String.valueOf(scoreStr));
+        String scoreStr = String.format("%d", Integer.valueOf(score));
+		mScoreSwitcher.setText(scoreStr);
 	}
 	
 	public void playAudio(SoundType soundType) {

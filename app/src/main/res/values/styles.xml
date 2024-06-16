@@ -53,7 +53,7 @@
 
     <style name="SubMenu">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:paddingTop">@dimen/aqua_submenu_paddingt</item>
         <item name="android:paddingBottom">@dimen/aqua_submenu_paddingb</item>
     </style>
@@ -81,13 +81,14 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/aqua_score_textsize</item>
         <item name="android:gravity">left</item>
+        <item name="android:textColor">#b2acd2</item>
         <item name="android:layout_weight">1</item>
     </style>
 
     <!-- ============== New Game Panel =============== -->
     <style name="GameBoard">
         <item name="android:layout_height">@dimen/aqua_gb_height</item>
-        <item name="android:background">@drawable/board</item>
+<!--        <item name="android:background">@drawable/board</item>-->
         <!--		<item name="android:padding">@dimen/aqua_gb_padding</item>-->
         <item name="android:layout_margin">@dimen/aqua_gb_margin</item>
     </style>
@@ -95,8 +96,8 @@
     <style name="GamePanelBall">
         <item name="android:maxHeight">@dimen/aqua_gb_ball_maxHeight</item>
         <item name="android:maxWidth">@dimen/aqua_gb_ball_maxWidth</item>
-        <item name="android:scaleType">fitXY</item>
-        <item name="android:adjustViewBounds">true</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:clipToPadding">true</item>
     </style>
 
     <!-- ============= Rank Custom Dialog ============= -->
