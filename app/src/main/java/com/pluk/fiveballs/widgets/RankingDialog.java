@@ -218,15 +218,15 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 					rankView.setText(rank);
 					
 					// Setea la bandera
-					if (image != null) {
-						flagView.setImageDrawable(image);
-						flagView.setVisibility(View.VISIBLE);
-						flagContainer.setVisibility(View.VISIBLE);
-						row.setTag(scoreData.getCountryCode());
-					} else {
-						flagView.setVisibility(View.INVISIBLE);
-						flagContainer.setVisibility(View.INVISIBLE);
-					}
+//					if (image != null) {
+//						flagView.setImageDrawable(image);
+//						flagView.setVisibility(View.VISIBLE);
+//						flagContainer.setVisibility(View.VISIBLE);
+//						row.setTag(scoreData.getCountryCode());
+//					} else {
+//						flagView.setVisibility(View.INVISIBLE);
+//						flagContainer.setVisibility(View.INVISIBLE);
+//					}
 					
 					// Setea el nick
 					nickView.setText(nick);
@@ -235,13 +235,13 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 					scoreView.setText(score);
 					
 					// Setea la fecha
-					if (date == null) {
-						dateView.setVisibility(View.VISIBLE);
-						dateView.setText("--/--/----");
-					} else {
-						dateView.setVisibility(View.VISIBLE);
-						dateView.setText(date);
-					}
+//					if (date == null) {
+//						dateView.setVisibility(View.VISIBLE);
+//						dateView.setText("--/--/----");
+//					} else {
+//						dateView.setVisibility(View.VISIBLE);
+//						dateView.setText(date);
+//					}
 					
 					/*
 					 * Chequeo que sea la posicion actual

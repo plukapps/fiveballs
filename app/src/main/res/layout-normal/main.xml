@@ -15,16 +15,17 @@
 
 	<!-- ===== Menu View ===== -->
 	<LinearLayout android:id="@+id/LinearLayout01" style="@style/MainMenu" android:layout_width="fill_parent">
-	
-         <Button
-            android:id="@+id/button_game"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/fb_main_game" />
 
-        <!-- ===== Ranking Button ===== -->
+		<!-- ===== Ranking Button ===== -->
 
-        <Button
+		<Button
+			style="@style/AquaButton"
+			android:id="@+id/button_game"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/fb_main_game" />
+
+		<Button
             android:id="@+id/button_ranking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

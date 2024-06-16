@@ -4,7 +4,7 @@
 	<!-- =============== Aqua Styles ===============-->
 	
 	<style name="AquaButton" parent="@android:style/Widget.Button">
-		<item name="android:background">@color/button</item>
+		<item name="android:background">@drawable/button</item>
 		<item name="android:paddingLeft">15dip</item>
 		<item name="android:paddingRight">15dip</item>
 		<item name="android:textColor">#ffffff</item>
@@ -115,7 +115,7 @@
 	<style name="AquaButtonRank" parent="@android:style/Widget.Button">
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
-		<item name="android:background">@color/button</item>
+		<item name="android:background">@drawable/button</item>
 		<item name="android:paddingLeft">5px</item>
 		<item name="android:paddingRight">5px</item>
 		<item name="android:textColor">#ffffff</item>
