@@ -25,6 +25,6 @@ public final class Consts {
 	 public static final class animation {
 		 public static final long scaleDelayMillis 		= 200;
 		 public static final long translateDelayMillis 	= 25;
-		 public static final long removeBallsMillis 	= 100;
+		 public static final long removeBallsMillis 	= 50;
 	 }
 }

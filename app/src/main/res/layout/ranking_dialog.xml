@@ -92,6 +92,7 @@
             android:id="@+id/rank_dialog_content"
             style="@style/DialogRankContent"
             android:layout_width="match_parent"
+            android:minHeight="100dp"
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:gravity="center_vertical"
@@ -112,8 +113,6 @@
                     <TextView
                         android:id="@+id/rank1"
                         style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="0000" />
 
                     <LinearLayout
@@ -132,24 +131,19 @@
                     <TextView
                         android:id="@+id/nick1"
                         style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
+                        android:text="nicknamemaslarsdadsak" />
 
                     <TextView
                         android:id="@+id/scor1"
-                        style="@style/RankDialogScore"
-                        android:fontFamily="@font/circulat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
+                        android:text="0000"
+                        style="@style/RankDialogScore" />
 
                     <TextView
                         android:id="@+id/date1"
                         style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="00/00/00" />
+
                 </TableRow>
 
                 <TableRow
@@ -158,46 +152,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <TextView
-                        android:id="@+id/rank2"
-                        style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
+                    <TextView android:id="@+id/rank2" style="@style/RankDialogPosition" android:text="0000" />
+                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg2" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
+                    <TextView android:id="@+id/nick2" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
+                    <TextView android:id="@+id/scor2" android:text="0000" style="@style/RankDialogScore" />
+                    <TextView android:id="@+id/date2" android:text="00/00/00" style="@style/RankDialogDate" />
 
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <ImageView
-                            android:id="@+id/flg2"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick2"
-                        style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
-
-                    <TextView
-                        android:id="@+id/scor2"
-                        style="@style/RankDialogScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <TextView
-                        android:id="@+id/date2"
-                        style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00/00/00" />
                 </TableRow>
 
                 <TableRow
@@ -206,46 +166,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <TextView
-                        android:id="@+id/rank3"
-                        style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
+                    <TextView android:id="@+id/rank3" style="@style/RankDialogPosition" android:text="0000" />
+                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg3" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
+                    <TextView android:id="@+id/nick3" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
+                    <TextView android:id="@+id/scor3" android:text="0000" style="@style/RankDialogScore" />
+                    <TextView android:id="@+id/date3" android:text="00/00/00" style="@style/RankDialogDate" />
 
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <ImageView
-                            android:id="@+id/flg3"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick3"
-                        style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
-
-                    <TextView
-                        android:id="@+id/scor3"
-                        style="@style/RankDialogScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <TextView
-                        android:id="@+id/date3"
-                        style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00/00/00" />
                 </TableRow>
 
                 <TableRow
@@ -254,46 +180,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <TextView
-                        android:id="@+id/rank4"
-                        style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <ImageView
-                            android:id="@+id/flg4"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick4"
-                        style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
-
-                    <TextView
-                        android:id="@+id/scor4"
-                        style="@style/RankDialogScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <TextView
-                        android:id="@+id/date4"
-                        style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00/00/00" />
+                    <TextView android:id="@+id/rank4" style="@style/RankDialogPosition" android:text="0000" />
+                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg4" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
+                    <TextView android:id="@+id/nick4" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
+                    <TextView android:id="@+id/scor4" android:text="0000" style="@style/RankDialogScore" />
+                    <TextView android:id="@+id/date4" android:text="00/00/00" style="@style/RankDialogDate" />
                 </TableRow>
 
                 <TableRow
@@ -302,46 +193,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <TextView
-                        android:id="@+id/rank5"
-                        style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
+                    <TextView android:id="@+id/rank5" style="@style/RankDialogPosition" android:text="0000" />
+                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg5" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
+                    <TextView android:id="@+id/nick5" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
+                    <TextView android:id="@+id/scor5" android:text="0000" style="@style/RankDialogScore" />
+                    <TextView android:id="@+id/date5" android:text="00/00/00" style="@style/RankDialogDate" />
 
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <ImageView
-                            android:id="@+id/flg5"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick5"
-                        style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
-
-                    <TextView
-                        android:id="@+id/scor5"
-                        style="@style/RankDialogScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <TextView
-                        android:id="@+id/date5"
-                        style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00/00/00" />
                 </TableRow>
 
                 <TableRow
@@ -350,46 +207,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <TextView
-                        android:id="@+id/rank6"
-                        style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
+                    <TextView android:id="@+id/rank6" style="@style/RankDialogPosition" android:text="0000" />
+                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg6" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
+                    <TextView android:id="@+id/nick6" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
+                    <TextView android:id="@+id/scor6" android:text="0000" style="@style/RankDialogScore" />
+                    <TextView android:id="@+id/date6" android:text="00/00/00" style="@style/RankDialogDate" />
 
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <ImageView
-                            android:id="@+id/flg6"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick6"
-                        style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
-
-                    <TextView
-                        android:id="@+id/scor6"
-                        style="@style/RankDialogScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <TextView
-                        android:id="@+id/date6"
-                        style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00/00/00" />
                 </TableRow>
 
                 <TableRow
@@ -398,46 +221,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <TextView
-                        android:id="@+id/rank7"
-                        style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
+                    <TextView android:id="@+id/rank7" style="@style/RankDialogPosition" android:text="0000" />
+                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg7" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
+                    <TextView android:id="@+id/nick7" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
+                    <TextView android:id="@+id/scor7" android:text="0000" style="@style/RankDialogScore" />
+                    <TextView android:id="@+id/date7" android:text="00/00/00" style="@style/RankDialogDate" />
 
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <ImageView
-                            android:id="@+id/flg7"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick7"
-                        style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
-
-                    <TextView
-                        android:id="@+id/scor7"
-                        style="@style/RankDialogScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <TextView
-                        android:id="@+id/date7"
-                        style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00/00/00" />
                 </TableRow>
 
                 <TableRow
@@ -446,46 +235,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <TextView
-                        android:id="@+id/rank8"
-                        style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
+                    <TextView android:id="@+id/rank8" style="@style/RankDialogPosition" android:text="0000" />
+                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg8" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
+                    <TextView android:id="@+id/nick8" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
+                    <TextView android:id="@+id/scor8" android:text="0000" style="@style/RankDialogScore" />
+                    <TextView android:id="@+id/date8" android:text="00/00/00" style="@style/RankDialogDate" />
 
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <ImageView
-                            android:id="@+id/flg8"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick8"
-                        style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
-
-                    <TextView
-                        android:id="@+id/scor8"
-                        style="@style/RankDialogScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <TextView
-                        android:id="@+id/date8"
-                        style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00/00/00" />
                 </TableRow>
 
                 <TableRow
@@ -494,46 +249,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <TextView
-                        android:id="@+id/rank9"
-                        style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
+                    <TextView android:id="@+id/rank9" style="@style/RankDialogPosition" android:text="0000" />
+                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg9" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
+                    <TextView android:id="@+id/nick9" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
+                    <TextView android:id="@+id/scor9" android:text="0000" style="@style/RankDialogScore" />
+                    <TextView android:id="@+id/date9" android:text="00/00/00" style="@style/RankDialogDate" />
 
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <ImageView
-                            android:id="@+id/flg9"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick9"
-                        style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
-
-                    <TextView
-                        android:id="@+id/scor9"
-                        style="@style/RankDialogScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <TextView
-                        android:id="@+id/date9"
-                        style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00/00/00" />
                 </TableRow>
 
                 <TableRow
@@ -542,46 +263,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
 
-                    <TextView
-                        android:id="@+id/rank10"
-                        style="@style/RankDialogPosition"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
+                    <TextView android:id="@+id/rank10" style="@style/RankDialogPosition" android:text="0000" />
+                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg10" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
+                    <TextView android:id="@+id/nick10" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
+                    <TextView android:id="@+id/scor10" android:text="0000" style="@style/RankDialogScore" />
+                    <TextView android:id="@+id/date10" android:text="00/00/00" style="@style/RankDialogDate" />
 
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
-
-                        <ImageView
-                            android:id="@+id/flg10"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick10"
-                        style="@style/RankDialogNick"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="nicknamemaslargo" />
-
-                    <TextView
-                        android:id="@+id/scor10"
-                        style="@style/RankDialogScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000" />
-
-                    <TextView
-                        android:id="@+id/date10"
-                        style="@style/RankDialogDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="00/00/00" />
                 </TableRow>
             </TableLayout>
 
@@ -598,6 +285,7 @@
 
             <ProgressBar
                 android:id="@+id/rank_dialog_progress"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true" />

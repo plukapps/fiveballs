@@ -85,20 +85,20 @@ public enum BallColor {
 		if (imageType == ImageType.BALLS) {
 			switch (ballColor) {
 				case BLUE: 
-					return R.anim.blue_animation;
+					return R.drawable.blue_animation;
 				case CELESTE: 
-					return R.anim.celeste_animation; 
+					return R.drawable.celeste_animation;
 				case GREEN: 
-					return R.anim.green_animation; 
+					return R.drawable.green_animation;
 				case ORANGE: 
-					return R.anim.orange_animation; 
+					return R.drawable.orange_animation;
 				case RED: 
-					return R.anim.red_animation; 
+					return R.drawable.red_animation;
 				case VIOLET: 
-					return R.anim.violet_animation; 
+					return R.drawable.violet_animation;
 				case YELLOW:
 				default:
-					return R.anim.yellow_animation; 
+					return R.drawable.yellow_animation;
 			}
 		} else {
 			return R.anim.rotate_animation;
