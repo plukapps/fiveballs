@@ -60,14 +60,6 @@ public class FiveMore extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.play);
 		
-		// Rate app Button
-		TextView vRateButton = (TextView) findViewById(R.id.start_rate_app);
-		vRateButton.setText(getString(R.string.fb_play_rate_app).toUpperCase());
-		
-		// Play lbl
-		TextView vPlayLbl = (TextView) findViewById(R.id.start_play_lbl);
-		vPlayLbl.setText(getString(R.string.fb_play).toUpperCase());
-		
 		// Play button
 //		Button vPlayButton = (Button) findViewById(R.id.start_button_play);
 	

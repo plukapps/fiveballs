@@ -2,7 +2,7 @@
 <resources>
     
     <!-- Play Screen -->
-    <dimen name="aqua_play_fb_logo_marginTop">20dp</dimen>
+    <dimen name="aqua_play_fb_logo_marginTop">160dp</dimen>
     <dimen name="aqua_play_playlbl_marginTop">245dp</dimen>
     <dimen name="aqua_play_playlbl_textSize">25sp</dimen>
     <dimen name="aqua_play_bottom_btn_margin">40dp</dimen>
