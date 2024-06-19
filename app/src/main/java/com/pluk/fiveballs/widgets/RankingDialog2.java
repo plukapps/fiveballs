@@ -1,12 +1,8 @@
 package com.pluk.fiveballs.widgets;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
@@ -16,11 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.pluk.fiveballs.R;
 import com.pluk.fiveballs.model.Consts;
 import com.pluk.fiveballs.persistence.GetRankingTask;
 import com.pluk.fiveballs.persistence.GetRankingTask.GetRankingCallBack;
@@ -30,19 +26,20 @@ import com.pluk.fiveballs.persistence.ScoreData;
 import com.pluk.fiveballs.utils.AppsUtils;
 import com.pluk.fiveballs.utils.SoundUtils;
 import com.pluk.fiveballs.utils.SoundUtils.SoundType;
-import com.pluk.fiveballs.R;
-import com.pluk.fiveballs.view.TypefaceUtils;
 
-public class RankingDialog extends Dialog implements View.OnClickListener, GetRankingCallBack {
-	
+import java.util.ArrayList;
+import java.util.List;
+
+public class RankingDialog2 extends Dialog implements View.OnClickListener, GetRankingCallBack {
+
 	public static final String TAG = "RankingDialog";
-	
+
 	private Context context;
-	
+
 	private static final int pageSize = 10;
 	private static int currentRanking = 0;
 	private static String name = "";
-	
+
 	final int rankRankginColor = getContext().getResources().getColor(R.color.rankRanking);
 	final int rankNickColor = getContext().getResources().getColor(R.color.rankNick);
 	final int rankScoreColor = getContext().getResources().getColor(R.color.rankScore);
@@ -51,17 +48,17 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 	final int rankNickFocusColor = getContext().getResources().getColor(R.color.rankFocusNick);
 	final int rankScoreFocusColor = getContext().getResources().getColor(R.color.rankFocusScore);
 	final int rankDateFocusColor = getContext().getResources().getColor(R.color.rankFocusDate);
-	
+
 	private View layout;
 	private LayoutInflater mInflater;
 	private ProgressBar vProgress;
-	
+
 	private int currentPage = 0;
-	
+
 	public enum RankingMode {
 		LOCAL, GLOBAL, WEEKLY, COUNTRY
 	}
-	
+
 	private RankingMode rankingMode = RankingMode.LOCAL;
 	private Button vLocalScoresButton;
 	private Button vGlobalScoresButton;
@@ -75,7 +72,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 
 	private String mCountryCode = null;
 
-	public RankingDialog(Context context, int theme, MediaPlayer mp) {
+	public RankingDialog2(Context context, int theme, MediaPlayer mp) {
 		super(context, theme);
 
 		this.context = context;
@@ -83,7 +80,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 		
 		
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        layout = mInflater.inflate(R.layout.ranking_dialog2, null);
+        layout = mInflater.inflate(R.layout.ranking_dialog, null);
         
 		vLocalScoresButton = (Button) layout.findViewById(R.id.rank_dialog_local_scores);
 		vGlobalScoresButton = (Button) layout.findViewById(R.id.rank_dialog_global_scores);
@@ -103,9 +100,21 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 		
 //		Typeface font = TypefaceUtils.circulat(context);
 		
-		LinearLayout scoreTable = (LinearLayout) layout.findViewById(R.id.scoreTable);
+		TableLayout scoreTable = (TableLayout) layout.findViewById(R.id.scoreTable);
     	for (int i = 1; i <= 10; i++) {
-			RelativeLayout row = (RelativeLayout) scoreTable.getChildAt(i-1);
+			TableRow row = null;
+			switch (i) {
+				case 1: row = (TableRow) scoreTable.findViewById(R.id.scoreRow1); break;
+				case 2: row = (TableRow) scoreTable.findViewById(R.id.scoreRow2); break;
+				case 3: row = (TableRow) scoreTable.findViewById(R.id.scoreRow3); break;
+				case 4: row = (TableRow) scoreTable.findViewById(R.id.scoreRow4); break;
+				case 5: row = (TableRow) scoreTable.findViewById(R.id.scoreRow5); break;
+				case 6: row = (TableRow) scoreTable.findViewById(R.id.scoreRow6); break;
+				case 7: row = (TableRow) scoreTable.findViewById(R.id.scoreRow7); break;
+				case 8: row = (TableRow) scoreTable.findViewById(R.id.scoreRow8); break;
+				case 9: row = (TableRow) scoreTable.findViewById(R.id.scoreRow9); break;
+				case 10:row = (TableRow) scoreTable.findViewById(R.id.scoreRow10); break;
+			}
 			
 			// Setea el tipo de fuente para el score
 			TextView scoreView = (TextView) row.getChildAt(3);
@@ -123,7 +132,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 	}
 	
 	public void setCurrentRanking(int currentRanking) {
-		RankingDialog.currentRanking = currentRanking;
+		RankingDialog2.currentRanking = currentRanking;
 	}
 
 	public int getCurrentRanking() {
@@ -135,7 +144,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 	}
 
 	public static void setName(String name) {
-		RankingDialog.name = name;
+		RankingDialog2.name = name;
 	}
 
 	public static String getName() {
@@ -144,7 +153,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 	
 	public void setData(List<ScoreData> data) {
 		
-		LinearLayout scoreTable = (LinearLayout) findViewById(R.id.scoreTable);
+		TableLayout scoreTable = (TableLayout) findViewById(R.id.scoreTable);
 		TextView textView = (TextView) findViewById(R.id.dialogContentEmpty);
 		int size = data.size();
 		if (size == 0) {
@@ -155,12 +164,21 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 			textView.setVisibility(View.INVISIBLE);
 			
 			for (int i = 1; i <= 10; i++) {
-				RelativeLayout row = null;
-
-				row = ((RelativeLayout) scoreTable.getChildAt(i-1));
-
-				RelativeLayout innerRow = (RelativeLayout) row.getChildAt(0);
-
+				TableRow row = null;
+				
+				switch (i) {
+					case 1: row = (TableRow) scoreTable.findViewById(R.id.scoreRow1); break;
+					case 2: row = (TableRow) scoreTable.findViewById(R.id.scoreRow2); break;
+					case 3: row = (TableRow) scoreTable.findViewById(R.id.scoreRow3); break;
+					case 4: row = (TableRow) scoreTable.findViewById(R.id.scoreRow4); break;
+					case 5: row = (TableRow) scoreTable.findViewById(R.id.scoreRow5); break;
+					case 6: row = (TableRow) scoreTable.findViewById(R.id.scoreRow6); break;
+					case 7: row = (TableRow) scoreTable.findViewById(R.id.scoreRow7); break;
+					case 8: row = (TableRow) scoreTable.findViewById(R.id.scoreRow8); break;
+					case 9: row = (TableRow) scoreTable.findViewById(R.id.scoreRow9); break;
+					case 10:row = (TableRow) scoreTable.findViewById(R.id.scoreRow10); break;
+				}
+				
 				if (size < i) {
 					row.setVisibility(View.INVISIBLE);
 					row.setOnClickListener(null);
@@ -187,12 +205,12 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 					String score = String.valueOf(scoreData.getScore());
 					String date = scoreData.getDateString();
 					
-					TextView rankView = (TextView) innerRow.getChildAt(0);
-					LinearLayout flagContainer = (LinearLayout)innerRow.getChildAt(1);
+					TextView rankView = (TextView) row.getChildAt(0);
+					LinearLayout flagContainer = (LinearLayout)row.getChildAt(1);
 					ImageView flagView = (ImageView) flagContainer.getChildAt(0); 
-					TextView nickView = (TextView) innerRow.getChildAt(2);
-					TextView scoreView = (TextView) innerRow.getChildAt(3);
-					TextView dateView = (TextView) innerRow.getChildAt(4);
+					TextView nickView = (TextView) row.getChildAt(2);
+					TextView scoreView = (TextView) row.getChildAt(3);
+					TextView dateView = (TextView) row.getChildAt(4);
 					
 					// Setea el rank
 					rankView.setText(rank);

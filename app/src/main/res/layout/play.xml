@@ -11,49 +11,58 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/start_fiveballs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/aqua_play_fb_logo_marginTop"
-            android:src="@drawable/fiveballs_logo" />
 
-        <TextView
-            android:id="@+id/scoreLbl"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/start_fiveballs"
-            android:fontFamily="@font/moon_get_heavy"
-            android:text="BEST SCORE"
-            android:textColor="#F1AD0C"
-            android:textSize="20sp" />
+            android:layout_centerInParent="true">
 
-        <TextView
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/scoreLbl"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/moon_get_heavy"
-            android:text="167"
-            android:textColor="@color/white"
-            android:textSize="36sp" />
+            <ImageView
+                android:id="@+id/start_fiveballs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/fiveballs_logo" />
 
-        <ImageButton
-            android:id="@+id/start_button_play"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/btn_play_home"
-            android:onClick="onClick"
-            android:src="@drawable/outline_play_circle_black_48"
-            android:text=""
-            android:tint="@color/white" />
+            <TextView
+                android:id="@+id/scoreLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/start_fiveballs"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/moon_get_heavy"
+                android:text="BEST SCORE"
+                android:textColor="#F1AD0C"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/scoreLbl"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/moon_get_heavy"
+                android:text="167"
+                android:textColor="@color/white"
+                android:textSize="36sp" />
+
+            <ImageButton
+                android:id="@+id/start_button_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/score"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/btn_play_home"
+                android:onClick="onClick"
+                android:src="@drawable/outline_play_circle_black_48"
+                android:tint="@color/white" />
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,16 +104,15 @@
                 android:id="@+id/start_settings_btn"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                android:onClick="onClick"
                 android:layout_below="@+id/vControlRestart"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="4dp"
                 android:background="@drawable/noball"
+                android:onClick="onClick"
                 android:padding="16dp"
                 android:src="@drawable/outline_settings_black_48"
                 android:tint="#F1AD0C" />
-
 
 
         </LinearLayout>
