@@ -32,21 +32,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:layout_toLeftOf="@+id/new_game_dialog_fb_logo"
                 android:text="@string/fb_new_game"
                 android:textSize="28sp"
                 android:singleLine="true"
                 android:textStyle="bold" />
             
-            <ImageView
-                android:id="@+id/new_game_dialog_fb_logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:adjustViewBounds="true"
-                android:maxWidth="100dp"
-                android:src="@drawable/dialog_fb" />
         </RelativeLayout>
 
         <!-- ===== Content ===== -->
