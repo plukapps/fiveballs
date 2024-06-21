@@ -108,6 +108,7 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 		vControlRestart = (ImageView) findViewById(R.id.vControlRestart);
         vControlRanking = (ImageView) findViewById(R.id.vControlRanking);
         vControlShare = (ImageView) findViewById(R.id.vControlShare);
+        vControlBack = (ImageView) findViewById(R.id.vControlBack);
     	mScoreSwitcher = (TextView) findViewById(R.id.scoreValue);
 
         // New Game button 
@@ -128,7 +129,15 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
     	
     	// Share button
     	vControlShare.setOnClickListener(shareActionListener());
-    	
+
+		//
+		vControlBack.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Log.i("santi", aGame.getPanelGrid());
+			}
+		});
+
     	// Score 
 		updateScore(0);
 

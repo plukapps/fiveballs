@@ -146,15 +146,47 @@ public class Grid {
 			throw new EmptyCellExeption(moved);
 		}
 
-		// Lista que contendra todas las bolas a borrar del tablero porque se
-		// encuentran en linea.
-		LinkedList<Coord> coordsInLine = new LinkedList<Coord>();
 
 		// Tomo la bola de la coordenada moved
 		Ball ball = getBall(moved);
 
 		// Color de la bola.
 		BallColor ballColor = ball.getBallColor();
+
+		LinkedList<Coord> coordsInLine = null;
+
+		if (ballColor != BallColor.WILDCARD) {
+			coordsInLine = getBallsInLineImpl(moved, ballColor);
+			return coordsInLine;
+		} else {
+
+			LinkedList<Coord> listR = getBallsInLineImpl(moved, BallColor.RED);
+			LinkedList<Coord> listY = getBallsInLineImpl(moved, BallColor.YELLOW);
+			LinkedList<Coord> listB = getBallsInLineImpl(moved, BallColor.BLUE);
+			LinkedList<Coord> listO = getBallsInLineImpl(moved, BallColor.ORANGE);
+			LinkedList<Coord> listC = getBallsInLineImpl(moved, BallColor.CELESTE);
+			LinkedList<Coord> listG = getBallsInLineImpl(moved, BallColor.GREEN);
+			LinkedList<Coord> listV = getBallsInLineImpl(moved, BallColor.VIOLET);
+
+			coordsInLine = new LinkedList<Coord>();
+
+			listR.removeAll(coordsInLine); coordsInLine.addAll(listR);
+			listY.removeAll(coordsInLine); coordsInLine.addAll(listY);
+			listB.removeAll(coordsInLine); coordsInLine.addAll(listB);
+			listO.removeAll(coordsInLine); coordsInLine.addAll(listO);
+			listC.removeAll(coordsInLine); coordsInLine.addAll(listC);
+			listG.removeAll(coordsInLine); coordsInLine.addAll(listG);
+			listV.removeAll(coordsInLine); coordsInLine.addAll(listV);
+		}
+
+
+		return coordsInLine;
+	}
+
+	private LinkedList<Coord> getBallsInLineImpl(Coord moved, BallColor ballColor) throws EmptyCellExeption {
+		// Lista que contendra todas las bolas a borrar del tablero porque se
+		// encuentran en linea.
+		LinkedList<Coord> coordsInLine = new LinkedList<Coord>();
 
 		// Busco las coordenadas que estan en linea en la direccion vertical.
 		LinkedList<Coord> verticalInLine = getInLine(moved, Direction.SOUTH,
@@ -480,7 +512,7 @@ public class Grid {
 		}
 
 		Ball ball = cell.getBall();
-		if (ball.getBallColor() != ballColor) {
+		if (ball.getBallColor() != ballColor && (ballColor != BallColor.WILDCARD && ball.getBallColor() != BallColor.WILDCARD)) {
 			return result;
 		}
 
@@ -544,10 +576,10 @@ public class Grid {
 
 	/**
 	 * 
-	 * @return Devuelve un entreo aleatorio dentro del rango 0..6
+	 * @return Devuelve un entreo aleatorio dentro del rango 0..7
 	 */
 	private int nextColorVal() {
-		int nextInt = randomColor.nextInt(7);
+		int nextInt = randomColor.nextInt(8);
 		return nextInt;
 	}
 
