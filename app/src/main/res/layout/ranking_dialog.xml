@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/rank_dialog_panel"
@@ -12,293 +12,159 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="vertical"
-        android:padding="2dp" >
+        android:padding="2dp">
 
-        <!-- ===== Title ===== -->
+        <!-- ===== Title ===== -->  
 
-        <TextView
-            android:id="@+id/rank_dialog_title"
-            style="@style/RankTitle"
+        <RelativeLayout
+            android:id="@+id/help_game_dialog_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableLeft="@drawable/dialog_fb"
-            android:gravity="center"
-            android:singleLine="true"
-            android:text="@string/fb_ranking_scores" >
-        </TextView>
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:id="@+id/rank_dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/moon_get_heavy"
+                android:text="@string/fb_ranking_scores"
+                android:textColor="#F1AD0C"
+                android:textSize="20sp">
+
+            </TextView>
+
+        </RelativeLayout>
 
         <!-- ===== Content ===== -->
 
         <LinearLayout
-            android:id="@+id/rank_dialog_panel_top_ctrls"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/dialog_divider"
-            android:minHeight="35dp"
-            android:paddingBottom="2dp"
-            android:paddingTop="2dp" >
-
-            <Button
-                android:id="@+id/rank_dialog_local_scores"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:background="@drawable/a_btn_ranking_selector"
-                android:maxWidth="150px"
-                android:text="@string/fb_ranking_btn_locals" />
-
-            <Button
-                android:id="@+id/rank_dialog_global_scores"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="0"
-                android:background="@drawable/a_btn_ranking_selector"
-                android:text="@string/fb_ranking_btn_globals" />
-
-            <Button
-                android:id="@+id/rank_dialog_week_scores"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:background="@drawable/a_btn_ranking_selector"
-                android:maxWidth="150px"
-                android:text="@string/fb_ranking_btn_weekly" />
-        </LinearLayout>
-
-        <!-- <RelativeLayout -->
-        <!-- android:id="@+id/rank_dialog_subtitle" -->
-        <!-- android:layout_width="match_parent" -->
-        <!-- android:layout_height="wrap_content" -->
-        <!-- android:layout_marginLeft="5dp" -->
-        <!-- android:layout_marginRight="5dp" > -->
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="4dp">
 
 
-        <!-- <TextView -->
-        <!-- android:id="@+id/rank_dialog_country_name" -->
-        <!-- android:layout_width="wrap_content" -->
-        <!-- android:layout_height="wrap_content" -->
-        <!-- android:text="Uruguay scores" -->
-        <!-- android:textColor="#36FF00" -->
-        <!-- android:textSize="17sp" -->
-        <!-- android:textStyle="bold" /> -->
-        <!-- </RelativeLayout> -->
-
-        <RelativeLayout
-            android:id="@+id/rank_dialog_content"
-            style="@style/DialogRankContent"
-            android:layout_width="match_parent"
-            android:minHeight="100dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical" >
-
-            <TableLayout
-                android:id="@+id/scoreTable"
+            <LinearLayout
+                android:id="@+id/rank_dialog_panel_top_ctrls"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true" >
+                android:layout_gravity="center_vertical"
+                android:minHeight="35dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp">
 
-                <TableRow
-                    android:id="@+id/scoreRow1"
-                    style="@style/RankEvenRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                <Button
+                    android:id="@+id/rank_dialog_local_scores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/a_btn_ranking_selector"
+                    android:fontFamily="@font/raleway_regular"
+                    android:maxWidth="150px"
+                    android:text="LOCAL"
+                    android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/rank1"
-                        style="@style/RankDialogPosition"
-                        android:text="0000" />
+                <Button
+                    android:id="@+id/rank_dialog_global_scores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/a_btn_ranking_selector"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="GLOBAL"
+                    android:textSize="12sp" />
 
-                    <LinearLayout
-                        style="@style/RankDialogFlagContainer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" >
+                <Button
+                    android:id="@+id/rank_dialog_week_scores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/a_btn_ranking_selector"
+                    android:fontFamily="@font/raleway_regular"
+                    android:maxWidth="150px"
+                    android:text="WEEKLY"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/flg1"
-                            style="@style/RankDialogFlag"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/uy" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/nick1"
-                        style="@style/RankDialogNick"
-                        android:text="nicknamemaslarsdadsak" />
-
-                    <TextView
-                        android:id="@+id/scor1"
-                        android:text="0000"
-                        style="@style/RankDialogScore" />
-
-                    <TextView
-                        android:id="@+id/date1"
-                        style="@style/RankDialogDate"
-                        android:layout_height="match_parent"
-                        android:text="00/00/00" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/scoreRow2"
-                    style="@style/RankOddRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView android:id="@+id/rank2" style="@style/RankDialogPosition" android:text="0000" />
-                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg2" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
-                    <TextView android:id="@+id/nick2" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
-                    <TextView android:id="@+id/scor2" android:text="0000" style="@style/RankDialogScore" />
-                    <TextView android:id="@+id/date2" android:text="00/00/00" style="@style/RankDialogDate" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/scoreRow3"
-                    style="@style/RankEvenRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView android:id="@+id/rank3" style="@style/RankDialogPosition" android:text="0000" />
-                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg3" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
-                    <TextView android:id="@+id/nick3" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
-                    <TextView android:id="@+id/scor3" android:text="0000" style="@style/RankDialogScore" />
-                    <TextView android:id="@+id/date3" android:text="00/00/00" style="@style/RankDialogDate" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/scoreRow4"
-                    style="@style/RankOddRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView android:id="@+id/rank4" style="@style/RankDialogPosition" android:text="0000" />
-                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg4" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
-                    <TextView android:id="@+id/nick4" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
-                    <TextView android:id="@+id/scor4" android:text="0000" style="@style/RankDialogScore" />
-                    <TextView android:id="@+id/date4" android:text="00/00/00" style="@style/RankDialogDate" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/scoreRow5"
-                    style="@style/RankEvenRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView android:id="@+id/rank5" style="@style/RankDialogPosition" android:text="0000" />
-                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg5" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
-                    <TextView android:id="@+id/nick5" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
-                    <TextView android:id="@+id/scor5" android:text="0000" style="@style/RankDialogScore" />
-                    <TextView android:id="@+id/date5" android:text="00/00/00" style="@style/RankDialogDate" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/scoreRow6"
-                    style="@style/RankOddRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView android:id="@+id/rank6" style="@style/RankDialogPosition" android:text="0000" />
-                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg6" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
-                    <TextView android:id="@+id/nick6" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
-                    <TextView android:id="@+id/scor6" android:text="0000" style="@style/RankDialogScore" />
-                    <TextView android:id="@+id/date6" android:text="00/00/00" style="@style/RankDialogDate" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/scoreRow7"
-                    style="@style/RankEvenRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView android:id="@+id/rank7" style="@style/RankDialogPosition" android:text="0000" />
-                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg7" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
-                    <TextView android:id="@+id/nick7" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
-                    <TextView android:id="@+id/scor7" android:text="0000" style="@style/RankDialogScore" />
-                    <TextView android:id="@+id/date7" android:text="00/00/00" style="@style/RankDialogDate" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/scoreRow8"
-                    style="@style/RankOddRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView android:id="@+id/rank8" style="@style/RankDialogPosition" android:text="0000" />
-                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg8" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
-                    <TextView android:id="@+id/nick8" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
-                    <TextView android:id="@+id/scor8" android:text="0000" style="@style/RankDialogScore" />
-                    <TextView android:id="@+id/date8" android:text="00/00/00" style="@style/RankDialogDate" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/scoreRow9"
-                    style="@style/RankEvenRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView android:id="@+id/rank9" style="@style/RankDialogPosition" android:text="0000" />
-                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg9" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
-                    <TextView android:id="@+id/nick9" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
-                    <TextView android:id="@+id/scor9" android:text="0000" style="@style/RankDialogScore" />
-                    <TextView android:id="@+id/date9" android:text="00/00/00" style="@style/RankDialogDate" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/scoreRow10"
-                    style="@style/RankOddRow"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TextView android:id="@+id/rank10" style="@style/RankDialogPosition" android:text="0000" />
-                    <LinearLayout style="@style/RankDialogFlagContainer"><ImageView android:id="@+id/flg10" style="@style/RankDialogFlag" android:src="@drawable/uy" /></LinearLayout>
-                    <TextView android:id="@+id/nick10" style="@style/RankDialogNick" android:text="nicknamemaslargoasdasd" />
-                    <TextView android:id="@+id/scor10" android:text="0000" style="@style/RankDialogScore" />
-                    <TextView android:id="@+id/date10" android:text="00/00/00" style="@style/RankDialogDate" />
-
-                </TableRow>
-            </TableLayout>
-
-            <!-- ==== Si no hay contenido  ==== -->
-
-            <TextView
-                android:id="@+id/dialogContentEmpty"
-                style="@style/RankEmpty"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/rank_dialog_content"
+                style="@style/DialogRankContent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/fb_ranking_empty"
-                android:visibility="gone" />
+                android:layout_margin="2dp"
+                android:gravity="center_vertical"
+                android:minHeight="100dp"
+                android:orientation="vertical">
 
-            <ProgressBar
-                android:id="@+id/rank_dialog_progress"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true" />
-        </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/scoreTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/row_rank" />
+
+                    <include layout="@layout/row_rank" />
+
+                    <include layout="@layout/row_rank" />
+
+                    <include layout="@layout/row_rank" />
+
+                    <include layout="@layout/row_rank" />
+
+                    <include layout="@layout/row_rank" />
+
+                    <include layout="@layout/row_rank" />
+
+                    <include layout="@layout/row_rank" />
+
+                    <include layout="@layout/row_rank" />
+
+                    <include layout="@layout/row_rank" />
+
+
+                </LinearLayout>
+
+                <!-- ==== Si no hay contenido  ==== -->
+
+                <TextView
+                    android:id="@+id/dialogContentEmpty"
+                    style="@style/RankEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/fb_ranking_empty"
+                    android:visibility="gone" />
+
+                <ProgressBar
+                    android:id="@+id/rank_dialog_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/rank_dialog_panel_button_ctrls"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/b_dialog_border"
-            android:minHeight="35dp"
-            android:padding="2dp" >
+            android:padding="2dp">
 
             <Button
                 android:id="@+id/rank_dialog_prev_page"
@@ -312,12 +178,14 @@
 
             <Button
                 android:id="@+id/rank_dialog_close"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0"
-                android:background="@drawable/a_btn_ranking_selector"
-                android:text="@string/fb_ranking_btn_close" />
+                android:background="@drawable/btn_play_home_secondary"
+                android:fontFamily="@font/raleway_regular"
+                android:text="CLOSE"
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/rank_dialog_next_page"
