@@ -11,7 +11,7 @@ import com.pluk.fiveballs.R;
  */
 public enum BallColor {
 
-	RED, YELLOW, BLUE, ORANGE, CELESTE, GREEN, VIOLET;
+	RED, YELLOW, BLUE, ORANGE, CELESTE, GREEN, VIOLET, WILDCARD;
 	
 	/**
 	 * Se utiliza para el debug, 
@@ -41,6 +41,7 @@ public enum BallColor {
 			case 4: return BallColor.CELESTE;
 			case 5: return BallColor.GREEN;
 			case 6: return BallColor.VIOLET;
+			case 7: return BallColor.WILDCARD;
 			default: 
 				throw new IllegalArgumentException("Invalid ballColor index");
 		}
@@ -55,7 +56,7 @@ public enum BallColor {
 				case ORANGE: return R.drawable.orange1;
 				case RED: return R.drawable.red1;
 				case VIOLET: return R.drawable.violet1;
-				case YELLOW: return R.drawable.yellow1;
+				case WILDCARD: return R.drawable.wild1;
 			}	
 		} else if (imageType == ImageType.STARS) {
 			switch (ballColor) {
@@ -66,6 +67,7 @@ public enum BallColor {
 				case RED: return R.drawable.star_red;
 				case VIOLET: return R.drawable.star_violet;
 				case YELLOW: return R.drawable.star_yellow;
+				// TODO SANTILOD ver aca que hacemos
 			}
 		} else {
 			switch (ballColor) {
@@ -76,6 +78,7 @@ public enum BallColor {
 				case RED: return R.drawable.shapes_red;
 				case VIOLET: return R.drawable.shapes_violet;
 				case YELLOW: return R.drawable.shapes_yellow;
+				// TODO SANTILOD ver aca que hacemos
 			}
 		}
 		return -1;
@@ -96,6 +99,8 @@ public enum BallColor {
 					return R.drawable.red_animation;
 				case VIOLET: 
 					return R.drawable.violet_animation;
+				case WILDCARD:
+					return R.drawable.wildcard_animation;
 				case YELLOW:
 				default:
 					return R.drawable.yellow_animation;
