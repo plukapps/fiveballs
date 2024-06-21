@@ -4,7 +4,7 @@
 <!--    <style name="Theme.FiveBalls" parent="android:Theme.Material.Light.NoActionBar" />-->
 
     <style name="AquaTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
-        <item name="android:windowBackground">@drawable/back_mautibla</item>
+        <item name="android:windowBackground">@color/appColorBackground</item>
         <item name="android:buttonStyle">@style/AquaButton</item>
         <item name="android:textViewStyle">@style/AquaTextView</item>
         <item name="android:windowFullscreen">true</item>

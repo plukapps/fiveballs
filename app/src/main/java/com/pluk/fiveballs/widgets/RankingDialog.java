@@ -6,7 +6,6 @@ import java.util.List;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
@@ -18,7 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.pluk.fiveballs.model.Consts;
@@ -31,7 +29,6 @@ import com.pluk.fiveballs.utils.AppsUtils;
 import com.pluk.fiveballs.utils.SoundUtils;
 import com.pluk.fiveballs.utils.SoundUtils.SoundType;
 import com.pluk.fiveballs.R;
-import com.pluk.fiveballs.view.TypefaceUtils;
 
 public class RankingDialog extends Dialog implements View.OnClickListener, GetRankingCallBack {
 	
@@ -83,7 +80,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 		
 		
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        layout = mInflater.inflate(R.layout.ranking_dialog2, null);
+        layout = mInflater.inflate(R.layout.ranking_dialog, null);
         
 		vLocalScoresButton = (Button) layout.findViewById(R.id.rank_dialog_local_scores);
 		vGlobalScoresButton = (Button) layout.findViewById(R.id.rank_dialog_global_scores);
