@@ -2,6 +2,8 @@ package com.pluk.fiveballs.view;
 
 import java.lang.reflect.Method;
 import java.util.Calendar;
+import java.util.List;
+import java.util.OptionalInt;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -34,6 +36,7 @@ import android.widget.TextView;
 
 import com.pluk.fiveballs.R;
 import com.pluk.fiveballs.model.Consts;
+import com.pluk.fiveballs.persistence.PuntajeDB;
 import com.pluk.fiveballs.utils.SoundUtils;
 import com.pluk.fiveballs.widgets.RankingDialog;
 
@@ -75,6 +78,23 @@ public class FiveMore extends Activity implements OnClickListener {
 			createStar(random.nextInt(1700));
 			createStar(random.nextInt(1700));
 			createStar(random.nextInt(1700));	
+		}
+
+		loadTop1LocalScore();
+	}
+
+	private void loadTop1LocalScore() {
+
+		TextView vTop1LocalScore = (TextView) findViewById(R.id.score);
+
+		PuntajeDB persistencia = new PuntajeDB(getApplicationContext());
+		List<PuntajeDB.Row> lscores = persistencia.fetchAllRows();
+
+		OptionalInt maxScore = lscores.stream().mapToInt(s -> s.score).max();
+		if (maxScore.isPresent()) {
+			vTop1LocalScore.setText("" + maxScore.getAsInt());
+		} else {
+			vTop1LocalScore.setText("0");
 		}
 	}
 

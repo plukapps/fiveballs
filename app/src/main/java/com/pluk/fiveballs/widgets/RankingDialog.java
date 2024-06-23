@@ -411,7 +411,8 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 //		task.execute();
 
 		ScoreService service = APIClient.getClient().create(ScoreService.class);
-		Call<List<ScoreData>> call = service.topScores();
+		Call<List<ScoreData>> call = !weekly ? service.topScores() : service.weeklyScores();
+
 		vProgress.setVisibility(View.VISIBLE);
 		call.enqueue(new Callback<List<ScoreData>>() {
 			@Override
