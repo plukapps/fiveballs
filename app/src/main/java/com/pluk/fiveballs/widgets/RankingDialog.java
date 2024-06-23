@@ -1,6 +1,7 @@
 package com.pluk.fiveballs.widgets;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import android.app.Dialog;
@@ -20,15 +21,20 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.pluk.fiveballs.model.Consts;
+import com.pluk.fiveballs.persistence.APIClient;
 import com.pluk.fiveballs.persistence.GetRankingTask;
 import com.pluk.fiveballs.persistence.GetRankingTask.GetRankingCallBack;
 import com.pluk.fiveballs.persistence.PuntajeDB;
 import com.pluk.fiveballs.persistence.PuntajeDB.Row;
 import com.pluk.fiveballs.persistence.ScoreData;
+import com.pluk.fiveballs.persistence.ScoreService;
 import com.pluk.fiveballs.utils.AppsUtils;
 import com.pluk.fiveballs.utils.SoundUtils;
 import com.pluk.fiveballs.utils.SoundUtils.SoundType;
 import com.pluk.fiveballs.R;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class RankingDialog extends Dialog implements View.OnClickListener, GetRankingCallBack {
 	
@@ -165,7 +171,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 					ScoreData scoreData = data.get(i-1);
 					
 					if (RankingMode.GLOBAL == rankingMode) {
-						row.setTag(scoreData.getCountryCode());
+//						row.setTag(scoreData.getCountryCode());
 						row.setOnClickListener(new View.OnClickListener() {
 							public void onClick(View v) {
 								String countryCode = (String) v.getTag();
@@ -179,14 +185,14 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 					row.setVisibility(View.VISIBLE);
 					
 					String rank  = String.valueOf(scoreData.getRank());
-					Drawable image = scoreData.getImage();
+//					Drawable image = scoreData.getImage();
 					String nick = scoreData.getName();
 					String score = String.valueOf(scoreData.getScore());
 					String date = scoreData.getDateString();
 					
 					TextView rankView = (TextView) innerRow.getChildAt(0);
 					LinearLayout flagContainer = (LinearLayout)innerRow.getChildAt(1);
-					ImageView flagView = (ImageView) flagContainer.getChildAt(0); 
+					ImageView flagView = (ImageView) flagContainer.getChildAt(0);
 					TextView nickView = (TextView) innerRow.getChildAt(2);
 					TextView scoreView = (TextView) innerRow.getChildAt(3);
 					TextView dateView = (TextView) innerRow.getChildAt(4);
@@ -396,20 +402,49 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 	private void getRankingFromServer(int page, boolean weekly, String countryCode) {
 		vPrevPageButton.setVisibility(View.VISIBLE);
 		vNextPageButton.setVisibility(View.VISIBLE);
-		TableLayout scoreTable = (TableLayout) findViewById(R.id.scoreTable);
+		LinearLayout scoreTable = (LinearLayout) findViewById(R.id.scoreTable);
 		TextView emptyMsg = (TextView) findViewById(R.id.dialogContentEmpty);
 		scoreTable.setVisibility(View.INVISIBLE);
 		emptyMsg.setVisibility(View.INVISIBLE);
-		GetRankingTask task = new GetRankingTask(context, page, countryCode, weekly, vProgress);
-		task.setCallback(this);
-		task.execute();
+//		GetRankingTask task = new GetRankingTask(context, page, countryCode, weekly, vProgress);
+//		task.setCallback(this);
+//		task.execute();
+
+		ScoreService service = APIClient.getClient().create(ScoreService.class);
+		Call<List<ScoreData>> call = service.topScores();
+		vProgress.setVisibility(View.VISIBLE);
+		call.enqueue(new Callback<List<ScoreData>>() {
+			@Override
+			public void onResponse(Call<List<ScoreData>> call, retrofit2.Response<List<ScoreData>> response) {
+				vProgress.setVisibility(View.GONE);
+				if (response.isSuccessful()) {
+					onSuccess(response.body());
+				} else {
+					onFailure();
+				}
+			}
+
+			@Override
+			public void onFailure(Call<List<ScoreData>> call, Throwable t) {
+				vProgress.setVisibility(View.VISIBLE);
+				onFailure();
+			}
+
+			private void onFailure() {
+			}
+
+		});
+
 	}
 
 	public void onSuccess(List<ScoreData> scores) {
 		if (scores == null || scores.isEmpty()) {
 			AppsUtils.showToast(context, R.string.fb_ranking_empty);
 			return;
-		} 
+		}
+
+		Collections.sort(scores, (o1, o2) -> o2.getScore() - o1.getScore());
+
 		int j = 1 + currentPage * pageSize;
 		for (ScoreData sd : scores) {
 			sd.setRank(j);
@@ -417,7 +452,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 		}
 		setData(scores);	
 		
-		TableLayout scoreTable = (TableLayout) findViewById(R.id.scoreTable);
+		LinearLayout scoreTable = (LinearLayout) findViewById(R.id.scoreTable);
 		scoreTable.setVisibility(View.VISIBLE);
 		
 		if (scores.size() < 10) {
