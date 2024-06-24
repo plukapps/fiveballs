@@ -26,14 +26,6 @@
         android:fontFamily="@font/digital_7"
         android:layout_centerVertical="true"
         android:text="000" />
-    <!--        style="@style/RankDialogPosition"-->
-
-    <!--    <item name="android:layout_width">48dp</item>-->
-    <!--    <item name="android:layout_height">wrap_content</item>-->
-    <!--    <item name="android:layout_gravity">left</item>-->
-    <!--    <item name="android:paddingLeft">5dp</item>-->
-    <!--    <item name="android:textColor">@color/rankRanking</item>-->
-    <!--    <item name="android:textSize">@dimen/aqua_dialog_rankPosition_textSize</item>-->
 
         <LinearLayout
             android:visibility="gone"

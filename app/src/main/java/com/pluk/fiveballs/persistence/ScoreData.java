@@ -5,6 +5,8 @@ import java.util.Date;
 
 import android.graphics.drawable.Drawable;
 
+import com.google.gson.annotations.SerializedName;
+
 
 public class ScoreData {
 	
@@ -13,8 +15,9 @@ public class ScoreData {
 	private String name;
 	private int score;
 	private Date fecha;
+	@SerializedName("country")
 	private String countryCode;
-	private String countryName;
+//	private String countryName;
 	private Drawable image;
 	private int rank;
 	
@@ -24,13 +27,13 @@ public class ScoreData {
 		this.fecha = fecha;
 	}
 	
-	public ScoreData(String name, int score, Date fecha, String countryCode, String countryName) {
-		this.name = name;
-		this.score = score;
-		this.fecha = fecha;
-		this.countryCode = countryCode;
-		this.countryName = countryName;
-	}
+//	public ScoreData(String name, int score, Date fecha, String countryCode, String countryName) {
+//		this.name = name;
+//		this.score = score;
+//		this.fecha = fecha;
+//		this.countryCode = countryCode;
+//		this.countryName = countryName;
+//	}
 	
 	public ScoreData(int rank, String name, int score) {
 		this.rank = rank;
@@ -38,13 +41,13 @@ public class ScoreData {
 		this.score = score;
 	}
 	
-	public ScoreData(int rank, Drawable image, String name, int score, Date fecha) {
-		this.rank = rank;
-		this.image = image;
-		this.name = name;
-		this.score = score;
-		this.fecha = fecha;
-	}
+//	public ScoreData(int rank, Drawable image, String name, int score, Date fecha) {
+////		this.rank = rank;
+////		this.image = image;
+//		this.name = name;
+//		this.score = score;
+//		this.fecha = fecha;
+//	}
 	
 	public String getName() {
 		return name;
@@ -88,9 +91,9 @@ public class ScoreData {
 	public void setRank(int rank) {
 		this.rank = rank;
 	}
-	public String getCountryName() {
-		return countryName;
-	}
+//	public String getCountryName() {
+//		return countryName;
+//	}
 	
 	
 }

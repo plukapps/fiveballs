@@ -51,7 +51,9 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.OptionalInt;
 
 public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 	
@@ -139,6 +141,8 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 ////	        adRequest.addTestDevice("C2EEE67F6E791D37BAF4946F80533D8B");
 //	        mAdView.loadAd(adRequest);
 //        }
+
+		loadTop1LocalScore();
         
         try { 	
 			startGame();
@@ -146,6 +150,21 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 			Log.e(TAG, "onStart: Fallo", e);
 		}
     }
+
+	private void loadTop1LocalScore() {
+
+		TextView vTop1LocalScore = (TextView) findViewById(R.id.bestScoreValue);
+
+		PuntajeDB persistencia = new PuntajeDB(getApplicationContext());
+		List<PuntajeDB.Row> lscores = persistencia.fetchAllRows();
+
+		OptionalInt maxScore = lscores.stream().mapToInt(s -> s.score).max();
+		if (maxScore.isPresent()) {
+			vTop1LocalScore.setText("" + maxScore.getAsInt());
+		} else {
+			vTop1LocalScore.setText("0");
+		}
+	}
     
 	@Override
 	protected void onStart() {

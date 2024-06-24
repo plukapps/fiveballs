@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -31,8 +32,9 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/digital_7"
                     android:text="SCORE"
-                    android:textColor="#b2acd2"
-                    android:textSize="26sp" />
+                    android:textColor="@color/white"
+                    android:textSize="32sp" />
+<!--                android:textColor="#b2acd2"-->
 
                 <TextView
                     android:id="@+id/scoreValue"
@@ -41,8 +43,8 @@
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/digital_7"
                     android:text="123"
-                    android:textColor="#b2acd2"
-                    android:textSize="26sp" />
+                    android:textColor="@color/white"
+                    android:textSize="32sp" />
 
             </LinearLayout>
 
