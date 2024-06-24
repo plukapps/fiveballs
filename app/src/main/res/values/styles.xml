@@ -203,13 +203,6 @@
         <!--		<item name="android:background">@color/rankRowOdd</item>-->
     </style>
 
-    <style name="RankEmpty">
-        <item name="android:layout_gravity">center</item>
-        <item name="android:textColor">#ffffff</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:visibility">gone</item>
-    </style>
-
     <style name="DialogRankContent">
         <!--		<item name="android:paddingBottom">@dimen/aqua_dialog_content_paddingBottom</item>-->
         <!--		<item name="android:paddingTop">@dimen/aqua_dialog_content_paddingTop</item>-->

@@ -114,8 +114,11 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 			TextView scoreView = (TextView) row.getChildAt(3);
 //			scoreView.setTypeface(font);
     	}
-    	
-    	vProgress = (ProgressBar) layout.findViewById(R.id.rank_dialog_progress);
+
+		TextView emptyMsg = layout.findViewById(R.id.dialogContentEmpty);
+		emptyMsg.setVisibility(View.GONE);
+
+    	vProgress = layout.findViewById(R.id.rank_dialog_progress);
     	vProgress.setVisibility(View.GONE);
     	
     	setContentView(layout);
