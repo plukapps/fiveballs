@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:networkSecurityConfig="@xml/net_sec"
         android:icon="@drawable/iconcolors"
         android:label="@string/fb_name"
         android:theme="@style/AquaTheme">

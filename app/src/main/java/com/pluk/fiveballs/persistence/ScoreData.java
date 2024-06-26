@@ -20,7 +20,10 @@ public class ScoreData {
 //	private String countryName;
 	private Drawable image;
 	private int rank;
-	
+	public String filter;
+
+
+
 	public ScoreData(String name, int score, Date fecha) {
 		this.name = name;
 		this.score = score;
