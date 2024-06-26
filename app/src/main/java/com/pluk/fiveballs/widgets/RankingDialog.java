@@ -7,7 +7,6 @@ import java.util.List;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -17,13 +16,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.pluk.fiveballs.model.Consts;
 import com.pluk.fiveballs.persistence.APIClient;
-import com.pluk.fiveballs.persistence.GetRankingTask;
-import com.pluk.fiveballs.persistence.GetRankingTask.GetRankingCallBack;
 import com.pluk.fiveballs.persistence.PuntajeDB;
 import com.pluk.fiveballs.persistence.PuntajeDB.Row;
 import com.pluk.fiveballs.persistence.ScoreData;
@@ -36,7 +34,7 @@ import com.pluk.fiveballs.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 
-public class RankingDialog extends Dialog implements View.OnClickListener, GetRankingCallBack {
+public class RankingDialog extends Dialog implements View.OnClickListener {
 	
 	public static final String TAG = "RankingDialog";
 	
@@ -45,7 +43,9 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 	private static final int pageSize = 10;
 	private static int currentRanking = 0;
 	private static String name = "";
-	
+	private static String RANK_MAX_VAL = "999999000000000000";
+	private static String RANK_MIN_VAL = "000000000000000000";
+
 	final int rankRankginColor = getContext().getResources().getColor(R.color.rankRanking);
 	final int rankNickColor = getContext().getResources().getColor(R.color.rankNick);
 	final int rankScoreColor = getContext().getResources().getColor(R.color.rankScore);
@@ -60,9 +60,26 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 	private ProgressBar vProgress;
 	
 	private int currentPage = 0;
-	
+	private String pageValueNext = RANK_MAX_VAL;
+	private String pageValuePrev = RANK_MIN_VAL;
+
 	public enum RankingMode {
 		LOCAL, GLOBAL, WEEKLY, COUNTRY
+	}
+
+	public enum PageDir {
+		PAGEUP, PAGEDOWN;
+
+		@NonNull
+		@Override
+		public String toString() {
+			switch(this) {
+				case PAGEUP: return "pageup";
+				case PAGEDOWN:
+				default:
+					return "pagedown";
+			}
+		}
 	}
 	
 	private RankingMode rankingMode = RankingMode.LOCAL;
@@ -268,7 +285,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 		this.currentPage = currentPage;
 		showWeekly = false;
 		mCountryCode = null;
-		getRankingFromServer(currentPage, showWeekly, mCountryCode);
+		getRankingFromServer(pageValueNext,PageDir.PAGEDOWN, showWeekly, mCountryCode);
 	}
 	
 	public void setWeeklyScores() {
@@ -279,7 +296,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 		currentPage = 0;
 		currentRanking = 0;
 		mCountryCode = null;
-		getRankingFromServer(currentPage, showWeekly, mCountryCode);
+		getRankingFromServer(pageValueNext,PageDir.PAGEDOWN, showWeekly, mCountryCode);
 	}
 
 	public void onClick(View v) {
@@ -307,10 +324,12 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 				vPrevPageButton.setVisibility(View.VISIBLE);
 				vNextPageButton.setVisibility(View.VISIBLE);
 				currentPage = 0;
+				pageValueNext = RANK_MAX_VAL;
+				pageValuePrev = RANK_MIN_VAL;
 				showWeekly = false;
 				mCountryCode = null;
 				currentRanking = 0;
-				getRankingFromServer(currentPage, showWeekly, mCountryCode);
+				getRankingFromServer(pageValueNext, PageDir.PAGEDOWN, showWeekly, mCountryCode);
 				break;
 				
 			case R.id.rank_dialog_week_scores:
@@ -323,25 +342,28 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 				vNextPageButton.setVisibility(View.VISIBLE);
 				showWeekly  = true;
 				currentPage = 0;
+				pageValueNext = RANK_MAX_VAL;
+				pageValuePrev = RANK_MIN_VAL;
 				mCountryCode = null;
 				currentRanking = 0;
-				getRankingFromServer(currentPage, showWeekly, mCountryCode);
+				getRankingFromServer(pageValueNext, PageDir.PAGEDOWN, showWeekly, mCountryCode);
 				break;
 			
 			case R.id.rank_dialog_prev_page:
 				playAudio(SoundType.CLICK);
-				if(currentPage == 0){
+				if (currentPage == 0) {
 					AppsUtils.showToast(context, R.string.fb_ranking_first_page_msg);
 					return;
+				} else {
+					currentPage--;
 				}
-				currentPage--;
-				getRankingFromServer(currentPage, showWeekly, mCountryCode);
+				getRankingFromServer(pageValuePrev, PageDir.PAGEUP, showWeekly, mCountryCode);
 				break;
 				
 			case R.id.rank_dialog_next_page:
 				playAudio(SoundType.CLICK);
 				currentPage++;
-				getRankingFromServer(currentPage, showWeekly, mCountryCode);
+				getRankingFromServer(pageValueNext, PageDir.PAGEDOWN, showWeekly, mCountryCode);
 				break;
 				
 			case R.id.rank_dialog_close:
@@ -359,14 +381,14 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 	}
 
 	private void onRowClick(String countryCode) {
-		if (RankingMode.GLOBAL == rankingMode) {
-			mCountryCode  = countryCode;
-			setRankingMode(RankingMode.COUNTRY);
-			currentPage = 0;
-			currentRanking = 0;
-			showWeekly = false;
-			getRankingFromServer(currentPage, showWeekly, mCountryCode);
-		}
+//		if (RankingMode.GLOBAL == rankingMode) {
+//			mCountryCode  = countryCode;
+//			setRankingMode(RankingMode.COUNTRY);
+//			currentPage = 0;
+//			currentRanking = 0;
+//			showWeekly = false;
+//			getRankingFromServer(currentPage, showWeekly, mCountryCode);
+//		}
 	}
 
 	public void setRankingMode(RankingMode mode) {
@@ -402,7 +424,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
     	return audioPref;
     }
 	
-	private void getRankingFromServer(int page, boolean weekly, String countryCode) {
+	private void getRankingFromServer(String value, PageDir pagedir, boolean weekly, String countryCode) {
 		vPrevPageButton.setVisibility(View.VISIBLE);
 		vNextPageButton.setVisibility(View.VISIBLE);
 		LinearLayout scoreTable = (LinearLayout) findViewById(R.id.scoreTable);
@@ -414,7 +436,9 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 //		task.execute();
 
 		ScoreService service = APIClient.getClient().create(ScoreService.class);
-		Call<List<ScoreData>> call = !weekly ? service.topScores() : service.weeklyScores();
+		String valueStr = String.valueOf(value);
+		String dir = pagedir.toString();
+		Call<List<ScoreData>> call = !weekly ? service.topScores(valueStr, dir) : service.weeklyScores(valueStr, dir);
 
 		vProgress.setVisibility(View.VISIBLE);
 		call.enqueue(new Callback<List<ScoreData>>() {
@@ -422,7 +446,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 			public void onResponse(Call<List<ScoreData>> call, retrofit2.Response<List<ScoreData>> response) {
 				vProgress.setVisibility(View.GONE);
 				if (response.isSuccessful()) {
-					onSuccess(response.body());
+					onSuccess(response.body(), weekly);
 				} else {
 					onFailure();
 				}
@@ -441,25 +465,42 @@ public class RankingDialog extends Dialog implements View.OnClickListener, GetRa
 
 	}
 
-	public void onSuccess(List<ScoreData> scores) {
+	public void onSuccess(List<ScoreData> scores, boolean weekly) {
 		if (scores == null || scores.isEmpty()) {
 			AppsUtils.showToast(context, R.string.fb_ranking_empty);
 			return;
 		}
 
-		Collections.sort(scores, (o1, o2) -> o2.getScore() - o1.getScore());
+		Collections.sort(scores, (o1, o2) -> o2.filter.compareTo(o1.filter));
 
-		int j = 1 + currentPage * pageSize;
-		for (ScoreData sd : scores) {
+		List<ScoreData> pageList = null;
+
+		ScoreData first = scores.get(0);
+		ScoreData last = scores.get(scores.size() - 1);
+
+		if (scores.size() > pageSize) {
+			pageList = scores.subList(0, scores.size() - 1);
+		} else {
+			pageList = scores;
+		}
+
+		int j = 1 + (currentPage) * pageSize;
+		for (int i = 0; i < pageList.size(); i++) {
+			ScoreData sd = pageList.get(i);
 			sd.setRank(j);
 			j++;
 		}
-		setData(scores);	
+
+		pageValuePrev = first.filter;
+		pageValueNext = last.filter;
+
+
+		setData(pageList);
 		
 		LinearLayout scoreTable = (LinearLayout) findViewById(R.id.scoreTable);
 		scoreTable.setVisibility(View.VISIBLE);
 		
-		if (scores.size() < 10) {
+		if (scores.size() < pageSize) {
 			vNextPageButton.setVisibility(View.INVISIBLE);
 		}
 	}

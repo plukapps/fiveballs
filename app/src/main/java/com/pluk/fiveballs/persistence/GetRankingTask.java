@@ -20,10 +20,13 @@ import com.pluk.fiveballs.R;
  * @author marcel
  *
  */
-public class GetRankingTask extends AsyncTask<Void, Void, List<ScoreData>> {
-	
+public class GetRankingTask {
+		//extends AsyncTask<Void, Void, List<ScoreData>> {
+
+	/*
+
 	public interface GetRankingCallBack {
-		public void onSuccess(List<ScoreData> scores);
+		public void onSuccess(List<ScoreData> scores, boolean weekly);
 	}
 	
 	private static final String TAG = "GetTopScoresTask";
@@ -53,9 +56,9 @@ public class GetRankingTask extends AsyncTask<Void, Void, List<ScoreData>> {
 
 	@Override
     protected List<ScoreData> doInBackground(Void... unused) {
-    	/*
-		 * Obtengo los resultados de la web
-		 */
+
+    	// Obtengo los resultados de la web
+
 		List<ScoreData> resultados;
 		try {
 			resultados = getGlobalTopScores();
@@ -102,7 +105,7 @@ public class GetRankingTask extends AsyncTask<Void, Void, List<ScoreData>> {
         if(hayResultados) {
         	
         	if (listener != null) {
-        		listener.onSuccess(l);
+        		listener.onSuccess(l, true);
         	}
 //        	if (countryCode == null) {
 //        		activity.showDialog(GameActivity.DIALOG_GLOBAL_SCORES);
@@ -124,5 +127,7 @@ public class GetRankingTask extends AsyncTask<Void, Void, List<ScoreData>> {
 	public void setCallback(GetRankingCallBack listener) {
 		this.listener = listener;
 	}
-	 
+
+	*/
   }
+

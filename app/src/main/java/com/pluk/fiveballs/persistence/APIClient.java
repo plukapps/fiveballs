@@ -18,6 +18,7 @@ public class APIClient {
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://us-central1-fiveballs-bc2c7.cloudfunctions.net/")
+//                .baseUrl("http://10.0.2.2:5002/fiveballs-bc2c7/us-central1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
