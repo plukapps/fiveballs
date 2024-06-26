@@ -29,6 +29,7 @@ android {
             manifestPlaceholders["appIcon"] = "@drawable/app_icon_debug"
 
             buildConfigField("String", "SERVICE", "\"http://10.0.2.2:5002/fiveballs-bc2c7/us-central1/\"")
+            buildConfigField("String", "ADMOB_APPID", "\"ca-app-pub-3940256099942544/9214589741\"")
         }
 
         create("staging") {
@@ -38,8 +39,8 @@ android {
             manifestPlaceholders["hostName"] = "internal.example.com"
             manifestPlaceholders["appIcon"] = "@drawable/app_icon_stage"
 
-            buildConfigField("String", "SERVICE", "\"http://10.0.2.2:5002/fiveballs-bc2c7/us-central1/\"")
-
+            buildConfigField("String", "SERVICE", "\"https://us-central1-fiveballs-bc2c7.cloudfunctions.net/\"")
+            buildConfigField("String", "ADMOB_APPID", "\"ca-app-pub-3940256099942544/9214589741\"")
         }
 
         getByName("release") {
@@ -54,6 +55,7 @@ android {
             signingConfig = signingConfigs.getByName("debug")
 
             buildConfigField("String", "SERVICE", "\"https://us-central1-fiveballs-bc2c7.cloudfunctions.net/\"")
+            buildConfigField("String", "ADMOB_APPID", "\"ca-app-pub-6064071708465213~3296842365\"")
         }
     }
     compileOptions {
@@ -102,4 +104,6 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.google.code.gson:gson:2.10")
     implementation("com.squareup.okhttp3:logging-interceptor:3.14.1")
+
+    implementation("com.google.android.gms:play-services-ads:23.1.0")
 }

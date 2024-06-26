@@ -156,20 +156,26 @@
     <!-- ===== Grid ===== -->
     <include layout="@layout/layout_game_board" />
 
-    <LinearLayout
-        android:id="@+id/LinearLayout02"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!--		<com.google.ads.AdView -->
-        <!--			android:id="@+id/adView"-->
-        <!--			android:layout_gravity="bottom"-->
-        <!--			android:layout_width="wrap_content"-->
-        <!--			android:layout_height="wrap_content"-->
-        <!--			ads:adUnitId="a14c85712e480f1"-->
-        <!--			ads:adSize="BANNER" />-->
+        <LinearLayout
+            android:gravity="bottom"
+            android:id="@+id/adContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </LinearLayout>
+        		<com.google.android.gms.ads.admanager.AdManagerAdView
+        			android:id="@+id/adView"
+        			android:layout_width="match_parent"
+        			android:layout_height="wrap_content"
+        			ads:adUnitId="a14c85712e480f1"
+        			ads:adSize="BANNER" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>

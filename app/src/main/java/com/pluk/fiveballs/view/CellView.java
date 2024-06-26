@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.pluk.fiveballs.BuildConfig;
 import com.pluk.fiveballs.R;
 import com.pluk.fiveballs.exceptions.AlreadySelectedBallExeption;
 import com.pluk.fiveballs.exceptions.EmptyCellExeption;
@@ -387,7 +389,8 @@ public class CellView implements View.OnClickListener {
 	private Coord getCoord(ImageView ballImage) {
 		String resourceName = activity.getResources().getResourceName(ballImage.getId());
 		// resource name must be start with prefix 'ball'
-		String prefix = "com.pluk.fiveballs:id/ball";
+		String APPID = BuildConfig.APPLICATION_ID;
+		String prefix = APPID + ":id/ball";
 		if (resourceName.startsWith(prefix)) {
 			char cx = resourceName.charAt(prefix.length());
 			int x = Integer.parseInt(String.valueOf(cx));
@@ -407,7 +410,9 @@ public class CellView implements View.OnClickListener {
 	 * @return
 	 */
 	public ImageView findByCoord(int i, int j) {
-		int id = activity.getResources().getIdentifier("ball"+i+j, "id" , "com.pluk.fiveballs");
+		int id = activity.getResources().getIdentifier("ball"+i+j, "id" , BuildConfig.APPLICATION_ID);
+
+
 		return (ImageView) activity.findViewById(id);
 	}
 	
