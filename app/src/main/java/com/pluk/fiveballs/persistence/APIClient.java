@@ -1,5 +1,7 @@
 package com.pluk.fiveballs.persistence;
 
+import com.pluk.fiveballs.BuildConfig;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -15,15 +17,11 @@ public class APIClient {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
-
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://us-central1-fiveballs-bc2c7.cloudfunctions.net/")
-//                .baseUrl("http://10.0.2.2:5002/fiveballs-bc2c7/us-central1/")
+                .baseUrl(BuildConfig.SERVICE)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
-
-
 
         return retrofit;
     }

@@ -21,12 +21,39 @@ android {
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = false
+
+        getByName("debug") {
+            isDebuggable = true
+
+            applicationIdSuffix = ".debug"
+            manifestPlaceholders["appIcon"] = "@drawable/app_icon_debug"
+
+            buildConfigField("String", "SERVICE", "\"http://10.0.2.2:5002/fiveballs-bc2c7/us-central1/\"")
+        }
+
+        create("staging") {
+            initWith(getByName("debug"))
+            applicationIdSuffix = ".staging"
+
+            manifestPlaceholders["hostName"] = "internal.example.com"
+            manifestPlaceholders["appIcon"] = "@drawable/app_icon_stage"
+
+            buildConfigField("String", "SERVICE", "\"http://10.0.2.2:5002/fiveballs-bc2c7/us-central1/\"")
+
+        }
+
+        getByName("release") {
+            isMinifyEnabled = false // TODO
+            manifestPlaceholders += mapOf()
+            manifestPlaceholders["appIcon"] = "@drawable/app_icon"
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
+
+            buildConfigField("String", "SERVICE", "\"https://us-central1-fiveballs-bc2c7.cloudfunctions.net/\"")
         }
     }
     compileOptions {
@@ -38,6 +65,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -46,6 +74,9 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+    }
+    lint {
+        abortOnError = false
     }
 }
 
