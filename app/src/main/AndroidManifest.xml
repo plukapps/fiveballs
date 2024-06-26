@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".view.FiveMoreApp"
         android:networkSecurityConfig="@xml/net_sec"
         android:icon="${appIcon}"
         android:label="@string/fb_name"
@@ -41,8 +42,10 @@
             android:theme="@style/AquaTheme" />
 
         <!-- The application's publisher ID assigned by AdMob -->
-        <!-- <meta-data android:value="a14c85712e480f1" android:name="ADMOB_PUBLISHER_ID" /> -->
-
+        <meta-data
+            android:value="ca-app-pub-6064071708465213~3296842365"
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            />
 
         <!-- AdMobActivity definition -->
         <!--        <activity-->

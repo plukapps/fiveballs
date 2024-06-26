@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
@@ -29,7 +30,11 @@ import android.widget.ViewSwitcher;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.LoadAdError;
+import com.pluk.fiveballs.BuildConfig;
 import com.pluk.fiveballs.R;
+import com.pluk.fiveballs.ads.AdManager;
 import com.pluk.fiveballs.exceptions.EmptyCellExeption;
 import com.pluk.fiveballs.handlers.FactoryGame;
 import com.pluk.fiveballs.handlers.IGameManager;
@@ -149,7 +154,57 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 		} catch (Exception e) {
 			Log.e(TAG, "onStart: Fallo", e);
 		}
+
+		loadBanner();
     }
+
+	public void loadBanner() {
+
+		AdManager.addAd(this, getAdContainer(), new AdListener() {
+			@Override
+			public void onAdClicked() {
+				// Code to be executed when the user clicks on an ad.
+				Log.i("Santi", "onAdClicked()");
+			}
+
+			@Override
+			public void onAdClosed() {
+				// Code to be executed when the user is about to return
+				// to the app after tapping on an ad.
+				Log.i("Santi", "onAdClosed()");
+			}
+
+			@Override
+			public void onAdFailedToLoad(LoadAdError adError) {
+				// Code to be executed when an ad request fails.
+				Log.i("Santi", "onAdFailedToLoad()" + adError);
+			}
+
+			@Override
+			public void onAdImpression() {
+				// Code to be executed when an impression is recorded
+				// for an ad.
+				Log.i("Santi", "onAdImpression()");
+			}
+
+			@Override
+			public void onAdLoaded() {
+				// Code to be executed when an ad finishes loading.
+				Log.i("Santi", "onAdLoaded()");
+			}
+
+			@Override
+			public void onAdOpened() {
+				// Code to be executed when an ad opens an overlay that
+				// covers the screen.
+				Log.i("Santi", "onAdOpened()");
+			}
+		});
+	}
+
+	private ViewGroup getAdContainer() {
+		return findViewById(R.id.adContainer);
+	}
 
 	private void loadTop1LocalScore() {
 
@@ -404,7 +459,7 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 	}
 	
 	public ImageView findByCoord(int i, int j) {
-		int id = getResources().getIdentifier("ball"+i+j, "id" , "com.pluk.fiveballs");
+		int id = getResources().getIdentifier("ball"+i+j, "id" , BuildConfig.APPLICATION_ID);
 		return (ImageView) findViewById(id);
 	}
   
