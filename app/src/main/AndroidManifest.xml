@@ -9,7 +9,7 @@
 
     <application
         android:networkSecurityConfig="@xml/net_sec"
-        android:icon="@drawable/iconcolors"
+        android:icon="${appIcon}"
         android:label="@string/fb_name"
         android:theme="@style/AquaTheme">
         <activity
