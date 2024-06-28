@@ -115,6 +115,7 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 		vControlRestart = (ImageView) findViewById(R.id.vControlRestart);
         vControlRanking = (ImageView) findViewById(R.id.vControlRanking);
         vControlShare = (ImageView) findViewById(R.id.vControlShare);
+		vControlBack = (ImageView) findViewById(R.id.vControlBack);
     	mScoreSwitcher = (TextView) findViewById(R.id.scoreValue);
 
         // New Game button 
@@ -132,6 +133,13 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 				playAudio(SoundType.CLICK);
 			}
 		});
+
+//		vControlBack.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View view) {
+//				throw new RuntimeException("Test Crash");
+//			}
+//		});
     	
     	// Share button
     	vControlShare.setOnClickListener(shareActionListener());

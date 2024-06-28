@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "1743426585",
+    "firebase_url": "https://fiveballs-bc2c7-default-rtdb.firebaseio.com",
+    "project_id": "fiveballs-bc2c7",
+    "storage_bucket": "fiveballs-bc2c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1743426585:android:e48e830bb05a043d794688",
+        "android_client_info": {
+          "package_name": "com.pluk.fiveballs"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAres7-AXnL2hW6ansWI1k7gebJZ7OFIlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1743426585:android:31a3781d1fb0f39b794688",
+        "android_client_info": {
+          "package_name": "com.pluk.fiveballs.staging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAres7-AXnL2hW6ansWI1k7gebJZ7OFIlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
