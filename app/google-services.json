@@ -27,6 +27,25 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1743426585:android:d4d247408265ebdc794688",
+        "android_client_info": {
+          "package_name": "com.pluk.fiveballs.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAres7-AXnL2hW6ansWI1k7gebJZ7OFIlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1743426585:android:31a3781d1fb0f39b794688",
         "android_client_info": {
           "package_name": "com.pluk.fiveballs.staging"

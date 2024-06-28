@@ -274,28 +274,37 @@ public class RankingDialog extends Dialog implements View.OnClickListener {
 	}
 	
 	public void setGlobalScores() {
+		currentPage = 0;
+		currentRanking = 0;
+		pageValueNext = RANK_MAX_VAL;
+		pageValuePrev = RANK_MIN_VAL;
 		setGlobalScores(0, 0);
 	}
 
-	public void setGlobalScores(int position, int currentPage) {
-		currentRanking = position;
+	private void setGlobalScores(int position, int currentPage) {
 		setRankingMode(RankingMode.GLOBAL);
+		showWeekly = false;
 		vPrevPageButton.setVisibility(View.VISIBLE);
 		vNextPageButton.setVisibility(View.VISIBLE);
-		this.currentPage = currentPage;
-		showWeekly = false;
 		mCountryCode = null;
+
+		currentRanking = position;
+		this.currentPage = currentPage;
 		getRankingFromServer(pageValueNext,PageDir.PAGEDOWN, showWeekly, mCountryCode);
 	}
 	
 	public void setWeeklyScores() {
 		setRankingMode(RankingMode.WEEKLY);
+		showWeekly  = true;
 		vPrevPageButton.setVisibility(View.VISIBLE);
 		vNextPageButton.setVisibility(View.VISIBLE);
-		showWeekly  = true;
+		mCountryCode = null;
+
 		currentPage = 0;
 		currentRanking = 0;
-		mCountryCode = null;
+		pageValueNext = RANK_MAX_VAL;
+		pageValuePrev = RANK_MIN_VAL;
+
 		getRankingFromServer(pageValueNext,PageDir.PAGEDOWN, showWeekly, mCountryCode);
 	}
 
@@ -500,7 +509,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener {
 		LinearLayout scoreTable = (LinearLayout) findViewById(R.id.scoreTable);
 		scoreTable.setVisibility(View.VISIBLE);
 		
-		if (scores.size() < pageSize) {
+		if (scores.size() <= pageSize) {
 			vNextPageButton.setVisibility(View.INVISIBLE);
 		}
 	}

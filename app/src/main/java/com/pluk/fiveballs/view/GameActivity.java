@@ -603,7 +603,7 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory, 
 				RankingDialog rankingDialog = (RankingDialog) dialog;
 				switch (rankingMode) {
 					case LOCAL: rankingDialog.setLocalScores();	break;
-					case GLOBAL: rankingDialog.setGlobalScores(currentPosition, currentPage); break;
+					case GLOBAL: rankingDialog.setGlobalScores(); break;
 					case WEEKLY: rankingDialog.setWeeklyScores(); break;
 				}
 				break;

@@ -326,7 +326,7 @@ public class FiveMore extends Activity implements OnClickListener {
 				RankingDialog rankingDialog = (RankingDialog) dialog;
 				switch (rankingMode) {
 					case LOCAL: rankingDialog.setLocalScores();	break;
-					case GLOBAL: rankingDialog.setGlobalScores(position, currentPage); break;
+					case GLOBAL: rankingDialog.setGlobalScores(); break;
 					case WEEKLY: rankingDialog.setWeeklyScores(); break;
 				}
 				break;
