@@ -37,6 +37,7 @@ import android.widget.TextView;
 import com.pluk.fiveballs.R;
 import com.pluk.fiveballs.model.Consts;
 import com.pluk.fiveballs.persistence.PuntajeDB;
+import com.pluk.fiveballs.utils.Navigation;
 import com.pluk.fiveballs.utils.SoundUtils;
 import com.pluk.fiveballs.widgets.RankingDialog;
 
@@ -155,7 +156,7 @@ public class FiveMore extends Activity implements OnClickListener {
 				showDialog(DIALOG_SHOW_SCORES);
 				break;
 			case R.id.start_rate_app:
-				goToAndroidMarket();
+				Navigation.goToAndroidMarket(this);
 				playAudio(SoundUtils.SoundType.CLICK);
 				break;
 			default:
@@ -173,12 +174,6 @@ public class FiveMore extends Activity implements OnClickListener {
 		Intent intent = new Intent(FiveMore.this, GameActivity.class);
 		startActivity(intent);
 		setActivityAnimation(FiveMore.this, R.anim.fade, R.anim.hold);
-	}
-	
-	private void goToAndroidMarket() {
-		Intent goToMarket = null;
-		goToMarket = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.pluk.fiveballs.view"));
-		startActivity(goToMarket);
 	}
 	
 	public void playAudio(SoundUtils.SoundType soundType) {
