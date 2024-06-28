@@ -21,10 +21,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
@@ -44,6 +42,7 @@ import com.pluk.fiveballs.model.Coord;
 import com.pluk.fiveballs.model.ImageType;
 import com.pluk.fiveballs.persistence.PuntajeDB;
 import com.pluk.fiveballs.utils.AppsUtils;
+import com.pluk.fiveballs.utils.Navigation;
 import com.pluk.fiveballs.utils.SoundUtils;
 import com.pluk.fiveballs.utils.SoundUtils.SoundType;
 import com.pluk.fiveballs.widgets.AboutDialog;
@@ -60,7 +59,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.OptionalInt;
 
-public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
+public class GameActivity extends Activity implements ViewSwitcher.ViewFactory, OnClickListener{
 	
 	private static final String TAG = "GameActivity";
 	
@@ -82,8 +81,8 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 
 	private ImageView vControlRestart;
 	private ImageView vControlRanking;
-	private ImageView vControlBack;
-	private ImageView vControlShare;
+	private ImageView vControlSound;
+	private ImageView vControlRateApp;
 	private RelativeLayout mGameBoardView;
 	private TextView mScoreSwitcher;
 
@@ -114,36 +113,19 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
         mGameBoardView = (RelativeLayout) findViewById(R.id.gameBoard);
 		vControlRestart = (ImageView) findViewById(R.id.vControlRestart);
         vControlRanking = (ImageView) findViewById(R.id.vControlRanking);
-        vControlShare = (ImageView) findViewById(R.id.vControlShare);
-		vControlBack = (ImageView) findViewById(R.id.vControlBack);
+		vControlSound = (ImageView) findViewById(R.id.vControlSound);
+		vControlRateApp = (ImageView) findViewById(R.id.vControlRateApp);
     	mScoreSwitcher = (TextView) findViewById(R.id.scoreValue);
 
-        // New Game button 
-    	vControlRestart.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				showDialog(DIALOG_RESTART);
-				playAudio(SoundType.CLICK);
-			}
-		});
+		setSoundIcon(isAudioEnabled());
 
-    	// Ranking button
-    	vControlRanking.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				showDialog(DIALOG_SHOW_SCORES);
-				playAudio(SoundType.CLICK);
-			}
-		});
+    	vControlRestart.setOnClickListener(this);
+    	vControlRanking.setOnClickListener(this);
+		vControlSound.setOnClickListener(this);
+		vControlRateApp.setOnClickListener(this);
 
-//		vControlBack.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View view) {
-//				throw new RuntimeException("Test Crash");
-//			}
-//		});
-    	
-    	// Share button
-    	vControlShare.setOnClickListener(shareActionListener());
-    	
+//    	vControlShare.setOnClickListener(shareActionListener());
+
     	// Score 
 		updateScore(0);
 
@@ -307,20 +289,70 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
     	if ( persistencia != null)
     		persistencia.close();
     }
-	
+
+	@Override
+	public void onClick(View view) {
+
+		switch (view.getId()) {
+			case R.id.vControlRestart:
+				showDialog(DIALOG_RESTART);
+				playAudio(SoundType.CLICK);
+				break;
+			case R.id.vControlRanking:
+				showDialog(DIALOG_SHOW_SCORES);
+				playAudio(SoundType.CLICK);
+				break;
+			case R.id.vControlSound:
+				toogleAudio();
+				playAudio(SoundType.CLICK);
+				break;
+			case R.id.vControlRateApp:
+				Navigation.goToAndroidMarket(this);
+				playAudio(SoundUtils.SoundType.CLICK);
+				break;
+//			case R.id.share:
+//				vControlShare.setOnClickListener(shareActionListener());
+//				playAudio(SoundUtils.SoundType.CLICK);
+//				break;
+
+			default:
+				break;
+		}
+	}
+
 	public boolean isAudioEnabled(){
     	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
     	boolean audioPref = prefs.getBoolean(Consts.preferences.SOUND_ENABLED_PREFERENCE_KEY, true);
     	return audioPref;
     }
-    
-    private OnClickListener shareActionListener() {
+
+	public boolean toogleAudio(){
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		boolean audioPref = prefs.getBoolean(Consts.preferences.SOUND_ENABLED_PREFERENCE_KEY, true);
+
+		boolean newValue = !audioPref;
+		prefs.edit().putBoolean(Consts.preferences.SOUND_ENABLED_PREFERENCE_KEY, newValue).commit();
+
+		setSoundIcon(newValue);
+
+		return newValue;
+	}
+
+	private void setSoundIcon(boolean enabled) {
+		if (enabled) {
+			vControlSound.setImageResource(R.drawable.round_volume_up_black_48);
+		} else {
+			vControlSound.setImageResource(R.drawable.round_volume_off_black_48);
+		}
+	}
+
+
+	private OnClickListener shareActionListener() {
     	return new OnClickListener() {
 			public void onClick(View arg0) {
-				AppsUtils.share(GameActivity.this);
+				Navigation.goToAndroidMarket(GameActivity.this);
 				playAudio(SoundType.CLICK);
 			}
-
     	};
 	}
     

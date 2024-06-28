@@ -99,27 +99,27 @@
             android:src="@drawable/outline_emoji_events_black_48"
             android:tint="@color/white" />
 
+
         <ImageView
-            android:id="@+id/vControlShare"
+            android:id="@+id/vControlSound"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:background="@drawable/noball"
-            android:src="@drawable/outline_star_black_48"
+            android:src="@drawable/round_volume_up_black_48"
             android:tint="@color/white" />
 
         <ImageView
-            android:id="@+id/vControlBack"
+            android:id="@+id/vControlRateApp"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_below="@id/vControlShare"
+            android:layout_below="@id/vControlSound"
             android:layout_alignParentRight="true"
             android:layout_marginTop="8dp"
             android:background="@drawable/noball"
-            android:src="@drawable/outline_undo_black_48"
+            android:src="@drawable/outline_star_black_48"
             android:tint="@color/white" />
-
 
     </RelativeLayout>
 
