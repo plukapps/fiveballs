@@ -15,5 +15,5 @@ public interface ScoreService {
     Call<List<ScoreData>> weeklyScores(@Query("value") String name, @Query("pagedir") String pagedir);
 
     @GET("newscore")
-    Call<String> newScore(@Query("name") String name, @Query("score") int score);
+    Call<String> newScore(@Query("name") String name, @Query("score") int score, @Query("key") String key);
 }

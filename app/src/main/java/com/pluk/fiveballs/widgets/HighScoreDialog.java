@@ -17,6 +17,7 @@ import com.pluk.fiveballs.persistence.SubmitScoreTask;
 import com.pluk.fiveballs.persistence.SubmitScoreTask.SubmitScoreCallback;
 import com.pluk.fiveballs.utils.AppsUtils;
 import com.pluk.fiveballs.utils.InputUtils;
+import com.pluk.fiveballs.utils.SecurityManager;
 import com.pluk.fiveballs.utils.SoundUtils.SoundType;
 import com.pluk.fiveballs.R;
 
@@ -174,8 +175,12 @@ public class HighScoreDialog extends Dialog implements View.OnClickListener, Sub
 //		task.setSubmitScoreCallback(this);
 //		task.execute();
 
+		String key = SecurityManager.getInstance().getApiKey(score);
+
 		ScoreService service = APIClient.getClient().create(ScoreService.class);
-		Call<String> call = service.newScore(nick, score);
+		Call<String> call = service.newScore(nick, score, key);
+
+
 		call.enqueue(new Callback<String>() {
 			@Override
 			public void onResponse(Call<String> call, retrofit2.Response<String> response) {

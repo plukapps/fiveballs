@@ -27,6 +27,7 @@ import com.pluk.fiveballs.persistence.PuntajeDB.Row;
 import com.pluk.fiveballs.persistence.ScoreData;
 import com.pluk.fiveballs.persistence.ScoreService;
 import com.pluk.fiveballs.utils.AppsUtils;
+import com.pluk.fiveballs.utils.SecurityManager;
 import com.pluk.fiveballs.utils.SoundUtils;
 import com.pluk.fiveballs.utils.SoundUtils.SoundType;
 import com.pluk.fiveballs.R;
