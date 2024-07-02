@@ -66,29 +66,34 @@ android {
             isDebuggable = true
 
             applicationIdSuffix = ".debug"
-            //manifestPlaceholders["appIcon"] = "@drawable/app_icon_debug"
+            val admobID = "ca-app-pub-3940256099942544/9214589741"
+
+            manifestPlaceholders["admobID"] = "$admobID"
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_debug"
 
             buildConfigField("String", "SERVICE", "\"http://10.0.2.2:5002/fiveballs-bc2c7/us-central1/\"")
-            buildConfigField("String", "ADMOB_APPID", "\"ca-app-pub-3940256099942544/9214589741\"")
+            buildConfigField("String", "ADMOB_APPID", "\"$admobID\"")
         }
 
         create("staging") {
             initWith(getByName("debug"))
             applicationIdSuffix = ".staging"
 
-            manifestPlaceholders["hostName"] = "internal.example.com"
-//            manifestPlaceholders["appIcon"] = "@drawable/app_icon_stage"
+            val admobID = "ca-app-pub-3940256099942544/9214589741"
+
+            manifestPlaceholders["admobID"] = "$admobID"
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_staging"
 
             buildConfigField("String", "SERVICE", "\"https://us-central1-fiveballs-bc2c7.cloudfunctions.net/\"")
-            buildConfigField("String", "ADMOB_APPID", "\"ca-app-pub-3940256099942544/9214589741\"")
+            buildConfigField("String", "ADMOB_APPID", "\"$admobID\"")
         }
 
         getByName("release") {
+            val admobID = "ca-app-pub-6064071708465213~3296842365"
+
             isMinifyEnabled = false // TODO
             manifestPlaceholders += mapOf()
-            //manifestPlaceholders["appIcon"] = "@drawable/app_icon"
+            manifestPlaceholders["admobID"] = "$admobID"
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
 
             proguardFiles(
@@ -98,7 +103,7 @@ android {
             signingConfig = signingConfigs.getByName("posta")
 
             buildConfigField("String", "SERVICE", "\"https://us-central1-fiveballs-bc2c7.cloudfunctions.net/\"")
-            buildConfigField("String", "ADMOB_APPID", "\"ca-app-pub-6064071708465213~3296842365\"")
+            buildConfigField("String", "ADMOB_APPID", "\"$admobID\"")
         }
     }
     compileOptions {

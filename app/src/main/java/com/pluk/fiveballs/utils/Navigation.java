@@ -8,8 +8,16 @@ public class Navigation {
 
     public static void goToAndroidMarket(Activity activity) {
         String PLAYSTORE_PACKAGE_NAME = "com.pluk.fiveballs";
-        Intent goToMarket = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + PLAYSTORE_PACKAGE_NAME));
-        activity.startActivity(goToMarket);
+
+        try {
+            Intent goToMarket = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + PLAYSTORE_PACKAGE_NAME));
+            activity.startActivity(goToMarket);
+
+        } catch (android.content.ActivityNotFoundException e) {
+            Intent goWeb = new Intent(Intent.ACTION_VIEW);
+            goWeb.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + PLAYSTORE_PACKAGE_NAME));
+            activity.startActivity(goWeb);
+        }
     }
 
 }

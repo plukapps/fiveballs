@@ -123,15 +123,14 @@ public class RankingDialog extends Dialog implements View.OnClickListener {
 		vCloseButton.setVisibility(View.VISIBLE);
 		
 //		Typeface font = TypefaceUtils.circulat(context);
-		
-		LinearLayout scoreTable = (LinearLayout) layout.findViewById(R.id.scoreTable);
-    	for (int i = 1; i <= 10; i++) {
-			RelativeLayout row = (RelativeLayout) scoreTable.getChildAt(i-1);
-			
-			// Setea el tipo de fuente para el score
-			TextView scoreView = (TextView) row.getChildAt(3);
-//			scoreView.setTypeface(font);
-    	}
+//		LinearLayout scoreTable = (LinearLayout) layout.findViewById(R.id.scoreTable);
+//    	for (int i = 1; i <= 10; i++) {
+//			RelativeLayout row = (RelativeLayout) scoreTable.getChildAt(i-1);
+//
+//			// Setea el tipo de fuente para el score
+//			TextView scoreView = (TextView) row.getChildAt(3);
+////			scoreView.setTypeface(font);
+//    	}
 
 		TextView emptyMsg = layout.findViewById(R.id.dialogContentEmpty);
 		emptyMsg.setVisibility(View.GONE);
@@ -441,9 +440,6 @@ public class RankingDialog extends Dialog implements View.OnClickListener {
 		TextView emptyMsg = (TextView) findViewById(R.id.dialogContentEmpty);
 		scoreTable.setVisibility(View.INVISIBLE);
 		emptyMsg.setVisibility(View.INVISIBLE);
-//		GetRankingTask task = new GetRankingTask(context, page, countryCode, weekly, vProgress);
-//		task.setCallback(this);
-//		task.execute();
 
 		ScoreService service = APIClient.getClient().create(ScoreService.class);
 		String valueStr = String.valueOf(value);
