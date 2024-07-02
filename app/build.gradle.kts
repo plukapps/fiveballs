@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -5,7 +8,38 @@ plugins {
     id("com.google.firebase.crashlytics")
 }
 
+//import java.util.Properties
+//import java.io.FileInputStream
+//
+//// Create a variable called keystorePropertiesFile, and initialize it to your
+//// keystore.properties file, in the rootProject folder.
+//val keystorePropertiesFile = rootProject.file("keystore.properties")
+//
+//// Initialize a new Properties() object called keystoreProperties.
+//val keystoreProperties = Properties()
+//
+//// Load your keystore.properties file into the keystoreProperties object.
+//keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
+
 android {
+    signingConfigs {
+        create("posta") {
+//            storeFile = file("/Users/sanlopez/dev/pluk/keystores/keystore_fiveballs_upload.jks")
+//            storePassword = "Peluquismo1-"
+//            keyPassword = "Peluquismo1-"
+//            keyAlias = "keyalias"
+
+            val keystorePropertiesFile = rootProject.file("keystore.properties")
+            val keystoreProperties = Properties()
+            keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
+            keyAlias = keystoreProperties["keyAlias"] as String
+            keyPassword = keystoreProperties["keyPassword"] as String
+            storeFile = file(keystoreProperties["storeFile"] as String)
+            storePassword = keystoreProperties["storePassword"] as String
+        }
+    }
     namespace = "com.pluk.fiveballs"
     compileSdk = 34
 
@@ -20,6 +54,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val appName = "fiveballs"
+        setProperty("archivesBaseName", "${appName}-v${versionName}")
+        //setProperty("archivesBaseName", "${applicationId}-v${versionName}(${versionCode})")
     }
 
     buildTypes {
@@ -57,7 +95,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("posta")
 
             buildConfigField("String", "SERVICE", "\"https://us-central1-fiveballs-bc2c7.cloudfunctions.net/\"")
             buildConfigField("String", "ADMOB_APPID", "\"ca-app-pub-6064071708465213~3296842365\"")
@@ -85,6 +123,18 @@ android {
     lint {
         abortOnError = false
     }
+
+//    applicationVariants.all {
+//        val variant = this
+//        val appName = "fiveballs"
+//        variant.outputs.map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
+//            .forEach { output ->
+//                //val outputFileName = "fiveballs-${variant.buildType.name}-${variant.versionName}.apk"
+//                val outputFileName = "$appName-${buildType.name}-$versionName.${if (variant.buildType.isMinifyEnabled) "aab" else "apk"}"
+//                output.outputFileName = outputFileName
+//            }
+//    }
+
 }
 
 dependencies {
