@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.FiveBalls" parent="android:Theme.Material.Light.NoActionBar" />
+<!--    <style name="Theme.FiveBalls" parent="android:Theme.Material.Light.NoActionBar" />-->
 
     <style name="AquaTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
-        <item name="android:windowBackground">@drawable/back_mautibla</item>
+        <item name="android:windowBackground">@color/appColorBackground</item>
         <item name="android:buttonStyle">@style/AquaButton</item>
         <item name="android:textViewStyle">@style/AquaTextView</item>
         <item name="android:windowFullscreen">true</item>
@@ -16,7 +16,7 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">true</item>
-        <item name="android:windowAnimationStyle">@style/AquaThemeDialogAnimation</item>
+<!--        <item name="android:windowAnimationStyle">@style/AquaThemeDialogAnimation</item>-->
     </style>
 
     <style name="AquaThemeDialogAnimation">

@@ -6,9 +6,11 @@ import java.util.LinkedList;
 import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
@@ -16,8 +18,10 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.pluk.fiveballs.BuildConfig;
 import com.pluk.fiveballs.R;
 import com.pluk.fiveballs.exceptions.AlreadySelectedBallExeption;
 import com.pluk.fiveballs.exceptions.EmptyCellExeption;
@@ -174,7 +178,10 @@ public class CellView implements View.OnClickListener {
 			} else { // ImageType.SHAPES or ImageType.STARS 
 				ballView.clearAnimation();
 			}
-			
+
+			ImageView ballTmp = activity.findViewById(R.id.ballTmp);
+
+
 			for (int i=0; i < size-1; i++) {
 				Coord coord1 = path.get(i);
 				Coord coord2 = path.get(i+1);
@@ -195,40 +202,48 @@ public class CellView implements View.OnClickListener {
 		    			Animation.RELATIVE_TO_SELF, toYValue);
 				ta.setDuration(duration);
 				ta.setStartOffset(duration*(i));
+				ta.setZAdjustment(1);
+				ta.setFillBefore(false);
 				if (i == size-2) {
 					ta.setAnimationListener(new MoveAnimationListener(init, end) {
 						@Override
 						public void onMoveEnd(Coord init, Coord end) {
 							enableSelect = true;
+							ballTmp.setVisibility(View.GONE);
 							updateGame();
 						}
 					}); 
 				}
 				set.addAnimation(ta);
 			}
-			
+
 			ImageView fromBallView = findByCoord(init);
 			ImageView toBallView = findByCoord(end);
-			
+			toBallView.bringToFront();
 			int resourceAnimation;
 			if (GameActivity.imageType.equals(ImageType.BALLS)) {
 				resourceAnimation = BallColor.getResourceAnimation(ballColor, GameActivity.imageType);
-			} else { // ImageType.SHAPES or ImageType.STARS 
+			} else { // ImageType.SHAPES or ImageType.STARS
 				resourceAnimation = BallColor.getImageResource(ballColor, GameActivity.imageType);
 			}
+
 			toBallView.setBackgroundResource(resourceAnimation);
 			fromBallView.setBackgroundResource(R.drawable.noball);
 		
 			ImageView endBallView = findByCoord(endCoord);
+
+			ballTmp.setVisibility(View.VISIBLE);
+			ViewGroup.LayoutParams layoutParams = endBallView.getLayoutParams();
+			ballTmp.setLayoutParams(layoutParams);
 			endBallView.startAnimation(set);
-			
+
 		} else {
 			Toast tostada = Toast.makeText(activity, activity.getResources().getString(R.string.fb_main_invalid_move), Toast.LENGTH_SHORT);
 			tostada.setGravity(Gravity.BOTTOM, 5, 2);
 			tostada.show();
 		}
 	}
-	
+
 	/**
 	 * Actualiza toda la informacion sobre la interfaz. 
 	 */
@@ -374,7 +389,8 @@ public class CellView implements View.OnClickListener {
 	private Coord getCoord(ImageView ballImage) {
 		String resourceName = activity.getResources().getResourceName(ballImage.getId());
 		// resource name must be start with prefix 'ball'
-		String prefix = "com.pluk.fiveballs:id/ball";
+		String APPID = BuildConfig.APPLICATION_ID;
+		String prefix = APPID + ":id/ball";
 		if (resourceName.startsWith(prefix)) {
 			char cx = resourceName.charAt(prefix.length());
 			int x = Integer.parseInt(String.valueOf(cx));
@@ -394,7 +410,9 @@ public class CellView implements View.OnClickListener {
 	 * @return
 	 */
 	public ImageView findByCoord(int i, int j) {
-		int id = activity.getResources().getIdentifier("ball"+i+j, "id" , "com.pluk.fiveballs");
+		int id = activity.getResources().getIdentifier("ball"+i+j, "id" , BuildConfig.APPLICATION_ID);
+
+
 		return (ImageView) activity.findViewById(id);
 	}
 	
@@ -432,6 +450,7 @@ public class CellView implements View.OnClickListener {
 			Animation removeAnimation = new ScaleAnimation(scaleMin, scaleMax, scaleMin, scaleMax,  pivotType, pivot, pivotType, pivot);
 			removeAnimation.setDuration(Consts.animation.removeBallsMillis);
 			removeAnimation.setStartOffset(Consts.animation.removeBallsMillis*i);
+			removeAnimation.setFillAfter(false);
 			boolean last = i == size -1;
 			removeAnimation.setAnimationListener(new RemoveBallAnimationListener(imageView, last) {
 				@Override

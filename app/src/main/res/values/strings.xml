@@ -32,7 +32,7 @@
     <string name="fb_upload_score_empty_name">The name entered is empty</string>
     <string name="fb_upload_score_error">We were unable to submit your score. Please check your internet connection and try again.</string>
 
-	<string name="fb_ranking_scores">Scores</string>
+	<string name="fb_ranking_scores">TOP 100 SCORES</string>
 	<string name="fb_ranking_btn_locals">Locals</string>
 	<string name="fb_ranking_btn_globals">Globals</string>
 	<string name="fb_ranking_btn_weekly">Weekly</string>

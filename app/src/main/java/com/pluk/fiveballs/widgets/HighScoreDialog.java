@@ -9,14 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.pluk.fiveballs.persistence.APIClient;
 import com.pluk.fiveballs.persistence.PuntajeDB;
 import com.pluk.fiveballs.persistence.ScoreData;
+import com.pluk.fiveballs.persistence.ScoreService;
 import com.pluk.fiveballs.persistence.SubmitScoreTask;
 import com.pluk.fiveballs.persistence.SubmitScoreTask.SubmitScoreCallback;
 import com.pluk.fiveballs.utils.AppsUtils;
 import com.pluk.fiveballs.utils.InputUtils;
+import com.pluk.fiveballs.utils.SecurityManager;
 import com.pluk.fiveballs.utils.SoundUtils.SoundType;
 import com.pluk.fiveballs.R;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class HighScoreDialog extends Dialog implements View.OnClickListener, SubmitScoreCallback {
 	
@@ -29,8 +37,8 @@ public class HighScoreDialog extends Dialog implements View.OnClickListener, Sub
 
 	private View layout;
 	private Button vOkButton;
-	private Button vUploadButton;
-	private Button vShareButton;
+//	private Button vUploadButton;
+//	private Button vShareButton;
 	private EditText vNickname;
 	private TextView vHighScoreMsg;
 
@@ -63,11 +71,11 @@ public class HighScoreDialog extends Dialog implements View.OnClickListener, Sub
         vOkButton = (Button) layout.findViewById(R.id.high_score_btn_ok);
 		vOkButton.setOnClickListener(this);
 		
-		vUploadButton = (Button) layout.findViewById(R.id.high_score_btn_submit);
-		vUploadButton.setOnClickListener(this);
-		
-		vShareButton = (Button) layout.findViewById(R.id.high_score_btn_share);
-		vShareButton.setOnClickListener(this);
+//		vUploadButton = (Button) layout.findViewById(R.id.high_score_btn_submit);
+//		vUploadButton.setOnClickListener(this);
+//
+//		vShareButton = (Button) layout.findViewById(R.id.high_score_btn_share);
+//		vShareButton.setOnClickListener(this);
 		
 		vNickname = (EditText) layout.findViewById(R.id.high_score_nick);
 		vHighScoreMsg = (TextView) layout.findViewById(R.id.high_score_msg);
@@ -98,7 +106,10 @@ public class HighScoreDialog extends Dialog implements View.OnClickListener, Sub
 					if (InputUtils.isEmpty(vNickname)) {
 						AppsUtils.showToast(context, R.string.fb_upload_score_empty_name);
 					} else {
-						db.createRow(InputUtils.getText(vNickname), String.valueOf(mScore));
+						String name = InputUtils.getText(vNickname);
+						String score = String.valueOf(mScore);
+						saveLocal(name, score);
+						saveGlobal(name, mScore);
 						if (onSumbitScoreListener != null) {
 							onSumbitScoreListener.onSumbitLocalScore();
 						}
@@ -109,56 +120,91 @@ public class HighScoreDialog extends Dialog implements View.OnClickListener, Sub
 				}
 				break;
 				
-			case R.id.high_score_btn_submit:
-				AppsUtils.playAudio(context, mp, SoundType.CLICK);
-				if (db.isTopScore(mScore)) {
-					
-					if (InputUtils.isEmpty(vNickname)) {
-						AppsUtils.showToast(context, R.string.fb_upload_score_empty_name);
-					} else {
-						dismiss();
-						
-						String nick = InputUtils.getText(vNickname);
-						nick = nick.replaceAll("\n", " ").trim();
-						
-						// Actualizo los scores locales y me quedo con el id del registro local
-						long idScoreEntry = db.createRow(nick, String.valueOf(mScore));
-						// Inicio una tarea en el background para hacer el submit los resultados desde la web
-						ScoreData scoreData = new ScoreData(nick, mScore, null);	
-						SubmitScoreTask task = new SubmitScoreTask(context, scoreData, idScoreEntry, false, db);
-						task.setSubmitScoreCallback(this);
-						task.execute();
-						
-					}
-				}
-				
-				break;
-			case R.id.high_score_btn_share:
-				AppsUtils.playAudio(context, mp, SoundType.CLICK);
-				if (db.isTopScore(mScore)) {
+//			case R.id.high_score_btn_submit:
+//				AppsUtils.playAudio(context, mp, SoundType.CLICK);
+//				if (db.isTopScore(mScore)) {
+//
+//					if (InputUtils.isEmpty(vNickname)) {
+//						AppsUtils.showToast(context, R.string.fb_upload_score_empty_name);
+//					} else {
+//						dismiss();
+//
+//						String nick = InputUtils.getText(vNickname);
+//						nick = nick.replaceAll("\n", " ").trim();
+//
+//						// Actualizo los scores locales y me quedo con el id del registro local
+//						long idScoreEntry = db.createRow(nick, String.valueOf(mScore));
+//						// Inicio una tarea en el background para hacer el submit los resultados desde la web
+//
+//
+//					}
+//				}
 
-					if (InputUtils.isEmpty(vNickname)) {
-						AppsUtils.showToast(context, R.string.fb_upload_score_empty_name);
-					} else {
-						dismiss();
-						
-						String nick = InputUtils.getText(vNickname);
-						nick = nick.replaceAll("\n", " ").trim();
-						
-						// Actualizo los scores locales
-						long idScoreEntry = db.createRow(nick, String.valueOf(mScore));
-						
-						// Inicio una tarea en el background para hacer el submit los resultados desde la web
-						SubmitScoreTask task = new SubmitScoreTask(context, new ScoreData(nick, mScore, null), idScoreEntry, true, db);
-						task.setSubmitScoreCallback(this);
-						task.execute();
-					}	
-				}	
+//				break;
+//			case R.id.high_score_btn_share:
+//				AppsUtils.playAudio(context, mp, SoundType.CLICK);
+//				if (db.isTopScore(mScore)) {
+//
+//					if (InputUtils.isEmpty(vNickname)) {
+//						AppsUtils.showToast(context, R.string.fb_upload_score_empty_name);
+//					} else {
+//						dismiss();
+//
+//						String nick = InputUtils.getText(vNickname);
+//						nick = nick.replaceAll("\n", " ").trim();
+//
+//						// Actualizo los scores locales
+//						long idScoreEntry = db.createRow(nick, String.valueOf(mScore));
+//
+//						// Inicio una tarea en el background para hacer el submit los resultados desde la web
+//						SubmitScoreTask task = new SubmitScoreTask(context, new ScoreData(nick, mScore, null), idScoreEntry, true, db);
+//						task.setSubmitScoreCallback(this);
+//						task.execute();
+//					}
+//				}
 				
-				break;
+//				break;
 			default:
 				break;
 		}
+	}
+
+	private void saveGlobal(String nick, int score) {
+		ScoreData scoreData = new ScoreData(nick, mScore, null);
+//		SubmitScoreTask task = new SubmitScoreTask(context, scoreData, idScoreEntry, false, db);
+//		task.setSubmitScoreCallback(this);
+//		task.execute();
+
+		String key = SecurityManager.getInstance().getApiKey(score);
+
+		ScoreService service = APIClient.getClient().create(ScoreService.class);
+		Call<String> call = service.newScore(nick, score, key);
+
+
+		call.enqueue(new Callback<String>() {
+			@Override
+			public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+				if (response.isSuccessful()) {
+//					showGlobalsScores(0, nick, 0);
+				} else {
+					onFailure();
+				}
+			}
+
+			@Override
+			public void onFailure(Call<String> call, Throwable t) {
+				onFailure();
+			}
+
+			private void onFailure() {
+			}
+
+		});
+
+	}
+
+	private void saveLocal(String name, String score) {
+		db.createRow(name, score);
 	}
 
 	public void shareScore(String name, int score, int position, int page) {

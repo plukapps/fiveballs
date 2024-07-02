@@ -7,39 +7,21 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-<!--    <application-->
-<!--        android:allowBackup="true"-->
-<!--        android:dataExtractionRules="@xml/data_extraction_rules"-->
-<!--        android:fullBackupContent="@xml/backup_rules"-->
-<!--        android:icon="@mipmap/ic_launcher"-->
-<!--        android:label="@string/app_name"-->
-<!--        android:roundIcon="@mipmap/ic_launcher_round"-->
-<!--        android:supportsRtl="true"-->
-<!--        android:theme="@style/Theme.FiveBalls"-->
-<!--        tools:targetApi="31">-->
-<!--        <activity-->
-<!--            android:name=".MainActivity"-->
-<!--            android:exported="true"-->
-<!--            android:label="@string/app_name"-->
-<!--            android:theme="@style/Theme.FiveBalls">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.M   qAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-<!--    </application>-->
+<!--    <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="true" />-->
 
     <application
-        android:icon="@drawable/iconcolors"
-        android:label="@string/fb_name" >
+        android:name=".view.FiveMoreApp"
+        android:networkSecurityConfig="@xml/net_sec"
+        android:icon="${appIcon}"
+        android:label="@string/fb_name"
+        android:theme="@style/AquaTheme">
         <activity
-            android:exported="true"
             android:name=".view.FiveMore"
+            android:exported="true"
             android:label="@string/fb_name"
             android:launchMode="standard"
             android:screenOrientation="portrait"
-            android:theme="@style/AquaTheme" >
+            android:theme="@style/AquaTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,29 +29,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:exported="false"
             android:name=".view.GameActivity"
+            android:exported="false"
             android:label="@string/fb_name"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/AquaTheme" />
         <activity
-            android:exported="false"
             android:name=".view.OptionsActivity"
+            android:exported="false"
             android:label="@string/fb_name"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/AquaTheme" />
 
         <!-- The application's publisher ID assigned by AdMob -->
-        <!-- <meta-data android:value="a14c85712e480f1" android:name="ADMOB_PUBLISHER_ID" /> -->
-
+        <meta-data
+            android:value="ca-app-pub-6064071708465213~3296842365"
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            />
 
         <!-- AdMobActivity definition -->
-<!--        <activity-->
-<!--            android:name="com.google.ads.AdActivity"-->
-<!--            android:configChanges="keyboard|keyboardHidden|orientation"-->
-<!--            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />-->
+        <!--        <activity-->
+        <!--            android:name="com.google.ads.AdActivity"-->
+        <!--            android:configChanges="keyboard|keyboardHidden|orientation"-->
+        <!--            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />-->
 
         <!-- Track Market installs -->
         <!-- <receiver android:name="com.admob.android.ads.analytics.InstallReceiver" android:exported="true"> -->

@@ -2,6 +2,8 @@ package com.pluk.fiveballs.view;
 
 import java.lang.reflect.Method;
 import java.util.Calendar;
+import java.util.List;
+import java.util.OptionalInt;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -34,6 +36,8 @@ import android.widget.TextView;
 
 import com.pluk.fiveballs.R;
 import com.pluk.fiveballs.model.Consts;
+import com.pluk.fiveballs.persistence.PuntajeDB;
+import com.pluk.fiveballs.utils.Navigation;
 import com.pluk.fiveballs.utils.SoundUtils;
 import com.pluk.fiveballs.widgets.RankingDialog;
 
@@ -60,14 +64,6 @@ public class FiveMore extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.play);
 		
-		// Rate app Button
-		TextView vRateButton = (TextView) findViewById(R.id.start_rate_app);
-		vRateButton.setText(getString(R.string.fb_play_rate_app).toUpperCase());
-		
-		// Play lbl
-		TextView vPlayLbl = (TextView) findViewById(R.id.start_play_lbl);
-		vPlayLbl.setText(getString(R.string.fb_play).toUpperCase());
-		
 		// Play button
 //		Button vPlayButton = (Button) findViewById(R.id.start_button_play);
 	
@@ -83,6 +79,23 @@ public class FiveMore extends Activity implements OnClickListener {
 			createStar(random.nextInt(1700));
 			createStar(random.nextInt(1700));
 			createStar(random.nextInt(1700));	
+		}
+
+		loadTop1LocalScore();
+	}
+
+	private void loadTop1LocalScore() {
+
+		TextView vTop1LocalScore = (TextView) findViewById(R.id.score);
+
+		PuntajeDB persistencia = new PuntajeDB(getApplicationContext());
+		List<PuntajeDB.Row> lscores = persistencia.fetchAllRows();
+
+		OptionalInt maxScore = lscores.stream().mapToInt(s -> s.score).max();
+		if (maxScore.isPresent()) {
+			vTop1LocalScore.setText("" + maxScore.getAsInt());
+		} else {
+			vTop1LocalScore.setText("0");
 		}
 	}
 
@@ -143,7 +156,7 @@ public class FiveMore extends Activity implements OnClickListener {
 				showDialog(DIALOG_SHOW_SCORES);
 				break;
 			case R.id.start_rate_app:
-				goToAndroidMarket();
+				Navigation.goToAndroidMarket(this);
 				playAudio(SoundUtils.SoundType.CLICK);
 				break;
 			default:
@@ -161,12 +174,6 @@ public class FiveMore extends Activity implements OnClickListener {
 		Intent intent = new Intent(FiveMore.this, GameActivity.class);
 		startActivity(intent);
 		setActivityAnimation(FiveMore.this, R.anim.fade, R.anim.hold);
-	}
-	
-	private void goToAndroidMarket() {
-		Intent goToMarket = null;
-		goToMarket = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.pluk.fiveballs.view"));
-		startActivity(goToMarket);
 	}
 	
 	public void playAudio(SoundUtils.SoundType soundType) {
@@ -319,7 +326,7 @@ public class FiveMore extends Activity implements OnClickListener {
 				RankingDialog rankingDialog = (RankingDialog) dialog;
 				switch (rankingMode) {
 					case LOCAL: rankingDialog.setLocalScores();	break;
-					case GLOBAL: rankingDialog.setGlobalScores(position, currentPage); break;
+					case GLOBAL: rankingDialog.setGlobalScores(); break;
 					case WEEKLY: rankingDialog.setWeeklyScores(); break;
 				}
 				break;

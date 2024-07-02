@@ -2,7 +2,7 @@
 <resources>
     
     <!-- Play Screen -->
-    <dimen name="aqua_play_fb_logo_marginTop">20dp</dimen>
+    <dimen name="aqua_play_fb_logo_marginTop">160dp</dimen>
     <dimen name="aqua_play_playlbl_marginTop">245dp</dimen>
     <dimen name="aqua_play_playlbl_textSize">25sp</dimen>
     <dimen name="aqua_play_bottom_btn_margin">40dp</dimen>
@@ -22,7 +22,7 @@
 	<dimen name="aqua_sunmenuitems_padding_right">10px</dimen>
 	<dimen name="aqua_next_paddingleft">3dip</dimen>
 	<dimen name="aqua_nextball_size">30dip</dimen>
-	<dimen name="aqua_score_textsize">55sp</dimen>
+	<dimen name="aqua_score_textsize">24sp</dimen>
 	
 	<!-- Board -->
 	<dimen name="aqua_gb_height">480px</dimen>

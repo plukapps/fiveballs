@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+
+    <item android:drawable="@drawable/blue1" android:duration="75" />
+    <item android:drawable="@drawable/green2" android:duration="75" />
+    <item android:drawable="@drawable/orange3" android:duration="75" />
+    <item android:drawable="@drawable/yellow4" android:duration="75" />
+    <item android:drawable="@drawable/celeste1" android:duration="75" />
+    <item android:drawable="@drawable/red2" android:duration="75" />
+    <item android:drawable="@drawable/violet3" android:duration="75" />
+
+    <item android:drawable="@drawable/blue4" android:duration="75" />
+    <item android:drawable="@drawable/green1" android:duration="75" />
+    <item android:drawable="@drawable/orange2" android:duration="75" />
+    <item android:drawable="@drawable/yellow3" android:duration="75" />
+    <item android:drawable="@drawable/celeste4" android:duration="75" />
+    <item android:drawable="@drawable/red1" android:duration="75" />
+    <item android:drawable="@drawable/violet2" android:duration="75" />
+
+    <item android:drawable="@drawable/blue3" android:duration="75" />
+    <item android:drawable="@drawable/green4" android:duration="75" />
+    <item android:drawable="@drawable/orange1" android:duration="75" />
+    <item android:drawable="@drawable/yellow2" android:duration="75" />
+    <item android:drawable="@drawable/celeste3" android:duration="75" />
+    <item android:drawable="@drawable/red4" android:duration="75" />
+    <item android:drawable="@drawable/violet1" android:duration="75" />
+
+    <item android:drawable="@drawable/blue2" android:duration="75" />
+    <item android:drawable="@drawable/green3" android:duration="75" />
+    <item android:drawable="@drawable/orange4" android:duration="75" />
+    <item android:drawable="@drawable/yellow1" android:duration="75" />
+    <item android:drawable="@drawable/celeste2" android:duration="75" />
+    <item android:drawable="@drawable/red3" android:duration="75" />
+    <item android:drawable="@drawable/violet4" android:duration="75" />
+ </animation-list>

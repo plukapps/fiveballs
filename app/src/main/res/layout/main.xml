@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:id="@+id/mainView"
+    style="@style/MainLayout"
+    android:layout_width="match_parent"
+    android:background="#1E1A33"
+    android:soundEffectsEnabled="false">
+
+    <!-- ===== Score ===== -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/digital_7"
+                    android:text="SCORE"
+                    android:textColor="@color/white"
+                    android:textSize="32sp" />
+<!--                android:textColor="#b2acd2"-->
+
+                <TextView
+                    android:id="@+id/scoreValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/digital_7"
+                    android:text="123"
+                    android:textColor="@color/white"
+                    android:textSize="32sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/digital_7"
+                    android:text="BEST"
+                    android:textColor="#5a4e97"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/bestScoreValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/digital_7"
+                    android:text="123"
+                    android:textColor="#5a4e97"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/vControlRestart"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/noball"
+            android:src="@drawable/round_restart_alt_black_48"
+            android:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/vControlRanking"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/vControlRestart"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/noball"
+            android:src="@drawable/outline_emoji_events_black_48"
+            android:tint="@color/white" />
+
+
+        <ImageView
+            android:id="@+id/vControlSound"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/noball"
+            android:src="@drawable/round_volume_up_black_48"
+            android:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/vControlRateApp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_below="@id/vControlSound"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/noball"
+            android:src="@drawable/outline_star_black_48"
+            android:tint="@color/white" />
+
+    </RelativeLayout>
+
+    <!-- ===== SubPanelView ===== -->
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/noball_tmp">
+
+        <TableRow
+            android:id="@+id/TableRow01"
+            style="@style/SubMenuItems">
+
+            <!-- ===== Next Balls ===== -->
+            <ImageView
+                android:id="@+id/NextBall1"
+                style="@style/NextBalls" />
+
+            <ImageView
+                android:id="@+id/NextBall2"
+                style="@style/NextBalls" />
+
+            <ImageView
+                android:id="@+id/NextBall3"
+                style="@style/NextBalls" />
+
+        </TableRow>
+    </TableLayout>
+
+    <!-- ===== Grid ===== -->
+    <include layout="@layout/layout_game_board" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:gravity="bottom"
+            android:id="@+id/adContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        		<com.google.android.gms.ads.admanager.AdManagerAdView
+        			android:id="@+id/adView"
+        			android:layout_width="match_parent"
+        			android:layout_height="wrap_content"
+        			ads:adUnitId="a14c85712e480f1"
+        			ads:adSize="BANNER" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

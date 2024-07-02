@@ -11,24 +11,28 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import androidx.core.content.res.ResourcesCompat;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.LoadAdError;
+import com.pluk.fiveballs.BuildConfig;
 import com.pluk.fiveballs.R;
+import com.pluk.fiveballs.ads.AdManager;
 import com.pluk.fiveballs.exceptions.EmptyCellExeption;
 import com.pluk.fiveballs.handlers.FactoryGame;
 import com.pluk.fiveballs.handlers.IGameManager;
@@ -38,6 +42,7 @@ import com.pluk.fiveballs.model.Coord;
 import com.pluk.fiveballs.model.ImageType;
 import com.pluk.fiveballs.persistence.PuntajeDB;
 import com.pluk.fiveballs.utils.AppsUtils;
+import com.pluk.fiveballs.utils.Navigation;
 import com.pluk.fiveballs.utils.SoundUtils;
 import com.pluk.fiveballs.utils.SoundUtils.SoundType;
 import com.pluk.fiveballs.widgets.AboutDialog;
@@ -50,9 +55,11 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map.Entry;
+import java.util.OptionalInt;
 
-public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
+public class GameActivity extends Activity implements ViewSwitcher.ViewFactory, OnClickListener{
 	
 	private static final String TAG = "GameActivity";
 	
@@ -72,12 +79,13 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 	public static final String PREFERENCE_SOUND = "sound";
 	public static final String PREFEREBCE_IMAGES = "imageTypes";
 
-	private Button mGameButtonView;
-	private Button mRankingButtonView;
-	private Button mShareButtonView;
+	private ImageView vControlRestart;
+	private ImageView vControlRanking;
+	private ImageView vControlSound;
+	private ImageView vControlRateApp;
 	private RelativeLayout mGameBoardView;
-	private TextSwitcher mScoreSwitcher; 
-	
+	private TextView mScoreSwitcher;
+
 	RankingDialog.RankingMode rankingMode = RankingDialog.RankingMode.LOCAL;
 
     @Override
@@ -103,39 +111,24 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
         setPersistencia(new PuntajeDB(this.getApplicationContext()));
         
         mGameBoardView = (RelativeLayout) findViewById(R.id.gameBoard);
-        mGameButtonView = (Button) findViewById(R.id.button_game);
-        mRankingButtonView = (Button) findViewById(R.id.button_ranking);
-        mShareButtonView = (Button) findViewById(R.id.ButtonPreferences);
-    	mScoreSwitcher = (TextSwitcher) findViewById(R.id.scoreValue);
-        
-        // New Game button 
-    	mGameButtonView.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				showDialog(DIALOG_RESTART);
-				playAudio(SoundType.CLICK);
-			}
-		});
+		vControlRestart = (ImageView) findViewById(R.id.vControlRestart);
+        vControlRanking = (ImageView) findViewById(R.id.vControlRanking);
+		vControlSound = (ImageView) findViewById(R.id.vControlSound);
+		vControlRateApp = (ImageView) findViewById(R.id.vControlRateApp);
+    	mScoreSwitcher = (TextView) findViewById(R.id.scoreValue);
 
-    	// Ranking button
-    	mRankingButtonView.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				showDialog(DIALOG_SHOW_SCORES);
-				playAudio(SoundType.CLICK);
-			}
-		});
-    	
-    	// Share button
-    	mShareButtonView.setOnClickListener(shareActionListener());
-    	
+		setSoundIcon(isAudioEnabled());
+
+    	vControlRestart.setOnClickListener(this);
+    	vControlRanking.setOnClickListener(this);
+		vControlSound.setOnClickListener(this);
+		vControlRateApp.setOnClickListener(this);
+
+//    	vControlShare.setOnClickListener(shareActionListener());
+
     	// Score 
-    	mScoreSwitcher.setFactory(this);
-    	Animation in = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
-        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
-        mScoreSwitcher.setInAnimation(in);
-        mScoreSwitcher.setOutAnimation(out);
-        String scoreStr = String.format("%04d", Integer.valueOf(0));
-		mScoreSwitcher.setText(String.valueOf(scoreStr));
-		
+		updateScore(0);
+
 //        mAdView = (AdView)this.findViewById(R.id.adView);
 //        if (mAdView != null) {
 //	        AdRequest adRequest = new AdRequest();
@@ -143,13 +136,80 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 ////	        adRequest.addTestDevice("C2EEE67F6E791D37BAF4946F80533D8B");
 //	        mAdView.loadAd(adRequest);
 //        }
+
+		loadTop1LocalScore();
         
         try { 	
 			startGame();
 		} catch (Exception e) {
 			Log.e(TAG, "onStart: Fallo", e);
 		}
+
+		loadBanner();
     }
+
+	public void loadBanner() {
+
+		AdManager.addAd(this, getAdContainer(), new AdListener() {
+			@Override
+			public void onAdClicked() {
+				// Code to be executed when the user clicks on an ad.
+				Log.i("Santi", "onAdClicked()");
+			}
+
+			@Override
+			public void onAdClosed() {
+				// Code to be executed when the user is about to return
+				// to the app after tapping on an ad.
+				Log.i("Santi", "onAdClosed()");
+			}
+
+			@Override
+			public void onAdFailedToLoad(LoadAdError adError) {
+				// Code to be executed when an ad request fails.
+				Log.i("Santi", "onAdFailedToLoad()" + adError);
+			}
+
+			@Override
+			public void onAdImpression() {
+				// Code to be executed when an impression is recorded
+				// for an ad.
+				Log.i("Santi", "onAdImpression()");
+			}
+
+			@Override
+			public void onAdLoaded() {
+				// Code to be executed when an ad finishes loading.
+				Log.i("Santi", "onAdLoaded()");
+			}
+
+			@Override
+			public void onAdOpened() {
+				// Code to be executed when an ad opens an overlay that
+				// covers the screen.
+				Log.i("Santi", "onAdOpened()");
+			}
+		});
+	}
+
+	private ViewGroup getAdContainer() {
+		return findViewById(R.id.adContainer);
+	}
+
+	private void loadTop1LocalScore() {
+
+		TextView vTop1LocalScore = (TextView) findViewById(R.id.bestScoreValue);
+
+		PuntajeDB persistencia = new PuntajeDB(getApplicationContext());
+		List<PuntajeDB.Row> lscores = persistencia.fetchAllRows();
+
+		OptionalInt maxScore = lscores.stream().mapToInt(s -> s.score).max();
+		if (maxScore.isPresent()) {
+			vTop1LocalScore.setText("" + maxScore.getAsInt());
+		} else {
+			vTop1LocalScore.setText("0");
+		}
+	}
     
 	@Override
 	protected void onStart() {
@@ -189,9 +249,9 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 			Animation shareButtonAnimation = AnimationUtils.loadAnimation(this, R.anim.to_left);
 
 			mGameBoardView.startAnimation(gameBoardAnimation);
-			mGameButtonView.startAnimation(gameButtonAnimation);
-			mRankingButtonView.startAnimation(rankingButtonAnimation);
-			mShareButtonView.startAnimation(shareButtonAnimation);
+//			mGameButtonView.startAnimation(gameButtonAnimation);
+//			mRankingButtonView.startAnimation(rankingButtonAnimation);
+//			mShareButtonView.startAnimation(shareButtonAnimation);
 
 			showAnimationsLayouts = false;
 		}
@@ -229,20 +289,70 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
     	if ( persistencia != null)
     		persistencia.close();
     }
-	
+
+	@Override
+	public void onClick(View view) {
+
+		switch (view.getId()) {
+			case R.id.vControlRestart:
+				showDialog(DIALOG_RESTART);
+				playAudio(SoundType.CLICK);
+				break;
+			case R.id.vControlRanking:
+				showDialog(DIALOG_SHOW_SCORES);
+				playAudio(SoundType.CLICK);
+				break;
+			case R.id.vControlSound:
+				toogleAudio();
+				playAudio(SoundType.CLICK);
+				break;
+			case R.id.vControlRateApp:
+				Navigation.goToAndroidMarket(this);
+				playAudio(SoundUtils.SoundType.CLICK);
+				break;
+//			case R.id.share:
+//				vControlShare.setOnClickListener(shareActionListener());
+//				playAudio(SoundUtils.SoundType.CLICK);
+//				break;
+
+			default:
+				break;
+		}
+	}
+
 	public boolean isAudioEnabled(){
     	SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
     	boolean audioPref = prefs.getBoolean(Consts.preferences.SOUND_ENABLED_PREFERENCE_KEY, true);
     	return audioPref;
     }
-    
-    private OnClickListener shareActionListener() {
+
+	public boolean toogleAudio(){
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+		boolean audioPref = prefs.getBoolean(Consts.preferences.SOUND_ENABLED_PREFERENCE_KEY, true);
+
+		boolean newValue = !audioPref;
+		prefs.edit().putBoolean(Consts.preferences.SOUND_ENABLED_PREFERENCE_KEY, newValue).commit();
+
+		setSoundIcon(newValue);
+
+		return newValue;
+	}
+
+	private void setSoundIcon(boolean enabled) {
+		if (enabled) {
+			vControlSound.setImageResource(R.drawable.round_volume_up_black_48);
+		} else {
+			vControlSound.setImageResource(R.drawable.round_volume_off_black_48);
+		}
+	}
+
+
+	private OnClickListener shareActionListener() {
     	return new OnClickListener() {
 			public void onClick(View arg0) {
-				AppsUtils.share(GameActivity.this);
+				Navigation.goToAndroidMarket(GameActivity.this);
 				playAudio(SoundType.CLICK);
 			}
-
     	};
 	}
     
@@ -348,7 +458,10 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 		nextball1.setImageResource(BallColor.getImageResource(nextBalls.get(0), imageType));
 		nextball2.setImageResource(BallColor.getImageResource(nextBalls.get(1), imageType));
 		nextball3.setImageResource(BallColor.getImageResource(nextBalls.get(2), imageType));
-		
+
+		ImageView noball = (ImageView) findViewById(R.id.ballTmp);
+		noball.setVisibility(View.GONE);
+
 		nextball1.startAnimation(animation);
 		nextball2.startAnimation(animation);
 		nextball3.startAnimation(animation);
@@ -366,9 +479,8 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 			}
 	
 			// Se reinicia el score
-			String scoreStr = /*" " + */String.format("%04d", Integer.valueOf(0));
-			mScoreSwitcher.setText(String.valueOf(scoreStr));
-	
+			updateScore(Integer.valueOf(0));
+
 			for (int i = 0; i < Consts.game.gridsize; i++) {
 				for (int j = 0; j < Consts.game.gridsize; j++) {
 	
@@ -387,7 +499,7 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 	}
 	
 	public ImageView findByCoord(int i, int j) {
-		int id = getResources().getIdentifier("ball"+i+j, "id" , "com.pluk.fiveballs");
+		int id = getResources().getIdentifier("ball"+i+j, "id" , BuildConfig.APPLICATION_ID);
 		return (ImageView) findViewById(id);
 	}
   
@@ -491,7 +603,7 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 				RankingDialog rankingDialog = (RankingDialog) dialog;
 				switch (rankingMode) {
 					case LOCAL: rankingDialog.setLocalScores();	break;
-					case GLOBAL: rankingDialog.setGlobalScores(currentPosition, currentPage); break;
+					case GLOBAL: rankingDialog.setGlobalScores(); break;
 					case WEEKLY: rankingDialog.setWeeklyScores(); break;
 				}
 				break;
@@ -553,15 +665,15 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory {
 
 	public View makeView() {
 		 TextView t = new TextView(this/*, attributes*/);
-		 t.setTextSize(55);
+		 t.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 24.f);
 		 Typeface font = ResourcesCompat.getFont(this, R.font.digital_7);
 		 t.setTypeface(font);
 		 return t;
 	}
 	
 	public void updateScore(int score) {
-        String scoreStr = String.format("%04d", Integer.valueOf(score));
-		mScoreSwitcher.setText(String.valueOf(scoreStr));
+        String scoreStr = String.format("%d", Integer.valueOf(score));
+		mScoreSwitcher.setText(scoreStr);
 	}
 	
 	public void playAudio(SoundType soundType) {
