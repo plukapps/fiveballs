@@ -59,9 +59,12 @@ android {
     buildTypes {
 
         getByName("debug") {
-            isDebuggable = true
 
+            // BuildType config
+            isDebuggable = true
             applicationIdSuffix = ".debug"
+
+            // Params
             val admobID = "ca-app-pub-3940256099942544/9214589741"
 
             manifestPlaceholders["admobID"] = "$admobID"
@@ -72,9 +75,20 @@ android {
         }
 
         create("staging") {
+
+            // BuildType config
             initWith(getByName("debug"))
             applicationIdSuffix = ".staging"
 
+            // Shrinking and minification
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+
+            // Params
             val admobID = "ca-app-pub-3940256099942544/9214589741"
 
             manifestPlaceholders["admobID"] = "$admobID"
@@ -85,18 +99,24 @@ android {
         }
 
         getByName("release") {
-            val admobID = "ca-app-pub-6064071708465213~3296842365"
 
-            isMinifyEnabled = false // TODO
-            manifestPlaceholders += mapOf()
-            manifestPlaceholders["admobID"] = "$admobID"
-            manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
+            // Signing config
+            signingConfig = signingConfigs.getByName("posta")
 
+            // Shrinking and minification
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("posta")
+
+            // Params
+            val admobID = "ca-app-pub-6064071708465213~3296842365"
+
+            manifestPlaceholders += mapOf()
+            manifestPlaceholders["admobID"] = "$admobID"
+            manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
 
             buildConfigField("String", "SERVICE", "\"https://us-central1-fiveballs-bc2c7.cloudfunctions.net/\"")
             buildConfigField("String", "ADMOB_APPID", "\"$admobID\"")
@@ -156,8 +176,8 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.10.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.10.0")
     implementation("com.google.code.gson:gson:2.10")
     implementation("com.squareup.okhttp3:logging-interceptor:3.14.1")
 
