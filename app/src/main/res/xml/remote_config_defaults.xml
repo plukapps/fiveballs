@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<defaults>
+  <entry>
+    <key>rankings_country_flags_visible</key>
+    <value>false</value>
+  </entry>
+</defaults>

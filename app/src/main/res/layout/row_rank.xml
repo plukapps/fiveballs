@@ -10,28 +10,31 @@
     tools:showIn="@layout/ranking_dialog">
 
     <RelativeLayout
-        android:background="@drawable/rank_border"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/rank1"
-        android:layout_width="28dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="4dp"
-        android:gravity="right"
-        android:layout_marginEnd="16dp"
-        android:textColor="#B5DFF2"
-        android:fontFamily="@font/digital_7"
-        android:layout_centerVertical="true"
-        android:text="000" />
+        android:background="@drawable/rank_border">
+
+        <TextView
+            android:id="@+id/rank1"
+            android:layout_width="28dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:fontFamily="@font/digital_7"
+            android:gravity="right"
+            android:text="000"
+            android:textColor="#B5DFF2" />
 
         <LinearLayout
-            android:visibility="gone"
-            style="@style/RankDialogFlagContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:id="@+id/flgC1"
+            android:layout_width="48dp"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/rank1"
+            android:gravity="center_vertical"
+            android:visibility="invisible">
 
             <ImageView
                 android:id="@+id/flg1"
@@ -39,60 +42,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/uy" />
+
         </LinearLayout>
 
-    <TextView
-        android:layout_toRightOf="@id/rank1"
-        android:layout_toLeftOf="@+id/scor1"
-        android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:singleLine="true"
-        android:layout_height="wrap_content"
-        android:id="@+id/nick1"
-        android:layout_marginEnd="16dp"
-        android:textColor="#B5DFF2"
-        android:fontFamily="@font/raleway_regular"
-        android:layout_weight="1"
-        android:text="nicknamemaslarsdadsak" />
-    <!--        style="@style/RankDialogNick"-->
+        <TextView
+            android:id="@+id/nick1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:layout_toRightOf="@id/flgC1"
+            android:layout_toLeftOf="@+id/scor1"
+            android:fontFamily="@font/raleway_regular"
+            android:singleLine="true"
+            android:text="nicknamemaslarsdadsak"
+            android:textColor="#B5DFF2" />
+        <!--        style="@style/RankDialogNick"-->
 
-    <TextView
-        android:layout_alignParentRight="true"
-        android:id="@+id/scor1"
-        android:singleLine="true"
-        android:layout_width="64dp"
-        android:layout_marginEnd="4dp"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_gravity="right"
-        android:fontFamily="@font/circulat"
-        android:gravity="right"
-        android:textSize="@dimen/aqua_dialog_rankScore_textSize"
-        android:text="0000" />
+        <TextView
+            android:id="@+id/scor1"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="right"
+            android:layout_marginEnd="4dp"
+            android:fontFamily="@font/circulat"
+            android:gravity="right"
+            android:singleLine="true"
+            android:text="0000"
+            android:textSize="@dimen/aqua_dialog_rankScore_textSize" />
 
-    <!--
+        <!--
 
-    <style name="RankDialogScore">
-        <item name="android:layout_width">48dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_vertical|right</item>
-        <item name="android:layout_marginRight">5dp</item>
-        <item name="android:layout_marginLeft">5dp</item>
-        <item name="android:gravity">right</item>
-        <item name="android:fontFamily">@font/circulat</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:textColor">@color/rankScore</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/aqua_dialog_rankScore_textSize</item>
-    </style>
+        <style name="RankDialogScore">
+            <item name="android:layout_width">48dp</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_gravity">center_vertical|right</item>
+            <item name="android:layout_marginRight">5dp</item>
+            <item name="android:layout_marginLeft">5dp</item>
+            <item name="android:gravity">right</item>
+            <item name="android:fontFamily">@font/circulat</item>
+            <item name="android:singleLine">true</item>
+            <item name="android:textColor">@color/rankScore</item>
+            <item name="android:textStyle">bold</item>
+            <item name="android:textSize">@dimen/aqua_dialog_rankScore_textSize</item>
+        </style>
 
-    -->
+        -->
 
-    <TextView
-        android:id="@+id/date1"
-        style="@style/RankDialogDate"
-        android:layout_height="match_parent"
-        android:text="00/00/00" />
+        <TextView
+            android:id="@+id/date1"
+            style="@style/RankDialogDate"
+            android:layout_height="match_parent"
+            android:text="00/00/00" />
 
     </RelativeLayout>
 
