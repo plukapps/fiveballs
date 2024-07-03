@@ -1,6 +1,10 @@
 package com.pluk.fiveballs.utils;
 
+import static com.google.firebase.crashlytics.internal.common.CommonUtils.sha1;
+
 import android.util.Log;
+
+import androidx.annotation.Nullable;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -17,6 +21,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class SecurityManager {
 
     private static final String TAG = "SecurityManager";
+    private static String secret = "fivemore2010uy24";
 
     private static SecurityManager instance;
 
@@ -26,18 +31,33 @@ public class SecurityManager {
     public static SecurityManager getInstance() {
         if (instance == null) {
             instance = new SecurityManager();
-        }
+         }
         return instance;
     }
 
     public String getApiKey(int score) {
+        return resolve(String.valueOf(score));
+    }
 
-        //String texto = appName + score;
-        String password = "fivemore4567uy24";
+    public String resolve(String dataOriginal) {
+        String data = secret + dataOriginal + "fiveballs";
+        String encrypted = encrypt(data);
+        return encrypted;
+    }
+
+    private String encrypt(String dataOriginal) {
+        return sha1(dataOriginal);
+    }
+
+    @Nullable
+    private String old(int score) {
+        String texto = "fiveballs" + score;
+
         String claveEncriptada;
         try {
-            claveEncriptada = SHA1(password + score + "fiveballs");
-            Log.i(TAG, "La clave encriptada es: " + claveEncriptada );
+            claveEncriptada = SHA1(secret + score + "fiveballs");
+            Log.i(TAG, "La clave encriptada es: " + claveEncriptada);
+
             return URLEncoder.encode(claveEncriptada);
 
         } catch (NoSuchAlgorithmException e) {
