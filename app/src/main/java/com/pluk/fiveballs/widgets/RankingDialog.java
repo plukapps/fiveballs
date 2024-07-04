@@ -2,6 +2,7 @@ package com.pluk.fiveballs.widgets;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import android.app.Dialog;
@@ -9,6 +10,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -477,7 +479,12 @@ public class RankingDialog extends Dialog implements View.OnClickListener {
 			return;
 		}
 
-		Collections.sort(scores, (o1, o2) -> o2.filter.compareTo(o1.filter));
+		Collections.sort(scores, new Comparator<ScoreData>() {
+			@Override
+			public int compare(ScoreData o1, ScoreData o2) {
+				return o2.getFilter().compareTo(o1.getFilter());
+			}
+		});
 
 		List<ScoreData> pageList = null;
 
@@ -497,8 +504,8 @@ public class RankingDialog extends Dialog implements View.OnClickListener {
 			j++;
 		}
 
-		pageValuePrev = first.filter;
-		pageValueNext = last.filter;
+		pageValuePrev = first.getFilter();
+		pageValueNext = last.getFilter();
 
 
 		setData(pageList);

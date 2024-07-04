@@ -1,13 +1,15 @@
 package com.pluk.fiveballs.persistence;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.graphics.drawable.Drawable;
+
+import androidx.annotation.Keep;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+@Keep
 public class ScoreData {
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
@@ -20,7 +22,7 @@ public class ScoreData {
 //	private String countryName;
 	private Drawable image;
 	private int rank;
-	public String filter;
+	private String filter;
 
 
 
@@ -97,6 +99,24 @@ public class ScoreData {
 //	public String getCountryName() {
 //		return countryName;
 //	}
-	
-	
+
+
+	public String getFilter() {
+		return filter;
+	}
+
+	public void setFilter(String filter) {
+		this.filter = filter;
+	}
+
+	@Override
+	public String toString() {
+		return "ScoreData{" +
+				"name='" + name + '\'' +
+				", score=" + score +
+				", countryCode='" + countryCode + '\'' +
+				", rank=" + rank +
+				", filter='" + filter + '\'' +
+				'}';
+	}
 }
