@@ -20,7 +20,7 @@
 	<string name="fb_upload_score">Nueva puntuación</string>
     <string name="fb_upload_score_gameover">Fin del juego</string>
     <string name="fb_upload_score_game">Tu puntuación es</string>
-    <string name="fb_upload_score_enter_name">Ingrese su nombre</string>
+    <string name="fb_upload_score_enter_name">Ingrese su nickname</string>
     <string name="fb_upload_score_upload">Subir</string>    
     <string name="fb_upload_score_empty_name">El nombre especificado está vacío</string>
     <string name="fb_upload_score_error">No hemos podido enviar su calificación. Compruebe su conexión a internet y vuelva a intentarlo.</string>
