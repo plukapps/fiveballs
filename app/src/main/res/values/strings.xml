@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
-	<string name="app_name">FiveBalls</string>
+	<string name="app_name" translatable="false">FiveBalls</string>
 
-	<string name="fb_name">FiveBalls</string>
+	<string name="fb_name" translatable="false">FiveBalls</string>
 	<string name="fb_version_name">2.0.3</string>
 	<string name="fb_company_rights">&#174; Mautibla 2012</string>
     <string name="fb_website_url">http://fiveballs.androiduy.com</string>
@@ -53,6 +53,9 @@
     <string name="fb_pref_ball_balls_type_balls">Balls</string>
     <string name="fb_pref_ball_balls_type_shapes">Shapes</string>
     <string name="fb_pref_ball_balls_type_stars">Stars</string>
+	<string name="fb_pref_privacy_policy_title">Privacy Policy</string>
+	<string name="fb_pref_privacy_policy_action">View Privacy Policies</string>
+	<string name="fb_pref_privacy_policy_desc">Review the fiveballs policies</string>
 
 	<string name="fb_menu_new_game">Game</string>
 	<string name="fb_menu_options">Options</string>

@@ -23,6 +23,15 @@
                 android:dialogTitle="@string/fb_pref_ball_balls_type">
 		</ListPreference>
 	</PreferenceCategory>
+
+	<!-- ==== Images Balls ==== -->
+	<PreferenceCategory android:title="@string/fb_pref_privacy_policy_title">
+		<Preference
+			android:key="policies"
+			android:title="@string/fb_pref_privacy_policy_action"
+			android:summary="@string/fb_pref_privacy_policy_desc">
+		</Preference>
+	</PreferenceCategory>
 		
 </PreferenceScreen>
 	

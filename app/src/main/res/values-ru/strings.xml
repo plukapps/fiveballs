@@ -63,5 +63,8 @@
 	<string name="fb_about_message">Это приложение было разработано Mautibla. Посетите наш сайт в www.mautibla.com. Чтобы увидеть это приложение в сети, нажмите на кнопку ниже веб. Вы также можете поделиться этим приложением на facebook и щебет использования ниже доля кнопку.</string>
 	<string name="fb_about_button_moreapps">сеть</string>
 	<string name="fb_about_share_button">доля</string>
+    <string name="fb_pref_privacy_policy_action">Посмотреть политику конфиденциальности</string>
+    <string name="fb_pref_privacy_policy_desc">Ознакомьтесь с политикой Fiveballs</string>
+    <string name="fb_pref_privacy_policy_title">Политика конфиденциальности</string>
 
 </resources>

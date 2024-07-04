@@ -63,5 +63,8 @@
 	<string name="fb_about_message">Ta aplikacja została opracowana przez Mautibla. Odwiedź naszą stronę w www.mautibla.com. Aby wyświetlić aplikacji sieci web, kliknij poniżej przycisk sieci web. Można również udostępnić aplikacji na facebook i twitter, używając poniżej przycisku udziału.</string>
 	<string name="fb_about_button_moreapps">Web</string>
 	<string name="fb_about_share_button">Udostępnij</string>
-	    
+    <string name="fb_pref_privacy_policy_action">Zobacz politykę prywatności</string>
+	<string name="fb_pref_privacy_policy_desc">Przejrzyj zasady Fiveballs</string>
+	<string name="fb_pref_privacy_policy_title">Polityka prywatności</string>
+
 </resources>

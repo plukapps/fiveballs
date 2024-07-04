@@ -63,4 +63,7 @@
 	<string name="fb_about_message">このアプリケーションは、Mautibla によって開発されました。 www.mautibla.com で私たちのサイトを参照してください。ウェブ上でこのアプリケーションを参照するには、web ボタン怒鳴る] をクリックします。また、この facebook でアプリを共有し、twitter の共有ボタン怒鳴るを使用することもできます。</string>
 	<string name="fb_about_button_moreapps">Web</string>
 	<string name="fb_about_share_button">共有</string>
+	<string name="fb_pref_privacy_policy_action">プライバシーポリシーを見る</string>
+	<string name="fb_pref_privacy_policy_desc">Fiveballsのポリシーを確認する</string>
+	<string name="fb_pref_privacy_policy_title">プライバシーポリシー</string>
 </resources>
