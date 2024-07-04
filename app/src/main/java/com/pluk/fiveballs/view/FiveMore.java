@@ -155,6 +155,9 @@ public class FiveMore extends Activity implements OnClickListener {
 			case R.id.start_scores_btn:
 				showDialog(DIALOG_SHOW_SCORES);
 				break;
+			case R.id.start_no_ads:
+				Navigation.goToNoAds(this);
+				break;
 			case R.id.start_rate_app:
 				Navigation.goToAndroidMarket(this);
 				playAudio(SoundUtils.SoundType.CLICK);
