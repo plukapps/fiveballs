@@ -4,7 +4,7 @@ public final class Consts {
 	 
 	 public static final class game {
 		 public static final int gridsize = 9;
-		 public static final int inlinemin= 4;
+		 public static final int inlinemin= 5;
 		 public static final int countNextBalls = 3;
 		 public static final int countBallsColors= 7;
 		 //La cantidad de pixels necesarios para los bordes (10 bordes de 1px) + un offset (5px)
