@@ -63,5 +63,8 @@
 	<string name="fb_about_message">这款软件是由 Mautibla 开发的。请访问我们的网站在 www.mautibla.com 中。要在 web 上看到这个应用程序，请单击 web 按钮波纹管。也可以分享这个在 facebook 上的应用和 twitter 使用共享按钮波纹管。</string>
 	<string name="fb_about_button_moreapps">Web</string>
 	<string name="fb_about_share_button">共享</string>
-	
+    <string name="fb_pref_privacy_policy_action">查看隐私政策</string>
+	<string name="fb_pref_privacy_policy_desc">审查五球政策</string>
+	<string name="fb_pref_privacy_policy_title">隐私政策</string>
+
 </resources>

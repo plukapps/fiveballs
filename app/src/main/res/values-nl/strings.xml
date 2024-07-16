@@ -63,5 +63,8 @@
 	<string name="fb_about_message">Dit app werd ontwikkeld door Mautibla. \nBezoek onze site in www.mautibla.com. \nOm te zien dit app op het web, klikt u op het web knop blaten. \nU kunt ook delen deze app op facebook en twitter met behulp van de share knop balg.</string>
 	<string name="fb_about_button_moreapps">Web</string>
 	<string name="fb_about_share_button">Delen</string>
-	
+    <string name="fb_pref_privacy_policy_action">Privacybeleid bekijken</string>
+	<string name="fb_pref_privacy_policy_desc">Bekijk het Fiveballs-beleid</string>
+	<string name="fb_pref_privacy_policy_title">Privacybeleid</string>
+
 </resources>

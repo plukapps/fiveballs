@@ -63,5 +63,8 @@
 	<string name="fb_about_message">Esta aplicação foi desenvolvida por Mautibla. \nVisite Web site em www.mautibla.com. \nPara Visualizar esta aplicação on-line, clique abaixo no botão web. \nTambién pode compartilhar este app no facebook e twitter usando o botão compartilhar.</string>
 	<string name="fb_about_button_moreapps">Web</string>
 	<string name="fb_about_share_button">Compartilhar</string>
+    <string name="fb_pref_privacy_policy_action">Ver políticas de privacidade</string>
+	<string name="fb_pref_privacy_policy_desc">Revise as políticas do Fiveballs</string>
+	<string name="fb_pref_privacy_policy_title">Política de Privacidade</string>
 
 </resources>
