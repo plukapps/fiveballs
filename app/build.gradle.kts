@@ -118,7 +118,8 @@ android {
 
         create("paid") {
             dimension = "tier"
-            applicationId = "com.pluk.fiveballs.noads"
+            applicationId = "com.pluk.fiveballs"
+            //applicationId = "com.pluk.fiveballs.noads"
         }
     }
 

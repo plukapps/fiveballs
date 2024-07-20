@@ -115,10 +115,12 @@
             <RelativeLayout
                 android:id="@+id/start_no_ads"
                 android:layout_width="72dp"
+                android:onClick="onClick"
                 android:layout_height="72dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="4dp"
+                android:visibility="visible"
                 android:background="@drawable/noball">
 
                 <TextView
@@ -127,9 +129,9 @@
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/raleway_bold"
                     android:gravity="center"
-                    android:text="No \nADS"
+                    android:text="NO\nADS"
                     android:textColor="#F1AD0C"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
             </RelativeLayout>
 
