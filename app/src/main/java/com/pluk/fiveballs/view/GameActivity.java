@@ -24,12 +24,14 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import androidx.core.content.res.ResourcesCompat;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.LoadAdError;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.pluk.fiveballs.BuildConfig;
 import com.pluk.fiveballs.R;
 import com.pluk.fiveballs.ads.AdManager;

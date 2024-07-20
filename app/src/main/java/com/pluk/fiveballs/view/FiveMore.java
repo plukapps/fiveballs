@@ -34,6 +34,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.pluk.fiveballs.BuildConfig;
 import com.pluk.fiveballs.R;
 import com.pluk.fiveballs.model.Consts;
@@ -83,8 +84,9 @@ public class FiveMore extends Activity implements OnClickListener {
 		}
 
 		loadTop1LocalScore();
-
 		bindVersion();
+
+		FirebaseRemoteConfig.getInstance().fetchAndActivate();
 	}
 
 	private void bindVersion() {
