@@ -8,27 +8,9 @@ plugins {
     id("com.google.firebase.crashlytics")
 }
 
-//import java.util.Properties
-//import java.io.FileInputStream
-//
-//// Create a variable called keystorePropertiesFile, and initialize it to your
-//// keystore.properties file, in the rootProject folder.
-//val keystorePropertiesFile = rootProject.file("keystore.properties")
-//
-//// Initialize a new Properties() object called keystoreProperties.
-//val keystoreProperties = Properties()
-//
-//// Load your keystore.properties file into the keystoreProperties object.
-//keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-
-
 android {
     signingConfigs {
         create("posta") {
-//            storeFile = file("/Users/sanlopez/dev/pluk/keystores/keystore_fiveballs_upload.jks")
-//            storePassword = "Peluquismo1-"
-//            keyPassword = "Peluquismo1-"
-//            keyAlias = "keyalias"
 
             val keystorePropertiesFile = rootProject.file("keystore.properties")
             val keystoreProperties = Properties()
@@ -47,8 +29,8 @@ android {
         applicationId = "com.pluk.fiveballs"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "0.0.1"
+        versionCode = 4
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -63,9 +45,12 @@ android {
     buildTypes {
 
         getByName("debug") {
-            isDebuggable = true
 
+            // BuildType config
+            isDebuggable = true
             applicationIdSuffix = ".debug"
+
+            // Params
             val admobID = "ca-app-pub-3940256099942544/9214589741"
 
             manifestPlaceholders["admobID"] = "$admobID"
@@ -76,9 +61,20 @@ android {
         }
 
         create("staging") {
+
+            // BuildType config
             initWith(getByName("debug"))
             applicationIdSuffix = ".staging"
 
+            // Shrinking and minification
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+
+            // Params
             val admobID = "ca-app-pub-3940256099942544/9214589741"
 
             manifestPlaceholders["admobID"] = "$admobID"
@@ -89,18 +85,24 @@ android {
         }
 
         getByName("release") {
-            val admobID = "ca-app-pub-6064071708465213~3296842365"
 
-            isMinifyEnabled = false // TODO
-            manifestPlaceholders += mapOf()
-            manifestPlaceholders["admobID"] = "$admobID"
-            manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
+            // Signing config
+            signingConfig = signingConfigs.getByName("posta")
 
+            // Shrinking and minification
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("posta")
+
+            // Params
+            val admobID = "ca-app-pub-6064071708465213~3296842365"
+
+            manifestPlaceholders += mapOf()
+            manifestPlaceholders["admobID"] = "$admobID"
+            manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher"
 
             buildConfigField("String", "SERVICE", "\"https://us-central1-fiveballs-bc2c7.cloudfunctions.net/\"")
             buildConfigField("String", "ADMOB_APPID", "\"$admobID\"")
@@ -174,8 +176,8 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.10.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.10.0")
     implementation("com.google.code.gson:gson:2.10")
     implementation("com.squareup.okhttp3:logging-interceptor:3.14.1")
 
@@ -188,4 +190,6 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-config")
+
 }

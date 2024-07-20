@@ -20,7 +20,7 @@
 	<string name="fb_upload_score">Nueva puntuación</string>
     <string name="fb_upload_score_gameover">Fin del juego</string>
     <string name="fb_upload_score_game">Tu puntuación es</string>
-    <string name="fb_upload_score_enter_name">Ingrese su nombre</string>
+    <string name="fb_upload_score_enter_name">Ingrese su nickname</string>
     <string name="fb_upload_score_upload">Subir</string>    
     <string name="fb_upload_score_empty_name">El nombre especificado está vacío</string>
     <string name="fb_upload_score_error">No hemos podido enviar su calificación. Compruebe su conexión a internet y vuelva a intentarlo.</string>
@@ -62,6 +62,9 @@
 	<string name="fb_about_version">Versión</string>
 	<string name="fb_about_message">Esta aplicación fue desarrollada por Mautibla. \nVisite nuestro sitio Web en www.mautibla.com. \nPara ver esta aplicación en la web, haga clic debajo en el botón de web. \nTambién puede compartir esta app en facebook y twitter utilizando el botón de compartir.</string>
 	<string name="fb_about_button_moreapps">Web</string>
-	<string name="fb_about_share_button">Compartir</string>    	 
-   	
+	<string name="fb_about_share_button">Compartir</string>
+	<string name="fb_pref_privacy_policy_action">Ver políticas de privacidad</string>
+	<string name="fb_pref_privacy_policy_desc">Revisar las políticas de Fiveballs</string>
+	<string name="fb_pref_privacy_policy_title">Política de privacidad</string>
+
 </resources>

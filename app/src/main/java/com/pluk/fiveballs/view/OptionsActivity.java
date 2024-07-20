@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.pluk.fiveballs.R;
+import com.pluk.fiveballs.utils.Navigation;
 
 public class OptionsActivity extends PreferenceActivity {
 	
@@ -24,6 +25,17 @@ public class OptionsActivity extends PreferenceActivity {
 	    String soundPreferenceKey = SOUND_ENABLED_PREFERENCE_KEY;
 	    Preference soundPref = findPreference(soundPreferenceKey);
 	    soundPref.setOnPreferenceClickListener(onPreferenceClickListener());
+
+		Preference prefPolicies = findPreference("policies");
+		prefPolicies.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				Navigation.goToPrivacyPolices(OptionsActivity.this);
+				return true;
+			}
+		});
+
+
 	}
 	
 	private OnPreferenceClickListener onPreferenceClickListener() {

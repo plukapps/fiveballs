@@ -63,5 +63,8 @@
 	<string name="fb_about_message">Tato aplikace byla vyvinuta Mautibla. \nNavštivte náš web v www.mautibla.com. \nTato aplikace na webu, zobrazíte klepnutím na tlačítko bellow web. \nLze také sdílet tuto aplikaci na facebook a cvrlikání pomocí bellow tlačítko sdílení.</string>
 	<string name="fb_about_button_moreapps">Web</string>
 	<string name="fb_about_share_button">Podíl</string>
-    
+    <string name="fb_pref_privacy_policy_action">Zobrazit zásady ochrany osobních údajů</string>
+	<string name="fb_pref_privacy_policy_desc">Přezkoumat politiky Fiveballs</string>
+	<string name="fb_pref_privacy_policy_title">Zásady ochrany osobních údajů</string>
+
 </resources>

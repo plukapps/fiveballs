@@ -29,4 +29,10 @@ public class Navigation {
             activity.startActivity(goWeb);
         }
     }
+
+    public static void goToPrivacyPolices(Activity activity) {
+        Intent goWeb = new Intent(Intent.ACTION_VIEW);
+        goWeb.setData(Uri.parse("https://plukapps.github.io/privacypolicy/fiveballs"));
+        activity.startActivity(goWeb);
+    }
 }
