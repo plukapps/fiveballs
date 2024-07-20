@@ -144,7 +144,7 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory, 
         try { 	
 			startGame();
 		} catch (Exception e) {
-			Log.e(TAG, "onStart: Fallo", e);
+			Log.e(TAG, "startGame: no funciono", e);
 		}
 
 		loadBanner();
@@ -152,46 +152,54 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory, 
 
 	public void loadBanner() {
 
-		AdManager.addAd(this, getAdContainer(), new AdListener() {
-			@Override
-			public void onAdClicked() {
-				// Code to be executed when the user clicks on an ad.
-				Log.i("Santi", "onAdClicked()");
-			}
+		boolean flag = FirebaseRemoteConfig.getInstance().getBoolean("ads_show_banner_game");
 
-			@Override
-			public void onAdClosed() {
-				// Code to be executed when the user is about to return
-				// to the app after tapping on an ad.
-				Log.i("Santi", "onAdClosed()");
-			}
+		if (!flag) {
+			getAdContainer().setVisibility(View.GONE);
+		} else {
+			getAdContainer().setVisibility(View.VISIBLE);
 
-			@Override
-			public void onAdFailedToLoad(LoadAdError adError) {
-				// Code to be executed when an ad request fails.
-				Log.i("Santi", "onAdFailedToLoad()" + adError);
-			}
+			AdManager.addAd(this, getAdContainer(), new AdListener() {
+				@Override
+				public void onAdClicked() {
+					// Code to be executed when the user clicks on an ad.
+					Log.i("Santi", "onAdClicked()");
+				}
 
-			@Override
-			public void onAdImpression() {
-				// Code to be executed when an impression is recorded
-				// for an ad.
-				Log.i("Santi", "onAdImpression()");
-			}
+				@Override
+				public void onAdClosed() {
+					// Code to be executed when the user is about to return
+					// to the app after tapping on an ad.
+					Log.i("Santi", "onAdClosed()");
+				}
 
-			@Override
-			public void onAdLoaded() {
-				// Code to be executed when an ad finishes loading.
-				Log.i("Santi", "onAdLoaded()");
-			}
+				@Override
+				public void onAdFailedToLoad(LoadAdError adError) {
+					// Code to be executed when an ad request fails.
+					Log.i("Santi", "onAdFailedToLoad()" + adError);
+				}
 
-			@Override
-			public void onAdOpened() {
-				// Code to be executed when an ad opens an overlay that
-				// covers the screen.
-				Log.i("Santi", "onAdOpened()");
-			}
-		});
+				@Override
+				public void onAdImpression() {
+					// Code to be executed when an impression is recorded
+					// for an ad.
+					Log.i("Santi", "onAdImpression()");
+				}
+
+				@Override
+				public void onAdLoaded() {
+					// Code to be executed when an ad finishes loading.
+					Log.i("Santi", "onAdLoaded()");
+				}
+
+				@Override
+				public void onAdOpened() {
+					// Code to be executed when an ad opens an overlay that
+					// covers the screen.
+					Log.i("Santi", "onAdOpened()");
+				}
+			});
+		}
 	}
 
 	private ViewGroup getAdContainer() {
