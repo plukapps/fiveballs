@@ -22,6 +22,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.pluk.fiveballs.BuildConfig;
 import com.pluk.fiveballs.model.Consts;
 import com.pluk.fiveballs.persistence.APIClient;
 import com.pluk.fiveballs.persistence.PuntajeDB;
@@ -207,7 +209,7 @@ public class RankingDialog extends Dialog implements View.OnClickListener {
 					row.setVisibility(View.VISIBLE);
 					
 					String rank  = String.valueOf(scoreData.getRank());
-//					Drawable image = scoreData.getImage();
+					//Drawable image = scoreData.getImage();
 					String nick = scoreData.getName();
 					String score = String.valueOf(scoreData.getScore());
 					String date = scoreData.getDateString();
@@ -223,16 +225,8 @@ public class RankingDialog extends Dialog implements View.OnClickListener {
 					rankView.setText(rank);
 					
 					// Setea la bandera
-//					if (image != null) {
-//						flagView.setImageDrawable(image);
-//						flagView.setVisibility(View.VISIBLE);
-//						flagContainer.setVisibility(View.VISIBLE);
-//						row.setTag(scoreData.getCountryCode());
-//					} else {
-//						flagView.setVisibility(View.INVISIBLE);
-//						flagContainer.setVisibility(View.INVISIBLE);
-//					}
-					
+					setCountryFlag(row, scoreData, flagContainer, flagView);
+
 					// Setea el nick
 					nickView.setText(nick);
 					
@@ -267,7 +261,37 @@ public class RankingDialog extends Dialog implements View.OnClickListener {
 			}
 		}
 	}
-	
+
+	private void setCountryFlag(RelativeLayout row, ScoreData scoreData, LinearLayout flagContainer, ImageView flagView) {
+
+		boolean showFlags = FirebaseRemoteConfig.getInstance().getBoolean("rankings_country_flags_visible");
+		if (!showFlags) {
+			hideCountryFlag(flagContainer, flagView);
+			return;
+		}
+
+		try {
+			if (scoreData.getCountryCode() != null) {
+
+				int cIdentifier = context.getResources().getIdentifier(scoreData.getCountryCode().toLowerCase(), "drawable", BuildConfig.APPLICATION_ID);
+				flagView.setImageResource(cIdentifier);
+
+				flagView.setVisibility(View.VISIBLE);
+				flagContainer.setVisibility(View.VISIBLE);
+				row.setTag(scoreData.getCountryCode());
+			} else {
+				hideCountryFlag(flagContainer, flagView);
+			}
+		} catch ( Exception e) {
+			hideCountryFlag(flagContainer, flagView);
+		}
+	}
+
+	private static void hideCountryFlag(LinearLayout flagContainer, ImageView flagView) {
+		flagView.setVisibility(View.INVISIBLE);
+		flagContainer.setVisibility(View.INVISIBLE);
+	}
+
 	public void setLocalScores() {
 		setRankingMode(RankingMode.LOCAL);
 		vPrevPageButton.setVisibility(View.INVISIBLE);
