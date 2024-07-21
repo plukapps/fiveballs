@@ -104,6 +104,13 @@ public class FiveMore extends Activity implements OnClickListener {
 		if (BuildConfig.BUILD_TYPE != "release") {
 			versionView.append(" (" + BuildConfig.BUILD_TYPE + ")");
 		}
+
+		boolean flag = FirebaseRemoteConfig.getInstance().getBoolean("feature_num_version_enabled");
+		if (flag) {
+			versionView.setVisibility(View.VISIBLE);
+		} else {
+			versionView.setVisibility(View.GONE);
+		}
 	}
 
 	private void loadTop1LocalScore() {

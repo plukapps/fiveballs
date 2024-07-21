@@ -24,13 +24,19 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.pluk.fiveballs.BuildConfig;
 import com.pluk.fiveballs.R;
@@ -140,15 +146,90 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory, 
 //        }
 
 		loadTop1LocalScore();
-        
-        try { 	
+		loadBanner();
+
+        try {
+			loadAd();
 			startGame();
+
 		} catch (Exception e) {
 			Log.e(TAG, "startGame: no funciono", e);
 		}
 
-		loadBanner();
     }
+
+	private InterstitialAd mInterstitialAd;
+
+	private void loadAd() {
+		boolean flag = FirebaseRemoteConfig.getInstance().getBoolean("ads_show_fullscreen_restart");
+		if (!flag) {
+			return;
+		}
+
+		Log.i(TAG, "loadFullScreeAds");
+
+
+		AdRequest adRequest = new AdRequest.Builder().build();
+
+		InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest,
+			new InterstitialAdLoadCallback() {
+				@Override
+				public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+					// The mInterstitialAd reference will be null until
+					// an ad is loaded.
+					mInterstitialAd = interstitialAd;
+					setInterstitialCallback();
+					Log.i(TAG, "onAdLoaded");
+				}
+
+				@Override
+				public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+					// Handle the error
+					Log.d(TAG, loadAdError.toString());
+					mInterstitialAd = null;
+				}
+			});
+
+
+	}
+
+	private void setInterstitialCallback() {
+		mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+			@Override
+			public void onAdClicked() {
+				// Called when a click is recorded for an ad.
+				Log.d(TAG, "Ad was clicked.");
+			}
+
+			@Override
+			public void onAdDismissedFullScreenContent() {
+				// Called when ad is dismissed.
+				// Set the ad reference to null so you don't show the ad a second time.
+				Log.d(TAG, "Ad dismissed fullscreen content.");
+				mInterstitialAd = null;
+				restartGameImpl();
+			}
+
+			@Override
+			public void onAdFailedToShowFullScreenContent(AdError adError) {
+				// Called when ad fails to show.
+				Log.e(TAG, "Ad failed to show fullscreen content.");
+				mInterstitialAd = null;
+			}
+
+			@Override
+			public void onAdImpression() {
+				// Called when an impression is recorded for an ad.
+				Log.d(TAG, "Ad recorded an impression.");
+			}
+
+			@Override
+			public void onAdShowedFullScreenContent() {
+				// Called when ad is shown.
+				Log.d(TAG, "Ad showed fullscreen content.");
+			}
+		});
+	}
 
 	public void loadBanner() {
 
@@ -299,6 +380,12 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory, 
     	if ( persistencia != null)
     		persistencia.close();
     }
+
+	@Nullable
+	@Override
+	protected Dialog onCreateDialog(int id, Bundle args) {
+		return super.onCreateDialog(id, args);
+	}
 
 	@Override
 	public void onClick(View view) {
@@ -478,22 +565,30 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory, 
 	}
 	
 	public void restartGame() {
-		
+		if (mInterstitialAd != null) {
+			mInterstitialAd.show(GameActivity.this);
+		} else {
+			restartGameImpl();
+			Log.d("TAG", "The interstitial ad wasn't ready yet.");
+		}
+	}
+
+	private void restartGameImpl() {
 		try {
-			
+
 			boolean hasSelected = aGame.hasSelected();
 			if (hasSelected) {
 				Coord selected = aGame.getSelected();
 				ImageView imageView = (ImageView) findByCoord(selected.getX(), selected.getY());
 				imageView.clearAnimation();
 			}
-	
+
 			// Se reinicia el score
 			updateScore(Integer.valueOf(0));
 
 			for (int i = 0; i < Consts.game.gridsize; i++) {
 				for (int j = 0; j < Consts.game.gridsize; j++) {
-	
+
 					// Id del frame
 					ImageView imageView = findByCoord(i, j);
 					imageView.setBackgroundResource(R.drawable.noball);
@@ -501,13 +596,15 @@ public class GameActivity extends Activity implements ViewSwitcher.ViewFactory, 
 				}
 			}
 			aGame = FactoryGame.restart();
-			
+
+			loadAd();
 			startGame();
+
 		} catch (Exception e) {
 			Log.e(TAG, "No deberia pasar nunca.", e);
 		}
 	}
-	
+
 	public ImageView findByCoord(int i, int j) {
 		int id = getResources().getIdentifier("ball"+i+j, "id" , BuildConfig.APPLICATION_ID);
 		return (ImageView) findViewById(id);

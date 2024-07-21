@@ -29,14 +29,12 @@
             android:name=".view.GameActivity"
             android:exported="false"
             android:label="@string/fb_name"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/AquaTheme" />
         <activity
             android:name=".view.OptionsActivity"
             android:exported="false"
             android:label="@string/fb_name"
-            android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/AquaTheme" />
 
