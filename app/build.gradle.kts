@@ -108,6 +108,21 @@ android {
             buildConfigField("String", "ADMOB_APPID", "\"$admobID\"")
         }
     }
+
+    flavorDimensions += "tier"
+    productFlavors {
+        create("free") {
+            dimension = "tier"
+            applicationId = "com.pluk.fiveballs"
+        }
+
+        create("paid") {
+            dimension = "tier"
+            applicationId = "com.pluk.fiveballs"
+            //applicationId = "com.pluk.fiveballs.noads"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

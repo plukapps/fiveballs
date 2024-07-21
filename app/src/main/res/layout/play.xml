@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="2dp"
+            android:layout_marginBottom="4dp"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/raleway_light"
             android:text="v1.0.0"
@@ -107,10 +107,34 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="4dp"
                 android:background="@drawable/noball"
-                android:padding="16dp"
                 android:onClick="onClick"
+                android:padding="16dp"
                 android:src="@drawable/outline_star_black_48"
                 android:tint="#F1AD0C" />
+
+            <RelativeLayout
+                android:id="@+id/start_no_ads"
+                android:layout_width="72dp"
+                android:onClick="onClick"
+                android:layout_height="72dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
+                android:visibility="visible"
+                android:background="@drawable/noball">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/raleway_bold"
+                    android:gravity="center"
+                    android:text="NO\nADS"
+                    android:textColor="#F1AD0C"
+                    android:textSize="18sp" />
+
+            </RelativeLayout>
+
 
             <ImageView
                 android:id="@+id/start_settings_btn"

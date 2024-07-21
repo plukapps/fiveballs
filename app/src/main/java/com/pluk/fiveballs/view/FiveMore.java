@@ -83,10 +83,19 @@ public class FiveMore extends Activity implements OnClickListener {
 			createStar(random.nextInt(1700));	
 		}
 
+		FirebaseRemoteConfig.getInstance().fetchAndActivate();
+
 		loadTop1LocalScore();
 		bindVersion();
+		bindNoAds();
+	}
 
-		FirebaseRemoteConfig.getInstance().fetchAndActivate();
+	private void bindNoAds() {
+		findViewById(R.id.start_no_ads).setVisibility(View.GONE);
+		boolean flag = FirebaseRemoteConfig.getInstance().getBoolean("no_ads_enabled");
+		if (flag) {
+			findViewById(R.id.start_no_ads).setVisibility(View.VISIBLE);
+		}
 	}
 
 	private void bindVersion() {
@@ -94,6 +103,13 @@ public class FiveMore extends Activity implements OnClickListener {
 		versionView.setText("v" + BuildConfig.VERSION_NAME);
 		if (BuildConfig.BUILD_TYPE != "release") {
 			versionView.append(" (" + BuildConfig.BUILD_TYPE + ")");
+		}
+
+		boolean flag = FirebaseRemoteConfig.getInstance().getBoolean("feature_num_version_enabled");
+		if (flag) {
+			versionView.setVisibility(View.VISIBLE);
+		} else {
+			versionView.setVisibility(View.GONE);
 		}
 	}
 
@@ -167,6 +183,9 @@ public class FiveMore extends Activity implements OnClickListener {
 				break;
 			case R.id.start_scores_btn:
 				showDialog(DIALOG_SHOW_SCORES);
+				break;
+			case R.id.start_no_ads:
+				Navigation.goToNoAds(this);
 				break;
 			case R.id.start_rate_app:
 				Navigation.goToAndroidMarket(this);
